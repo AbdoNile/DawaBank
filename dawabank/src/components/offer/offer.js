@@ -1,5 +1,5 @@
 import React from 'react';
-
+import FormField from '../../generic/formField';
 class Offer extends React.Component {
  
 
@@ -12,39 +12,11 @@ class Offer extends React.Component {
         <div className="row">
             <div>
                 <form className="form-horizontal">
-                    <div className="form-group">
-                        <div className="col-sm-4">
-                            <label className="control-label">Medicine Name</label>
-                        </div>
-                        <div className="col-sm-8">
-                            <input className="form-control input-sm" type="text" autocomplete="on" />
-                        </div>
-                    </div>
-                    <div className="form-group">
-                        <div className="col-sm-4">
-                            <label className="control-label">Expirty Date</label>
-                        </div>
-                        <div className="col-sm-8">
-                            <input className="form-control input-sm" type="date" />
-                        </div>
-                    </div>
-                    <div className="form-group">
-                        <div className="col-sm-4">
-                            <label className="control-label">Quantity </label>
-                        </div>
-                        <div className="col-sm-8">
-                            <input className="form-control input-sm small" type="number" />
-                        </div>
-                    </div>
-                    <div className="form-group">
-                        <div className="col-sm-offset-2">
-                            <div className="checkbox">
-                                <label className="control-label">
-                                    <input type="checkbox"/> I have read and agreed to the websites rules and guidelines</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="form-group">
+                     <FormField  label="Medicine Name" type="text" />
+                     <FormField  label="Expiry Date" type="date" />
+                     <FormField  label="Quanity" type="number" />
+                     <FormField  label="I have read and agreed to the websites rules and guidelines" type="checkbox" />
+                     <div className="form-group">
                         <div className="col-sm-offset-2">
                             <button className="btn btn-primary btn-sm" type="button">Add </button>
                             <button className="btn btn-default" type="button">Cancel </button>
