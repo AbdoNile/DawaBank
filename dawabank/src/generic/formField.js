@@ -1,5 +1,9 @@
 import React from 'react';
 
+import TextInput from './controls/textInput';
+import DateInput from './controls/dateInput';
+import NumericInput from './controls/numericInput';
+
 class FormField extends React.Component {
     constructor(props) {
     super(props);
@@ -21,19 +25,19 @@ class FormField extends React.Component {
   }
 
   render() {
-    let fieldLabel = this.props.label;
-    let fieldType = this.props.type;
+    let label = this.props.label;
+    let type = this.props.type;
     let inputControl;
-    switch(fieldType){
+    switch(type){
         case "text":
         default:
-            inputControl = <input className="form-control input-sm" type="text" value={this.state[this.dataElement]} />;
+            inputControl = <TextInput label={label} type={type} />
         break
         case "date":
-            inputControl = <input className="form-control input-sm" type="date" value={this.state[this.dataElement]} />;
+            inputControl = <DateInput label={label} type={type} />;
         break;
          case "number":
-            inputControl = <input className="form-control input-sm" type="number"  value={this.state[this.dataElement]}/>;
+            inputControl = <NumericInput label={label} type={type} />;
         break;
     
     }
