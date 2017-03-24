@@ -3,6 +3,7 @@ import React from 'react';
 import TextInput from './controls/textInput';
 import DateInput from './controls/dateInput';
 import NumericInput from './controls/numericInput';
+import CheckInput from './controls/checkInput';
 
 class FormField extends React.Component {
     constructor(props) {
@@ -34,36 +35,23 @@ class FormField extends React.Component {
             inputControl = <TextInput label={label} type={type} />
         break
         case "date":
-            inputControl = <DateInput label={label} type={type} />;
+            inputControl = <DateInput label={label} type={type} />
         break;
          case "number":
-            inputControl = <NumericInput label={label} type={type} />;
+            inputControl = <NumericInput label={label} type={type} />
         break;
-    
+        case "checkbox":
+            inputControl = <CheckInput label={label} type={type} />
+        break;
     }
-
-    if(fieldType === "checkbox"){
-       return  <div className="form-group">
-                        <div className="col-sm-offset-2">
-                            <div className="checkbox">
-                                <label className="control-label">
-                                    <input type="checkbox"
-                                     value={this.state[this.dataElement]}
-                                    /> {fieldLabel}</label>
-                            </div>
-                        </div>
-                    </div>
-    }
-
-    return  <div className="form-group">
-                        <div className="col-sm-4">
-                            <label className="control-label">{fieldLabel}</label>
-                        </div>
-                        <div className="col-sm-8">
-                            {inputControl}
-                            
-                        </div>
-                    </div>;
+    var decoratedInputControl = React.cloneElement(inputControl, {
+                  dataContext: this.props.dataContext,
+                  dataElement: this.props.dataElement,
+                  boundValue:  this.props.dataContext[this.props.dataElement],
+                  updateContext : this.props.updateContext
+               
+                });
+    return (decoratedInputControl)
   }
 
   

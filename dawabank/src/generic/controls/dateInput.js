@@ -1,19 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
+import baseControl from '../baseControl';
 
-class DateInput extends Component {
+class DateInput extends baseControl {
     render() {
-          let fieldLabel = this.props.label;
-          let fieldType = this.props.type;
-    
+        let assignedValue = this.state.boundValue;
+
         return (
             <div className="form-group">
                         <div className="col-sm-4">
-                            <label className="control-label">{fieldLabel}</label>
+                            <label className="control-label">{this.fieldLabel}</label>
                         </div>
                         <div className="col-sm-8">
                            <input className="form-control input-sm" 
                            type="date" 
-                           value={this.state[this.dataElement]} />; 
+                            value={assignedValue} 
+                            onChange={this.handleChange} />
                         </div>
                     </div>
         );
