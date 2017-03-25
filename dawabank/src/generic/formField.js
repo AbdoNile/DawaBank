@@ -48,7 +48,7 @@ class FormField extends React.Component {
                   dataContext: this.props.dataContext,
                   dataElement: this.props.dataElement,
                   boundValue:  this.props.dataContext[this.props.dataElement],
-                  updateContext : this.props.updateContext
+                  emitChangesToForm : this.props.emitChangesToForm
                
                 });
     return (decoratedInputControl)

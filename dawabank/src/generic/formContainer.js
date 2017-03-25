@@ -1,28 +1,41 @@
 import React from 'react';
 import baseControl from './baseControl';
 class FormContainer extends baseControl {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+   this.state = {dataContext : props.boundValue}
   }
 
-  handleChange(updateEvent) {
+  handleChange(event) {
+    event.preventDefault();
+    this.props.updateContext(this.state.dataContext);
+  }
+
+  updateFormState = (updateEvent) => {
     var newContext =  Object.assign({}, this.state.dataContext);
     newContext[updateEvent.dataElement] = updateEvent.value;
     this.setState({ dataContext: newContext });
+    
   }
 
 
   render() {
     const childrenToRender = React.Children.map(this.props.children,
-     (child) => React.cloneElement(child, {
+     (child) => {
+                if(child.type.name === "FormField"){
+                return React.cloneElement(child, {
                   dataContext: this.state.dataContext ? this.state.dataContext : {},
-                  updateContext : this.handleChange
-                })
+                  emitChangesToForm : this.updateFormState
+                }
+                )}
+                else
+                {
+                  return child;
+                }
+     }
     );
-    return   <form className="form-horizontal">
+    return   <form className="form-horizontal" onSubmit={this.handleChange}>
                   {childrenToRender}
-
-                  <pre>{JSON.stringify(this.state.dataContext, null, 2) }</pre>
               </form>;
   }
 }

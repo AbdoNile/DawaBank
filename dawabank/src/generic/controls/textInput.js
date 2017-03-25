@@ -1,13 +1,11 @@
 import React from 'react';
 import baseControl from '../baseControl';
 class TextInput extends baseControl {
-        constructor() {
-        super();
-        
-       
+       constructor(props) {
+        super(props);
+        this.state = {boundValue: props.boundValue};
     }
-
-
+    
     render() {
         let assignedValue = this.state.boundValue;
 
@@ -16,7 +14,8 @@ class TextInput extends baseControl {
                             <label className="control-label">{this.fieldLabel}</label>
                         </div>
                         <div className="col-sm-8">
-                            <input className="form-control input-sm" type="text" value={assignedValue} 
+                            <input className="form-control input-sm" type="text"
+                             value={assignedValue} 
                             onChange={this.handleChange}
                             />
                             

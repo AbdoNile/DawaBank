@@ -1,29 +1,39 @@
 import React from 'react';
 
 class baseControl extends React.Component {
-      constructor() {
-        super();
-        this.state = {};
+      constructor(props) {
+        super(props);
+        this.state = {boundValue: props.boundValue};
         this.handleChange = this.handleChange != null ? this.handleChange.bind(this) : null; 
+        this.emitChange = this.emitChange != null ? this.emitChange.bind(this) : null; 
+          this.fieldLabel = props.label;
+         this.dataElement = props.dataElement;
+        
     }
     
     handleChange(event) {
-        this.setState({ boundValue: event.target.value});
-        this.props.updateContext({ value : event.target.value, dataElement : this.dataElement });
+        let currentValue = this.extractCurrentValue(event);
+        this.setState({ boundValue: currentValue});
+        this.props.emitChangesToForm({ value : currentValue , dataElement :   this.dataElement});
+        
     }
+
+    extractCurrentValue = (event) => {
+        return event.target.value;
+    }
+
+
+    emitChange(fieldValue){
+      
+    }
+
     
 
     getInitialState () {
       return { boundValue: this.props.boundValue};
    }
 
-    componentWillReceiveProps(props) {
-         this.fieldLabel = this.props.label;
-         this.dataElement = this.props.dataElement;
-         this.setState({boundValue: props.boundValue});
-    }
-
-  
+    
 }
 
 export default baseControl;
