@@ -5,6 +5,8 @@ class ListItem extends React.Component {
     this.props.deleteHandler(offer.Id)
  }
 
+ 
+
   render() {
       var offer = this.props.offer;
 return      <tr>
