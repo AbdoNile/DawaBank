@@ -1,12 +1,11 @@
 import React from 'react';
-import InteractionUtility from '../generic/utility/interactionUtility';
+import InteractionUtility from '../../generic/utility/interactionUtility';
 
-import OfferService from '../services/offerService';
+import OfferService from '../../services/offerService';
 
-import SearchBox from './searchBox';
-import ListContainer from './listing/listContainer';
+import ListContainer from '../listing/listContainer';
 
-class SearchPage extends React.Component {
+class MyOffers extends React.Component {
  constructor() {
     super();
         this.state = { offers: [] };
@@ -15,7 +14,7 @@ class SearchPage extends React.Component {
   render() {
     return <div>
         {this.state.confirm}
-        <SearchBox/>
+        <h2>My Offers</h2>
         <ListContainer offers={this.state.offers} deleteHandler={this.deleteOffer}/>
     </div>;
   }
@@ -25,17 +24,21 @@ class SearchPage extends React.Component {
       var thisComponent = this;
       InteractionUtility.confirm(this, modelProps).then(function(result){
           OfferService.DeleteOffer(offer.Id);
-          thisComponent.setState({ offers: OfferService.FindOffers() });
+          thisComponent.refreshOffers();
       });
 
     
   }
 
+  refreshOffers = () => {
+        this.setState({ offers: OfferService.FindOffers() });
+  
+  }
 
   componentDidMount() {
-    this.setState({ offers: OfferService.FindOffers() });
+    this.refreshOffers();
   }
   
 }
 
-export default SearchPage;
+export default MyOffers;
