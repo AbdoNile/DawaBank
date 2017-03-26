@@ -2,7 +2,7 @@ import React from 'react';
 
 import OfferService from '../services/offerService';
 
-
+import ConfirmDialog from '../generic/interaction/confirmDialog';
 import SearchBox from './searchBox';
 import ListContainer from './listing/listContainer';
 
@@ -14,6 +14,7 @@ class SearchPage extends React.Component {
   }
   render() {
     return <div>
+        {this.state.confirm}
         <SearchBox/>
         <ListContainer offers={this.state.offers} deleteHandler={this.deleteOffer}/>
     </div>;
@@ -21,6 +22,7 @@ class SearchPage extends React.Component {
     
   deleteOffer = (offer) => {
      OfferService.DeleteOffer(offer.Id);
+     this.setState({confirm : <ConfirmDialog modal={{ heading : 'Confirm Deletion'}} />})
      this.setState({ offers: OfferService.FindOffers() });
   }
 
