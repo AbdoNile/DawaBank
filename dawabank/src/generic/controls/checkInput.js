@@ -5,8 +5,6 @@ class CheckInput extends baseControl {
   constructor(props) {
         super(props);
         this.state = {boundValue: props.boundValue};
-       
-        
     }
     
     extractCurrentValue = (event) => {

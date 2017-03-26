@@ -2,7 +2,7 @@ import React from 'react';
 import SearchBox from './searchBox';
 import ListContainer from './listing/listContainer';
 
-import SeachService from '../services/searchService';
+import OfferService from '../services/offerService';
 class SearchPage extends React.Component {
  constructor() {
     super();
@@ -17,7 +17,7 @@ class SearchPage extends React.Component {
   }
     
   componentDidMount() {
-    this.setState({ offers: SeachService.FindOffers() });
+    this.setState({ offers: OfferService.FindOffers() });
   }
   
 }

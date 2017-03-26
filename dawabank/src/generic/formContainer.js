@@ -1,31 +1,30 @@
 import React from 'react';
 import baseControl from './baseControl';
 class FormContainer extends baseControl {
-  constructor(props) {
-    super(props);
-   this.state = {dataContext : props.boundValue}
+    
+  extractCurrentValue = (event) => {
+    return this.state.boundValue;
   }
 
-  handleChange(event) {
+  onFormSubmit = (event) => {
     event.preventDefault();
-    this.props.updateContext(this.state.dataContext);
+    this.handleChange(event)
   }
 
-  updateFormState = (updateEvent) => {
-    var newContext =  Object.assign({}, this.state.dataContext);
-    newContext[updateEvent.dataElement] = updateEvent.value;
-    this.setState({ dataContext: newContext });
+
+  updateOwnState = (datum) => {
+    var newContext =  Object.assign({}, this.state.boundValue , datum);
+    this.setState({ boundValue: newContext });
     
   }
-
 
   render() {
     const childrenToRender = React.Children.map(this.props.children,
      (child) => {
-                if(child.type.name === "FormField"){
+                if(true){
                 return React.cloneElement(child, {
-                  dataContext: this.state.dataContext ? this.state.dataContext : {},
-                  emitChangesToForm : this.updateFormState
+                  boundValue:  this.props.boundValue[child.props.dataElement],
+                  emitChanges : this.updateOwnState
                 }
                 )}
                 else
@@ -34,7 +33,7 @@ class FormContainer extends baseControl {
                 }
      }
     );
-    return   <form className="form-horizontal" onSubmit={this.handleChange}>
+    return   <form className="form-horizontal" onSubmit={this.onFormSubmit}>
                   {childrenToRender}
               </form>;
   }

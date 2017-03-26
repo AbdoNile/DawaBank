@@ -16,14 +16,14 @@ class SearchBox extends React.Component {
                                     <label className="control-label">Medicine Name</label>
                                 </div>
                                 <div className="col-sm-8">
-                                    <input className="form-control input-sm" type="text" autocomplete="on"/>                                </div>
+                                    <input className="form-control input-sm" type="text" autoComplete="on"/>                                </div>
                             </div>
                             <div className="form-group">
                                 <div className="col-sm-3">
                                     <label className="control-label">Location </label>
                                 </div>
                                 <div className="col-sm-8">
-                                    <input className="form-control input-sm" type="text" autocomplete="on"/>
+                                    <input className="form-control input-sm" type="text" autoComplete="on"/>
                                 </div>
                             </div>
                             <div className="form-group">
