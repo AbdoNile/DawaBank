@@ -1,8 +1,8 @@
 import React from 'react';
+import InteractionUtility from '../generic/utility/interactionUtility';
 
 import OfferService from '../services/offerService';
 
-import ConfirmDialog from '../generic/interaction/confirmDialog';
 import SearchBox from './searchBox';
 import ListContainer from './listing/listContainer';
 
@@ -21,9 +21,14 @@ class SearchPage extends React.Component {
   }
     
   deleteOffer = (offer) => {
-     OfferService.DeleteOffer(offer.Id);
-     this.setState({confirm : <ConfirmDialog modal={{ heading : 'Confirm Deletion'}} />})
-     this.setState({ offers: OfferService.FindOffers() });
+      var modelProps = { heading : 'Confirm Deletion' ,body : 'are you sure to want to delete this offer?'};
+      var thisComponent = this;
+      InteractionUtility.confirm(this, modelProps).then(function(result){
+          OfferService.DeleteOffer(offer.Id);
+          thisComponent.setState({ offers: OfferService.FindOffers() });
+      });
+
+    
   }
 
 
