@@ -16,7 +16,6 @@ class baseControl extends React.Component {
         let currentValue = this.extractCurrentValue(event);
         this.setState({ boundValue: currentValue});
         this.props.emitChanges({ [this.dataElement] : currentValue});
-        
     }
 
     extractCurrentValue = (event) => {

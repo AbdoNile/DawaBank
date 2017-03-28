@@ -8,7 +8,10 @@ import {PanelGroup, Panel} from 'react-bootstrap';
 class MaintainOffer extends React.Component {
   constructor() {
     super();
-    this.state = { offer: {medicineName : "Panadol", expiry_date: "2012-04-23", agreed : true, "quantity" : 13} };
+    this.state = { 
+      offer: {medicineName : "Panadol", expiry_date: "2012-04-23", agreed : true, "quantity" : 13},
+      contactDetails : { coordinates : {}}
+     };
     this.offerUpdated =  this.offerUpdated.bind(this); 
 
     this.handleSelect =  this.handleSelect.bind(this); 
@@ -17,7 +20,7 @@ class MaintainOffer extends React.Component {
   }
 
   loadMap = () => {
-      var mapComponent = <h1>ji</h1>;// <Location location={this.state.location} onUpdate={this.locationUpdate} />;
+      var mapComponent = <Location contactDetails={this.state.contactDetails} onUpdate={this.locationUpdated} />;
       this.setState({  mapComponent});
   }
   
@@ -33,6 +36,10 @@ class MaintainOffer extends React.Component {
       this.setState({ activeKey : "location" });
   }
 
+  locationUpdated = (data) => {
+    this.setState({ "data" : data });
+  }
+
   render() {
     return (
         <div>
@@ -40,12 +47,11 @@ class MaintainOffer extends React.Component {
                 <div className="col-md-12">
                     <h3>Add Donated Medicine</h3></div>
             </div>
-      <PanelGroup activeKey={"location"} onSelect={this.handleSelect} accordion>
+      <PanelGroup activeKey={this.state.activeKey} onSelect={this.handleSelect} accordion>
         <Panel header="Medicine Details" eventKey="offer">
             <Offer offer={this.state.offer} onUpdate={this.offerUpdated} />
         </Panel>
         <Panel header="Pickup Location" eventKey="location" onEntered={this.loadMap}>
-            <h1>pick location</h1>
             { this.state.mapComponent}
         </Panel>
       </PanelGroup>
