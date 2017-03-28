@@ -31,6 +31,7 @@ class LocationPicker extends baseControl {
   }
 
   onMapMounted = (map) => {
+    if(map == null) return;
     this._map = map.props.map;
   }
 

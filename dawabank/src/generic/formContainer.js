@@ -33,9 +33,9 @@ class FormContainer extends baseControl {
                 }
      }
     );
-    return   <form className="form-horizontal" onSubmit={this.onFormSubmit}>
+    return   <div className="form-horizontal" onSubmit={this.onFormSubmit}>
                   {childrenToRender}
-              </form>;
+              </div>;
   }
 }
 

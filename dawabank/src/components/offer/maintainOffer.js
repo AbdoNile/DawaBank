@@ -32,12 +32,15 @@ class MaintainOffer extends React.Component {
    offerUpdated(data){
       data.offer.Id = _.uniqueId('offer_');
       OfferService.AddOffer(data.offer);
-      this.setState({ "data" : data });
+      var newState = Object.assign({}, this.state.data, data );
+      this.setState({ "data" : newState });
       this.setState({ activeKey : "location" });
   }
 
   locationUpdated = (data) => {
-    this.setState({ "data" : data });
+      var newState = Object.assign({}, this.state.data, data );
+      this.setState({ "data" : newState });
+     this.setState({ activeKey : "confirm" });
   }
 
   render() {
@@ -48,11 +51,14 @@ class MaintainOffer extends React.Component {
                     <h3>Add Donated Medicine</h3></div>
             </div>
       <PanelGroup activeKey={this.state.activeKey} onSelect={this.handleSelect} accordion>
-        <Panel header="Medicine Details" eventKey="offer">
+        <Panel header="Step 1 : Enter Medicine Details" eventKey="offer">
             <Offer offer={this.state.offer} onUpdate={this.offerUpdated} />
         </Panel>
-        <Panel header="Pickup Location" eventKey="location" onEntered={this.loadMap}>
-            { this.state.mapComponent}
+        <Panel header="Step 2 : Specify Pickup Location" eventKey="location" onEntered={this.loadMap}>
+            {this.state.mapComponent}
+        </Panel>
+         <Panel header="Step 3 : Review and Confirm" eventKey="confirm" >
+           <h1 >Thank you ! </h1>
         </Panel>
       </PanelGroup>
        <hr/>

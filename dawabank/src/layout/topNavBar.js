@@ -1,24 +1,33 @@
 import React from 'react';
-
+import {Navbar, Nav, NavItem} from 'react-bootstrap';
+import {LinkContainer} from 'react-router-bootstrap';
 class TopNavBar extends React.Component {
  
 
   render() {
-    return <nav className="navbar navbar-inverse">
-        <div className="container-fluid">
-            <div className="navbar-header"><a className="navbar-brand navbar-link" href="#">DawaBank </a>
-                <button className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span className="sr-only">Toggle navigation</span><span className="icon-bar"></span><span className="icon-bar"></span><span className="icon-bar"></span></button>
-            </div>
-            <div className="collapse navbar-collapse" id="navcol-1">
-                <ul className="nav navbar-nav navbar-right">
-                    <li className="active" role="presentation"><a href="#">How does it work?</a></li>
-                    <li role="presentation"><a href="#">FAQ </a></li>
-                    <li role="presentation"><a href="#">Search for Medicine</a></li>
-                    <li role="presentation"><a href="#">Offer Medicine</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    return <Navbar inverse collapseOnSelect>
+    <Navbar.Header>
+      <Navbar.Brand>
+         Dawa Bank
+      </Navbar.Brand>
+      <Navbar.Toggle />
+    </Navbar.Header>
+    <Navbar.Collapse>
+      <Nav pullRight>
+        <LinkContainer to={{pathname : '/Offer'}}>
+            <NavItem >Offer</NavItem>
+        </LinkContainer>
+        <LinkContainer to={{pathname : '/Find'}}>
+            <NavItem >Search</NavItem>
+        </LinkContainer>
+        <LinkContainer to={{pathname : '/MyOffers'}}>
+            <NavItem >My Offers</NavItem>
+        </LinkContainer>
+        
+      </Nav>
+      
+    </Navbar.Collapse>
+  </Navbar>
     
     ;
   }

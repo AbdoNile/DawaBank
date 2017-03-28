@@ -14,9 +14,7 @@ class RouteMap extends React.Component {
            <Route path="/Find" component={SearchPage} />
            <Route path="/Offer" component={MaintainOffer} />   
            <Route path="/MyOffers" component={MyOffers} /> 
-           
-           
-          </Route>
+         </Route>
      </Router> ;
   }
 
