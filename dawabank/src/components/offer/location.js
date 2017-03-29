@@ -17,8 +17,8 @@ class Location extends React.Component {
 
   render() {
    return   <div className="row">
-     <div className="col-sm-4">
-      <FormContainer className="form-horizontal" boundValue={this.state.contactDetails} emitChanges={this.props.onUpdate} dataElement="contactDetails" >
+       <div className="col-sm-4">
+      <FormContainer className="form-horizontal" boundValue={this.state.contactDetails} onChange={this.props.onUpdate} dataElement="location" >
                     <FormField  label="Name" type="text" dataElement="name" />
                     <FormField  label="Telephone Number" type="text"  dataElement="phone" />
                     <FormField  label="Add to my favorite locations" type="checkbox" dataElement='addToFavorite' />
@@ -28,14 +28,16 @@ class Location extends React.Component {
                        
                     </div>
                     </div>
-                     <LocationPicker pins={this.props.pins}  containerElement={this.containerElement} 
-        loadingElement={this.loadingElement} dataElement="coordinates" boundValue={this.state.contactDetails}/>
-                 </FormContainer>
+                    </FormContainer>
            </div>
      <div className="col-sm-8">
-      
+         <FormContainer className="form-horizontal" boundValue={this.state.location} onChange={this.props.onUpdate} dataElement="location" >
+    
+             <LocationPicker  boundValue={this.state.pins}  containerElement={this.containerElement} 
+        loadingElement={this.loadingElement} dataElement="coordinates" />
+        </FormContainer>   
         </div>
-   
+
     </div>;
   }
 }

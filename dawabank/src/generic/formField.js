@@ -4,6 +4,7 @@ import TextInput from './controls/textInput';
 import DateInput from './controls/dateInput';
 import NumericInput from './controls/numericInput';
 import CheckInput from './controls/checkInput';
+import Wrapper from './controlWrapper/wrapper';
 
 class FormField extends React.Component {
   render() {
@@ -11,27 +12,20 @@ class FormField extends React.Component {
     switch(this.props.type){
         case "text":
         default:
-            inputControl = <TextInput />
+            inputControl = <TextInput {...this.props}  />
         break
         case "date":
-            inputControl = <DateInput  />
+            inputControl = <DateInput {...this.props}  />
         break;
          case "number":
-            inputControl = <NumericInput  />
+            inputControl = <NumericInput {...this.props}  />
         break;
         case "checkbox":
-            inputControl = <CheckInput  />
+            inputControl = <CheckInput  {...this.props}  hasLabel />
         break;
     }
-    var decoratedInputControl = React.cloneElement(inputControl, {
-                  dataElement: this.props.dataElement,
-                  boundValue:  this.props.boundValue,
-                  emitChanges : this.props.emitChanges,
-                  label : this.props.label,
-                  type : this.props.type
-               
-                });
-    return (decoratedInputControl)
+  
+    return (<Wrapper>{inputControl}</Wrapper>);
   }
 
   

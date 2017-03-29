@@ -3,6 +3,7 @@ import React from 'react';
 class baseControl extends React.Component {
       constructor(props) {
         super(props);
+        
         this.state = {boundValue: props.boundValue};
         
         this.handleChange = this.handleChange != null ? this.handleChange.bind(this) : null; 
@@ -14,8 +15,8 @@ class baseControl extends React.Component {
     
     handleChange(event) {
         let currentValue = this.extractCurrentValue(event);
-        this.setState({ boundValue: currentValue});
-        this.props.emitChanges({ [this.dataElement] : currentValue});
+        this.state = {boundValue: currentValue};
+        this.props.onChange({ [this.dataElement] : currentValue});
     }
 
     extractCurrentValue = (event) => {

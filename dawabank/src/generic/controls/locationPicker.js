@@ -2,6 +2,7 @@ import React from 'react';
 import {default as ScriptjsLoader} from "react-google-maps/lib/async/ScriptjsLoader";
 import {GoogleMap, Marker, SearchBox} from "react-google-maps";
 import baseControl from '../baseControl';
+import _ from 'lodash';
 
 import SiteSettings from '../../settings/siteSettings';
 
@@ -26,23 +27,23 @@ class LocationPicker extends baseControl {
     this.onPlacesChanged =  this.onPlacesChanged.bind(this); 
   }
 
-  extractCurrentValue = (event) => {
-        return this.state.pins;
-  }
-
+  
   onMapMounted = (map) => {
     if(map == null) return;
     this._map = map.props.map;
   }
 
-  handleMapClick = (event) => {
+    onPinPlaced = (event) => {
+      if(this.props.readOnly) {
+       return;
+     }
+    
     var newPin =  { position:  event.latLng.toJSON()   };
     if(this.props.singleLocation || true){
         var pins = [newPin];
     }
     
-    this.setState({pins : pins});
-    this.handleChange(event)
+    this.handleChange({target : { value :pins }});
   }
 
   onSearchBoxMounted = (searchBox) => {
@@ -51,18 +52,19 @@ class LocationPicker extends baseControl {
 
 
    onPlacesChanged = () => {
+     
     const places = this._searchBox.getPlaces();
 
     // Add a marker for each place returned from search bar
-    const pins = places.map(place => ({
-      position: place.geometry.location.toJSON() ,
-    }));
+    const pins = places.map(place =>  ({latLng : place.geometry.location }));
 
     // Set markers; set map center to first search result
-    const mapCenter = pins.length > 0 ? pins[0].position : SiteSettings.map.defaultCentre;
+    const mapCenter = pins.length > 0 ? pins[0].latLng : SiteSettings.map.defaultCentre;
     this._map.setCenter(mapCenter);
     this._map.setZoom(13)
-    this.setState({pins : pins});
+
+    pins.map( pin => this.onPinPlaced(pin));
+    
   }
 
    pinToMarker = (pin) => {
@@ -70,14 +72,14 @@ class LocationPicker extends baseControl {
           position: pin.position,
           animation: 2,
           draggable: true,
-          onDragend : this.handleMapClick
+          onDragend : this.onPinPlaced
       }
   }
 
   render() {
-   var markers = this.state.pins == null ? [] : this.state.pins.map((pin, index)=> {
+   var markers = _.isArray(this.state.boundValue)  ?  this.state.boundValue.map((pin, index)=> {
       return this.pinToMarker(pin);
-   });
+   }) : [];
    let markerTags = markers.map((marker, index) => {
               return (
                 <Marker {...marker} />
@@ -95,7 +97,7 @@ class LocationPicker extends baseControl {
             defaultZoom={SiteSettings.map.defaultZoom}
             defaultCenter={SiteSettings.map.defaultCentre}
             ref={this.onMapMounted}
-            onClick={this.handleMapClick} >
+            onClick={this.onPinPlaced} >
              {markerTags}
 
             <SearchBox

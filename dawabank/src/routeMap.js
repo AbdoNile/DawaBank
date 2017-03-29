@@ -1,7 +1,7 @@
 import React from 'react';
 import { Router, Route, IndexRoute,  hashHistory } from 'react-router';
 import Theatre from './layout/theatre';
-import SearchPage from './components/searchPage';
+import SearchPage from './components/search/searchPage';
 import MaintainOffer from './components/offer/maintainOffer';
 import MyOffers from './components/myOffers/myOffers';
 

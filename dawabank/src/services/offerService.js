@@ -3,7 +3,7 @@ import _ from 'lodash';
 
 class OfferService {
     static allOffers =  [
-            {
+            /*{
                 medicineName : "Panadol",
                 quantity : 12,
                 expiry_date : "12-05-2018",
@@ -16,7 +16,7 @@ class OfferService {
                 expiry_date : "12-06-2018",
                 Id : 5454
 
-            }
+            }*/
         ];
 
     static FindOffers(){
