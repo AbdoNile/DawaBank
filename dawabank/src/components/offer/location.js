@@ -34,7 +34,7 @@ class Location extends React.Component {
          <FormContainer className="form-horizontal" boundValue={this.state.location} onChange={this.props.onUpdate} dataElement="location" >
     
              <LocationPicker  boundValue={this.state.pins}  containerElement={this.containerElement} 
-        loadingElement={this.loadingElement} dataElement="coordinates" />
+        loadingElement={this.loadingElement} dataElement="coordinates"  singleLocation />
         </FormContainer>   
         </div>
 

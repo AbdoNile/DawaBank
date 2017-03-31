@@ -24,7 +24,8 @@ const INPUT_STYLE = {
 class LocationPicker extends baseControl {
  constructor(props) {
     super(props);
-    this.onPlacesChanged =  this.onPlacesChanged.bind(this); 
+    this.onPlaceSelected =  this.onPlaceSelected.bind(this); 
+    this.onPinPlaced =  this.onPinPlaced.bind(this); 
   }
 
   
@@ -33,14 +34,16 @@ class LocationPicker extends baseControl {
     this._map = map.props.map;
   }
 
-    onPinPlaced = (event) => {
-      if(this.props.readOnly) {
+  onPinPlaced = (event) => {
+  
+    if(this.props.readOnly) {
        return;
      }
-    
+
     var newPin =  { position:  event.latLng.toJSON()   };
-    if(this.props.singleLocation || true){
-        var pins = newPin;
+    
+    if(this.props.singleLocation){
+        var pins = [newPin];
     }
     
     this.handleChange({target : { value :pins }});
@@ -51,7 +54,7 @@ class LocationPicker extends baseControl {
   }
 
 
-   onPlacesChanged = () => {
+  onPlaceSelected = () => {
      
     const places = this._searchBox.getPlaces();
 
@@ -67,7 +70,7 @@ class LocationPicker extends baseControl {
     
   }
 
-   pinToMarker = (pin) => {
+  pinToMarker = (pin) => {
     return {
           position: pin.position,
           animation: 2,
@@ -77,16 +80,12 @@ class LocationPicker extends baseControl {
   }
 
   render() {
-   var markers = null;
-   if(this.props.singleLocation) {
-      markers = [this.state.boundValue];
-   }
-   else{
-      markers = _.isArray(this.state.boundValue)  ?  this.state.boundValue.map((pin, index)=> {
+   var pins = this.props.readOnly ? this.props.boundValue : this.state.boundValue;
+
+   
+    var markers = _.isArray(pins)  ?  pins.map((pin, index)=> {
         return this.pinToMarker(pin);
     }) : [];
-   }
-
    let markerTags = markers.map((marker, index) => {
               return (
                 <Marker {...marker} />
@@ -112,7 +111,7 @@ class LocationPicker extends baseControl {
                 inputPlaceholder="Customized your placeholder"
                 inputStyle={INPUT_STYLE}
                 ref={this.onSearchBoxMounted}
-                onPlacesChanged={this.onPlacesChanged}
+                onPlacesChanged={this.onPlaceSelected}
               />
           </GoogleMap>
         }
