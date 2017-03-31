@@ -1,16 +1,18 @@
 import React from 'react';
 import Offer from './offer';
 import Location from './location';
+import Acknowledge from './acknowledge';
 import _ from 'lodash';
 import OfferService from '../../services/offerService';
 
-import {PanelGroup, Panel} from 'react-bootstrap';
+import {PanelGroup, Panel, Well} from 'react-bootstrap';
 class MaintainOffer extends React.Component {
   constructor() {
     super();
     this.state = {data :  { 
       offer: {medicineName : "Panadol", expiry_date: "2012-04-23", agreed : true, "quantity" : 13},
-      location : { coordinates : {}}
+      location : { coordinates : {}},
+      acknowledge : {}
      } };
     this.offerUpdated =  this.offerUpdated.bind(this); 
 
@@ -57,17 +59,17 @@ class MaintainOffer extends React.Component {
                 <div className="col-md-12">
                     <h3>Add Donated Medicine</h3></div>
             </div>
-      <PanelGroup activeKey={this.state.activeKey} onSelect={this.toggleSections} accordion>
-        <Panel header="Step 1 : Enter Medicine Details" eventKey="offer">
+      <PanelGroup  >
+        <Panel header="Step 1 : Enter Medicine Details" >
             <Offer offer={this.state.data.offer} onUpdate={this.offerUpdated} />
         </Panel>
-        <Panel header="Step 2 : Specify Pickup Location" eventKey="location" onEntered={this.loadMap}>
-            {this.state.mapComponent}
+        <Panel header="Step 2 : Specify Pickup Location">
+            <Location location={this.state.data.location} onUpdate={this.locationUpdated} />
         </Panel>
-         <Panel header="Step 3 : Review and Confirm" eventKey="confirm" >
-           <h1 >Thank you ! </h1>
+         <Well >
+            <Acknowledge acknowledge={this.state.data.acknowledge} onUpdate={this.locationUpdated} />
            <button onClick={this.saveOffer}>Save</button>
-        </Panel>
+        </Well>
       </PanelGroup>
        <hr/>
                  <pre>{JSON.stringify(this.state.data, null, 2) }</pre>

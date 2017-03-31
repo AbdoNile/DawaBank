@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React from 'react';
 import {default as ScriptjsLoader} from "react-google-maps/lib/async/ScriptjsLoader";
 import {GoogleMap, Marker, SearchBox} from "react-google-maps";
@@ -40,13 +41,21 @@ class LocationPicker extends baseControl {
        return;
      }
 
-    var newPin =  { position:  event.latLng.toJSON()   };
+    var newPin = {};
+    this.geocodePosition(event.latLng).then((geoCodingResult) => {
+        newPin =  { 
+            position:  event.latLng.toJSON(),
+            title : geoCodingResult.formatted_address,
+            google_address_id : geoCodingResult.place_id
+        };
     
-    if(this.props.singleLocation){
-        var pins = [newPin];
-    }
-    
-    this.handleChange({target : { value :pins }});
+      }).then(() => {
+          if(this.props.singleLocation){
+                var pins = [newPin];
+              }
+
+            this.handleChange({target : { value :pins }});
+      });
   }
 
   onSearchBoxMounted = (searchBox) => {
@@ -78,6 +87,26 @@ class LocationPicker extends baseControl {
           onDragend : this.onPinPlaced
       }
   }
+
+  geocodePosition = (pos) => {
+    var geocoder = new google.maps.Geocoder();
+    
+      var promise = new Promise(function(resolve , reject){
+          geocoder.geocode({
+                latLng: pos
+              },
+              function(responses) {
+                if (responses && responses.length > 0) {
+                  resolve(responses[0]);
+                } else {
+                  reject("");
+                }
+              });
+      });
+      
+      return promise;
+  }
+  
 
   render() {
    var pins = this.props.readOnly ? this.props.boundValue : this.state.boundValue;

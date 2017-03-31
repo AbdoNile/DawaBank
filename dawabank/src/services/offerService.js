@@ -28,8 +28,8 @@ class OfferService {
     }
 
     static DeleteOffer(id){
-        _.remove(this.allOffers, function(offer) {
-                return offer.Id === id;
+        _.remove(this.allOffers, function(item) {
+                return item.offer.Id === id;
             });
         console.log('deleting' + id);
     }

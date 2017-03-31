@@ -16,19 +16,14 @@ class Location extends React.Component {
 
 
   render() {
-   return   <div className="row">
+   return      <div className="row">
        <div className="col-sm-4">
-      <FormContainer className="form-horizontal" boundValue={this.state.location} onChange={this.props.onUpdate} dataElement="location" >
+        <FormContainer className="form-horizontal" boundValue={this.state.location} onChange={this.props.onUpdate} dataElement="location" >
                     <FormField  label="Name" type="text" dataElement="name" />
-                    <FormField  label="Telephone Number" type="text"  dataElement="phone" />
+                    <FormField  label="Telephone" type="text"  dataElement="phone" />
+                    <FormField  label="Notes" type="text"  dataElement="phone" />
                     <FormField  label="Add to my favorite locations" type="checkbox" dataElement='addToFavorite' />
-                    <div className="form-group">
-                    <div className="col-sm-offset-2">
-                        <button className="btn btn-primary btn-sm pull-right" type="submit">Update </button>
-                       
-                    </div>
-                    </div>
-                    </FormContainer>
+        </FormContainer>
            </div>
      <div className="col-sm-8">
          <FormContainer className="form-horizontal" boundValue={this.state.location} onChange={this.props.onUpdate} dataElement="location" >
@@ -37,7 +32,6 @@ class Location extends React.Component {
         loadingElement={this.loadingElement} dataElement="coordinates"  singleLocation />
         </FormContainer>   
         </div>
-
     </div>;
   }
 }
