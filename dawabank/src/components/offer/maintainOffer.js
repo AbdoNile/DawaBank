@@ -10,7 +10,7 @@ class MaintainOffer extends React.Component {
     super();
     this.state = {data :  { 
       offer: {medicineName : "Panadol", expiry_date: "2012-04-23", agreed : true, "quantity" : 13},
-      contactDetails : { coordinates : {}}
+      location : { coordinates : {}}
      } };
     this.offerUpdated =  this.offerUpdated.bind(this); 
 
@@ -20,7 +20,7 @@ class MaintainOffer extends React.Component {
   }
 
   loadMap = () => {
-      var mapComponent = <Location contactDetails={this.state.data.contactDetails} onUpdate={this.locationUpdated} />;
+      var mapComponent = <Location location={this.state.data.location} onUpdate={this.locationUpdated} />;
       this.setState({  mapComponent});
   }
   

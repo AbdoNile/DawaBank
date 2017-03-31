@@ -4,7 +4,7 @@ class baseControl extends React.Component {
       constructor(props) {
         super(props);
         
-        this.state = {boundValue: props.boundValue};
+        this.state = {boundValue:  props.boundValue};
         
         this.handleChange = this.handleChange != null ? this.handleChange.bind(this) : null; 
         

@@ -40,7 +40,7 @@ class LocationPicker extends baseControl {
     
     var newPin =  { position:  event.latLng.toJSON()   };
     if(this.props.singleLocation || true){
-        var pins = [newPin];
+        var pins = newPin;
     }
     
     this.handleChange({target : { value :pins }});
@@ -77,9 +77,16 @@ class LocationPicker extends baseControl {
   }
 
   render() {
-   var markers = _.isArray(this.state.boundValue)  ?  this.state.boundValue.map((pin, index)=> {
-      return this.pinToMarker(pin);
-   }) : [];
+   var markers = null;
+   if(this.props.singleLocation) {
+      markers = [this.state.boundValue];
+   }
+   else{
+      markers = _.isArray(this.state.boundValue)  ?  this.state.boundValue.map((pin, index)=> {
+        return this.pinToMarker(pin);
+    }) : [];
+   }
+
    let markerTags = markers.map((marker, index) => {
               return (
                 <Marker {...marker} />

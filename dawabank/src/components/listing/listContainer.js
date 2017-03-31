@@ -11,11 +11,14 @@ class ListContainer extends React.Component {
 
 
   render() {
-    let offers = this.props.offers;
+    let items = this.props.offers;
     let pins = [];
-    const offersTags = offers ? offers.map(function(offer){
-        pins.push(offer.contactDetails.coordinates.position);
-        return <ListItem offer={offer}  deleteHandler={this.props.deleteHandler} />
+    const offersTags = items ? items.map(function(item){
+        pins.push(item.location.coordinates);
+        return <div> 
+            <pre>{JSON.stringify(item, null, 2) }</pre>
+        <ListItem offer={item.offer}  deleteHandler={this.props.deleteHandler} />
+        </div> 
     }, this) : null;
     return <div className="row">
             <div className="col-sm-4">

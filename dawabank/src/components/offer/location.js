@@ -6,7 +6,7 @@ import FormContainer from '../../generic/formContainer'
 class Location extends React.Component {
  constructor(props) {
     super(props);
-       this.state = {contactDetails : this.props.contactDetails};
+       this.state = {location : this.props.location};
   }
 
   containerElement = <div  style={{ height: "300px"  }} />;
@@ -18,7 +18,7 @@ class Location extends React.Component {
   render() {
    return   <div className="row">
        <div className="col-sm-4">
-      <FormContainer className="form-horizontal" boundValue={this.state.contactDetails} onChange={this.props.onUpdate} dataElement="location" >
+      <FormContainer className="form-horizontal" boundValue={this.state.location} onChange={this.props.onUpdate} dataElement="location" >
                     <FormField  label="Name" type="text" dataElement="name" />
                     <FormField  label="Telephone Number" type="text"  dataElement="phone" />
                     <FormField  label="Add to my favorite locations" type="checkbox" dataElement='addToFavorite' />

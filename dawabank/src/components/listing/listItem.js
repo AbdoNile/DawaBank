@@ -12,7 +12,7 @@ class ListItem extends React.Component {
                             <br/>
                             {offer.Id}
                             </p>
-                             <pre>{JSON.stringify(offer, null, 2) }</pre>
+                             
                     </div>
                 </td>
                 <td>{offer.quantity} </td>
