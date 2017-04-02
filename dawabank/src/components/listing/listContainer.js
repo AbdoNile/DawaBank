@@ -14,8 +14,8 @@ class ListContainer extends React.Component {
     let items = this.props.offers;
     let pins = [];
     const offersTags = items ? items.map(function(item){
-        pins = _.concat(pins, item.location.coordinates);
-        return  <ListItem offer={item.offer}  deleteHandler={this.props.deleteHandler} />
+        pins = _.concat(pins, item.location);
+        return  <ListItem item={item}  deleteHandler={this.props.deleteHandler} />
         
     }, this) : null;
     return <div className="row">

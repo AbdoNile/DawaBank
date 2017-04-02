@@ -24,7 +24,8 @@ class OfferService {
     }
 
     static AddOffer(offer){
-        return this.allOffers.push(offer);
+        var offerToAdd =  JSON.parse(JSON.stringify(offer))
+        return this.allOffers.push(offerToAdd);
     }
 
     static DeleteOffer(id){

@@ -1,38 +1,33 @@
 import React from 'react';
-import LocationPicker from '../../generic/controls/locationPicker';
-import FormField from '../../generic/formField';
-import FormContainer from '../../generic/formContainer'
+import MyLocations from './mylocations';
+import SelectLocation from './selectLocation';
 
 class Location extends React.Component {
- constructor(props) {
+   constructor(props) {
     super(props);
-       this.state = {location : this.props.location};
+        this.state = {selection_method : "history"};
   }
 
-  containerElement = <div  style={{ height: "300px"  }} />;
-  loadingElement =  <div  style={{ height: "100%" }}>
-                <p>Loading map</p>
-          </div>;
-
+  setAddressSelectionMethod = (method) => {
+        this.setState({selection_method : method});
+  }
 
   render() {
-   return      <div className="row">
-       <div className="col-sm-4">
-        <FormContainer className="form-horizontal" boundValue={this.state.location} onChange={this.props.onUpdate} dataElement="location" >
-                    <FormField  label="Name" type="text" dataElement="name" />
-                    <FormField  label="Telephone" type="text"  dataElement="phone" />
-                    <FormField  label="Notes" type="text"  dataElement="phone" />
-                    <FormField  label="Add to my favorite locations" type="checkbox" dataElement='addToFavorite' />
-        </FormContainer>
-           </div>
-     <div className="col-sm-8">
-         <FormContainer className="form-horizontal" boundValue={this.state.location} onChange={this.props.onUpdate} dataElement="location" >
-    
-             <LocationPicker  boundValue={this.state.pins}  containerElement={this.containerElement} 
-        loadingElement={this.loadingElement} dataElement="coordinates"  singleLocation />
-        </FormContainer>   
-        </div>
+    return <div>
+        {
+            this.state.selection_method === "history" && 
+             <MyLocations {...this.props} toggleMethod={this.setAddressSelectionMethod} />
+        }
+
+        {
+            this.state.selection_method === "picker" && 
+             <SelectLocation {...this.props} toggleMethod={this.setAddressSelectionMethod} />
+        }
     </div>;
+  }
+
+  componentDidMount() {
+    this.setState({ someKey: 'otherValue' });
   }
 }
 

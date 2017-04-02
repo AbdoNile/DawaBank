@@ -3,14 +3,15 @@ import React from 'react';
 class ListItem extends React.Component {
 
   render() {
-        var offer = this.props.offer;
+        var item =  this.props.item;
+        var offer = item.offer;
         return      <tr>
                 <td className="col-sm-8">
                     <div>
                         <h4>{offer.medicineName}</h4>
                         <p>Expiry date : {offer.expiry_date}
                             <br/>
-                            {offer.Id}
+                            {item.location.title}
                             </p>
                              
                     </div>

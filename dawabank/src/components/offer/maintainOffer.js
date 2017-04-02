@@ -36,17 +36,15 @@ class MaintainOffer extends React.Component {
       this.setState({ "data" : newState });
   }
 
-  locationUpdated = (data) => {
-      var newState = Object.assign({}, this.state.data, data );
+  locationUpdated = (location) => {
+      var newState = Object.assign({}, this.state.data, location );
       this.setState({ "data" : newState });
   }
 
   saveOffer = () =>
   {
-      var data = this.state.data;
-      var offer = data.offer;
-      offer.Id = _.uniqueId('offer_');
-      offer.location = data.Location;
+      let data =   this.state.data;
+      data.offer.Id = _.uniqueId('offer_');
       OfferService.AddOffer(data);
   }
 

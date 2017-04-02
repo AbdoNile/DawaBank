@@ -1,0 +1,14 @@
+.tile {
+  width: 100%;
+  display: inline-block;
+  box-sizing: border-box;
+  background: slateblue;
+  padding: 20px;
+  margin-bottom: 10px;
+  color: white;
+  height: 120px;
+}
+.tile .title {
+  margin-top: 0px;
+}
+
