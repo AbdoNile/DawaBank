@@ -7,7 +7,7 @@ class Mylocations extends React.Component {
     { 
      return <div className="col-sm-4" onClick={() => this.props.onUpdate({location : address})}>
             <div className="tile"  >
-                <h3 className="title">{address.title}</h3>
+                <h4 className="title">{address.title}</h4>
                 <p>{address.title} </p>
             </div>
         </div>
@@ -21,7 +21,7 @@ class Mylocations extends React.Component {
     return <div>{addresses_markup}
     <div className="col-sm-4" onClick={() => this.props.toggleMethod("picker")}>
             <div className="tile"  >
-                <h3 className="title">Select New Address</h3>
+                <h4 className="title">Select New Address</h4>
             </div>
         </div>
     </div>;

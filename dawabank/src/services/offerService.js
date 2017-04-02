@@ -1,6 +1,6 @@
 
 import _ from 'lodash';
-
+import UserService from './userService';
 class OfferService {
     static allOffers =  [
             /*{
@@ -25,7 +25,8 @@ class OfferService {
 
     static AddOffer(offer){
         var offerToAdd =  JSON.parse(JSON.stringify(offer))
-        return this.allOffers.push(offerToAdd);
+        UserService.AddAddress(offerToAdd.location);
+        this.allOffers.push(offerToAdd);
     }
 
     static DeleteOffer(id){

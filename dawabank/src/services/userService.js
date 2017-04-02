@@ -3,38 +3,7 @@ import _ from 'lodash';
 
 class UserService {
     static my_addresses =  [
-            {
-                "position": {
-                "lat": 40.17887331434696,
-                "lng": 92.49114990234375
-                },
-                "title": "Ruoqiang, Bayingol, Xinjiang, الصين",
-                "google_address_id": "ChIJsek43wC8IDgR_SHDH2kWvRE"
-            },
-            {
-                "position": {
-                "lat": 40.17887331434696,
-                "lng": 92.49114990234375
-                },
-                "title": "Ruoqiang, Bayingol, Xinjiang, الصين",
-                "google_address_id": "ChIJsek43wC8IDgR_SHDH2kWvRE"
-            },
-            {
-                "position": {
-                "lat": 40.17887331434696,
-                "lng": 92.49114990234375
-                },
-                "title": "Ruoqiang, Bayingol, Xinjiang, الصين",
-                "google_address_id": "ChIJsek43wC8IDgR_SHDH2kWvRE"
-            },
-            {
-                "position": {
-                "lat": 40.17887331434696,
-                "lng": 92.49114990234375
-                },
-                "title": "Ruoqiang, Bayingol, Xinjiang, الصين",
-                "google_address_id": "ChIJsek43wC8IDgR_SHDH2kWvRE"
-            }
+           
         ];
 
     static GetUserAddresses(){
@@ -42,7 +11,14 @@ class UserService {
     }
 
     static AddAddress(address){
-        return this.my_addresses.push(address);
+        if(!UserService.IsAddressRegistered(address)){
+            return this.my_addresses.push(address);
+        }
+        
+    }
+
+    static IsAddressRegistered(address){
+       return _.findIndex(this.my_addresses, { 'google_address_id': address.google_address_id }) != -1 ;
     }
 
     static DeleteAddress(id){
