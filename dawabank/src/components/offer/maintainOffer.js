@@ -9,13 +9,9 @@ import {PanelGroup, Panel, Well} from 'react-bootstrap';
 class MaintainOffer extends React.Component {
   constructor() {
     super();
-    this.state = {data :  { 
-      offer: {medicineName : "Panadol", expiry_date: "2012-04-23", agreed : true, "quantity" : 13},
-      location : { coordinates : {}},
-      acknowledge : {}
-     } };
+    this.state = {data :  {} };
     this.offerUpdated =  this.offerUpdated.bind(this); 
-
+    this.locationUpdated =  this.locationUpdated.bind(this); 
     this.toggleSections =  this.toggleSections.bind(this); 
     this.loadMap =  this.loadMap.bind(this); 
  
@@ -36,8 +32,9 @@ class MaintainOffer extends React.Component {
       this.setState({ "data" : newState });
   }
 
-  locationUpdated = (location) => {
-      var newState = Object.assign({}, this.state.data, location );
+  locationUpdated = (value) => {
+      let newLocation = Object.assign({}, this.state.data.location, value.location );
+      let newState = Object.assign({}, this.state.data, {location : newLocation } );
       this.setState({ "data" : newState });
   }
 

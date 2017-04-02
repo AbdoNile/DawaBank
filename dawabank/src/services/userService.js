@@ -18,7 +18,7 @@ class UserService {
     }
 
     static IsAddressRegistered(address){
-       return _.findIndex(this.my_addresses, { 'google_address_id': address.google_address_id }) != -1 ;
+       return _.findIndex(this.my_addresses, { 'google_address_id': address.google_address_id }) !== -1 ;
     }
 
     static DeleteAddress(id){

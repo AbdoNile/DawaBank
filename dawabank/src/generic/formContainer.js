@@ -15,7 +15,7 @@ class FormContainer extends baseControl {
     const childrenToRender = React.Children.map(this.props.children,
      (child) => {
                 return React.cloneElement(child, {
-                  boundValue:  this.state.boundValue[child.props.dataElement],
+                  boundValue:   this.state.boundValue != null ? this.state.boundValue[child.props.dataElement] : null,
                   onChange : this.liftStateUp
                 })
         }
