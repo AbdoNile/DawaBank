@@ -2,22 +2,7 @@
 import _ from 'lodash';
 import UserService from './userService';
 class OfferService {
-    static allOffers =  [
-            /*{
-                medicineName : "Panadol",
-                quantity : 12,
-                expiry_date : "12-05-2018",
-                Id : 3434
-
-            },
-            {
-                medicineName : "Ibuprofene",
-                quantity : 3,
-                expiry_date : "12-06-2018",
-                Id : 5454
-
-            }*/
-        ];
+    static allOffers =  [];
 
     static FindOffers(){
         return this.allOffers;
@@ -31,7 +16,7 @@ class OfferService {
 
     static DeleteOffer(id){
         _.remove(this.allOffers, function(item) {
-                return item.offer.Id === id;
+                return item.Id === id;
             });
         console.log('deleting' + id);
     }

@@ -20,6 +20,9 @@
         {
             "type": "node",
             "request": "attach",
+            "skipFiles": [
+                "node_modules\\*.*"
+            ],
             "name": "Attach to Process",
             "address": "localhost",
             "port": 5858

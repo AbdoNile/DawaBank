@@ -41,7 +41,7 @@ class MaintainOffer extends React.Component {
   saveOffer = () =>
   {
       let data =   this.state.data;
-      data.offer.Id = _.uniqueId('offer_');
+      data.Id = _.uniqueId('offer_');
       OfferService.AddOffer(data);
   }
 

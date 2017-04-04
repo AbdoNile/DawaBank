@@ -11,6 +11,8 @@ class UserService {
     }
 
     static AddAddress(address){
+       if(address == null) return ; 
+       
         if(!UserService.IsAddressRegistered(address)){
             return this.my_addresses.push(address);
         }
@@ -18,6 +20,7 @@ class UserService {
     }
 
     static IsAddressRegistered(address){
+       if(address == null) return false; 
        return _.findIndex(this.my_addresses, { 'google_address_id': address.google_address_id }) !== -1 ;
     }
 

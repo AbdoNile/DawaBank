@@ -3,9 +3,11 @@ import React from 'react';
 class ListItem extends React.Component {
 
   render() {
-        var item =  this.props.item;
-        var offer = item.offer;
-        return      <tr>
+        const item =  this.props.item;
+        const offer = item.offer;
+        if(offer == null ) return null;
+        else
+        return  <tr>
                 <td className="col-sm-8">
                     <div>
                         <h4>{offer.medicineName}</h4>

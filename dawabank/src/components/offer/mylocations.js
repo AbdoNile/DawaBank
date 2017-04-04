@@ -1,6 +1,6 @@
 import React from 'react';
 import UserService from '../../services/userService';
-
+import {Glyphicon} from 'react-bootstrap';
 class Mylocations extends React.Component {
  
  singleLocationComponent = (address) => 
@@ -22,6 +22,7 @@ class Mylocations extends React.Component {
     <div className="col-sm-4" onClick={() => this.props.toggleMethod("picker")}>
             <div className="tile"  >
                 <h4 className="title">Select New Address</h4>
+                <p><Glyphicon glyph="align-left" /></p>
             </div>
         </div>
     </div>;
