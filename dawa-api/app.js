@@ -4,7 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var cors = require('cors');
 
 var offers = require('./routes/offers');
 var db = require('./services/db');
@@ -12,6 +12,8 @@ var db = require('./services/db');
 var error_handler = require('./middle_ware/error_handlers');
 
 var app = express();
+
+app.use(cors({origin: '*'}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -40,6 +42,8 @@ db.connect('mongodb://localhost:27017/dawa', function(err) {
 
 
 error_handler.register_error_handlers(app);
+
+app.options('*', cors());
 
 
 module.exports = app;

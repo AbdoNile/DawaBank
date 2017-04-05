@@ -9,6 +9,9 @@ const SiteSettings = {
             },
 
 
+    },
+    api : {
+        address : "http://localhost:3030"
     }
 
 

@@ -80,6 +80,8 @@ class LocationPicker extends baseControl {
   }
 
   pinToMarker = (pin) => {
+    if(pin == null) 
+      return ;
     return {
           position: pin.position,
           animation: 2,

@@ -1,4 +1,5 @@
 var MongoClient = require('mongodb').MongoClient;
+var mongodb = require('mongodb');
 var assert = require('assert');
 
 
@@ -7,6 +8,10 @@ var MongoClient = require('mongodb').MongoClient
 
 var state = {
   db: null,
+}
+
+exports.idify = function(id){
+  return new mongodb.ObjectID(id);
 }
 
 exports.connect = function(url, done) {

@@ -13,27 +13,28 @@ class SearchPage extends React.Component {
 
   }
   render() {
-    return <div>
+    return (this.state.offers != null && <div>
         {this.state.confirm}
         <SearchBox/>
         <ListContainer offers={this.state.offers} deleteHandler={this.deleteOffer}/>
-    </div>;
+    </div>);
   }
     
   deleteOffer = (offer) => {
       var modelProps = { heading : 'Confirm Deletion' , body : 'are you sure to want to delete this offer?'};
       var thisComponent = this;
       InteractionUtility.confirm(this, modelProps).then(function(result){
-          OfferService.DeleteOffer(offer.Id);
+          OfferService.DeleteOffer(offer._id);
           thisComponent.setState({ offers: OfferService.FindOffers() });
       });
-
-    
   }
 
 
   componentDidMount() {
-    this.setState({ offers: OfferService.FindOffers() });
+      OfferService.FindOffers().then((offers) => {
+            this.setState({ offers: offers });
+      }).catch((err) => console.error(err));
+    
   }
   
 }
