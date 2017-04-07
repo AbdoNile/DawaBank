@@ -27,7 +27,7 @@ class SelectLocation extends React.Component {
         return      <div className="row">
             <div className="col-sm-4">
                             <FormContainer className="form-horizontal" boundValue={this.state.location} onChange={this.props.onUpdate} dataElement="location" >
-                                <FormField  label="Name" type="text" dataElement="name" />
+                                <FormField  label="Name" type="text" dataElement="contact_person" />
                                 <FormField  label="Telephone" type="text"  dataElement="phone" />
                                 <FormField  label="Notes" type="text"  dataElement="notes" />
                                 <FormField  label="Add to my favorite locations" type="checkbox" dataElement='addToFavorite' />

@@ -29,19 +29,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/offers', offers);
 
-db.connect('mongodb://localhost:27017/dawa', function(err) {
-  if (err) {
-    console.log('Unable to connect to Mongo.');
-    process.exit(1);
-  } else {
-    
-      console.log('Conncected to mongo db');
-    }
-  });
-
-
+db.connect('mongodb://localhost:27017/dawa');
 
 error_handler.register_error_handlers(app);
+
+
+error_handler.register_not_found(app);
 
 app.options('*', cors());
 

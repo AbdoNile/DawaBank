@@ -1,15 +1,23 @@
 var db = require('./db');
+var Offer = require('../models/offer.model');
 var _ = require('lodash');
 
 var offer_service = {
     get_all : function(cb){
-        db.get().collection("offers").find().toArray(cb);
+        Offer.find({}, cb);
     },  
-    add : function(offer, cb){
-        offer.Id = _.uniqueId('offer_');
-        db.get().collection("offers").insertOne(offer, cb);
+    add : function(input, cb){
+        var offer = new Offer(input);
+        offer.save(offer, function(err){
+            if(err == null){
+                cb()
+            }else{
+                cb(err)
+            }
+        });
     },
     delete : function(id, cb){
+        
         db.get().collection("offers").deleteOne({ _id : db.idify(id) }, cb);
     }
 }

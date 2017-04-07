@@ -22,7 +22,7 @@ router.delete('/:id', function(req, res, next){
 
 router.post('/', function(req, res, next){
     offer_service.add(req.body, function(err, result){
-        if(err) next(err);
+        if(err) return next(err);
         res.send(result);
     });
     
