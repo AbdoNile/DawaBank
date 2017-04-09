@@ -31,7 +31,10 @@ class MyOffers extends React.Component {
   }
 
   refreshOffers = () => {
-        this.setState({ offers: OfferService.FindOffers() });
+        OfferService.FindOffers().then((offers) => {
+            this.setState({ offers });
+        });
+        
   
   }
 

@@ -44,6 +44,7 @@ class LocationPicker extends baseControl {
     var newPin = {};
     this.geocodePosition(event.latLng).then((geoCodingResult) => {
         newPin =  { 
+            key : "_new_pin",
             position:  event.latLng.toJSON(),
             title : geoCodingResult.formatted_address,
             google_address_id : geoCodingResult.place_id
@@ -84,8 +85,9 @@ class LocationPicker extends baseControl {
       return ;
     return {
           position: pin.position,
+          key : pin.key,
           animation: 2,
-          draggable: true,
+          draggable: !this.props.readOnly,
           onDragend : this.onPinPlaced
       }
   }
@@ -111,7 +113,7 @@ class LocationPicker extends baseControl {
   
 
   render() {
-   var pins = this.props.readOnly ? this.props.boundValue : this.state.boundValue;
+    var pins = this.props.readOnly ? this.props.boundValue : this.state.boundValue;
 
    
     var markers = _.isArray(pins)  ?  pins.map((pin, index)=> {

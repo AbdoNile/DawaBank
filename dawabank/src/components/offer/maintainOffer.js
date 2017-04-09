@@ -5,7 +5,7 @@ import Acknowledge from './acknowledge';
 import _ from 'lodash';
 import OfferService from '../../services/offerService';
 
-import {PanelGroup, Panel, Well} from 'react-bootstrap';
+import {PanelGroup, Panel, Well, Collapse, Label} from 'react-bootstrap';
 class MaintainOffer extends React.Component {
   constructor() {
     super();
@@ -47,24 +47,36 @@ class MaintainOffer extends React.Component {
 
 
   render() {
+    let medication = this.state.data.offer ? this.state.data.offer.medication : null;
+        
     return (
-        <div>
-          <div className="row">
-                <div className="col-md-12">
-                    <h3>Add Donated Medicine</h3></div>
-            </div>
-      <PanelGroup  >
-        <Panel header="Step 1 : Enter Medicine Details" >
-            <Offer offer={this.state.data.offer} onUpdate={this.offerUpdated} />
-        </Panel>
-        <Panel header="Step 2 : Specify Pickup Location">
-            <Location location={this.state.data.location} onUpdate={this.locationUpdated} />
-        </Panel>
-         <Well >
-            <Acknowledge acknowledge={this.state.data.acknowledge} onUpdate={this.locationUpdated} />
-           <button onClick={this.saveOffer}>Save</button>
-        </Well>
-      </PanelGroup>
+        <div className="row">
+          
+            <PanelGroup>
+                <Panel header="Step 1 : Enter Medicine Details" >
+                    <Offer offer={this.state.data.offer} onUpdate={this.offerUpdated} />
+                    {( medication && 
+                    <Collapse in={medication != null} timeout={1000} >
+                    <div className="col-sm-4">
+                            {(
+                            <div className="well">
+                                <p>{medication.trade_name}</p>
+                                 {medication.generic_name}<br/>
+                                 <Label bsStyle={medication.product_control == "Controlled" ? "danger" : "success"} >
+                                     {medication.product_control}</Label><br/>
+                                <Label>{medication.storage_conditions}</Label>
+                            </div>
+                            )}
+                        </div></Collapse>)}
+                </Panel>
+                <Panel header="Step 2 : Specify Pickup Location">
+                    <Location location={this.state.data.location} onUpdate={this.locationUpdated} />
+                </Panel>
+                <Well >
+                    <Acknowledge acknowledge={this.state.data.acknowledge} onUpdate={this.locationUpdated} />
+                <button onClick={this.saveOffer}>Save</button>
+                </Well>
+            </PanelGroup>
        <hr/>
                  <pre>{JSON.stringify(this.state.data, null, 2) }</pre>
       </div>

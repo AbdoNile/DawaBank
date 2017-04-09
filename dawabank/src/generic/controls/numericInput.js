@@ -8,7 +8,8 @@ class NumericInput extends baseControl {
     }
     
     render() {
-       let assignedValue = this.state.boundValue;
+       let assignedValue = this.state.boundValue != null ?  this.state.boundValue : "" ;
+
 
         return <input className="form-control input-sm" 
                            type="number" 

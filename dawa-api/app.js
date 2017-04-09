@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var cors = require('cors');
 
 var offers = require('./routes/offers');
+var medications = require('./routes/medications');
 var db = require('./services/db');
 
 var error_handler = require('./middle_ware/error_handlers');
@@ -28,6 +29,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/offers', offers);
+app.use('/medications', medications);
 
 db.connect('mongodb://localhost:27017/dawa');
 

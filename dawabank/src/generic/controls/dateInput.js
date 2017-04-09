@@ -8,7 +8,8 @@ class DateInput extends baseControl {
     }
     
     render() {
-        let assignedValue = this.state.boundValue;
+        
+        let assignedValue = this.state.boundValue != null ?  this.state.boundValue : "" ;
 
         return (
                         

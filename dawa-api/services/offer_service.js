@@ -17,8 +17,7 @@ var offer_service = {
         });
     },
     delete : function(id, cb){
-        
-        db.get().collection("offers").deleteOne({ _id : db.idify(id) }, cb);
+        Offer.findByIdAndRemove(id, cb);
     }
 }
 

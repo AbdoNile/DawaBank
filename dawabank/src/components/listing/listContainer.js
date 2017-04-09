@@ -14,19 +14,18 @@ class ListContainer extends React.Component {
     let items = this.props.offers;
     let pins = [];
     const offersTags = items ? items.map(function(item){
+        if(item.location == null) return null;
+        item.location.key = item._id;
         pins = _.concat(pins, item.location);
-        return  <ListItem item={item}  deleteHandler={this.props.deleteHandler} />
-        
+        return  <ListItem item={item}  deleteHandler={this.props.deleteHandler} key={item._id} />
     }, this) : null;
-    return <div className="row">
-            
-              {(items.length > 0) &&
 
-            <div className="col-sm-4">
-                
-                     <LocationPicker readOnly boundValue={pins}  containerElement={this.containerElement} 
+    return <div className="row">
+              {(items.length > 0) &&
+                <div className="col-sm-4">
+                    <LocationPicker readOnly boundValue={pins}  containerElement={this.containerElement} 
                         loadingElement={this.loadingElement} dataElement="coordinates" singleLocation />
-            </div>
+                </div>
               }
             
             <div className="col-sm-8">

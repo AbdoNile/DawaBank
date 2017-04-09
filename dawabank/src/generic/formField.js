@@ -12,20 +12,20 @@ class FormField extends React.Component {
     switch(this.props.type){
         case "text":
         default:
-            inputControl = <TextInput {...this.props}  />
+            inputControl = <TextInput  />
         break
         case "date":
-            inputControl = <DateInput {...this.props}  />
+            inputControl = <DateInput  />
         break;
          case "number":
-            inputControl = <NumericInput {...this.props}  />
+            inputControl = <NumericInput   />
         break;
         case "checkbox":
-            inputControl = <CheckInput  {...this.props}  hasLabel />
+            inputControl = <CheckInput   hasLabel />
         break;
     }
   
-    return (<Wrapper>{inputControl}</Wrapper>);
+    return (<Wrapper {...this.props} >{inputControl}</Wrapper>);
   }
 
   

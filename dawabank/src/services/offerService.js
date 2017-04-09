@@ -25,7 +25,7 @@ class OfferService {
     }
 
     static DeleteOffer(id){
-        fetch(SiteSettings.api.address + "/offers/" + id , { method: 'DELETE'}).then((res) => {
+        return fetch(SiteSettings.api.address + "/offers/" + id , { method: 'DELETE'}).then((res) => {
             console.log('deleting' + id);    
         });
         
