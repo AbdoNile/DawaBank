@@ -11,17 +11,10 @@ class MaintainOffer extends React.Component {
     super();
     this.state = {data :  {} };
     this.offerUpdated =  this.offerUpdated.bind(this); 
-    this.locationUpdated =  this.locationUpdated.bind(this); 
-    this.toggleSections =  this.toggleSections.bind(this); 
+    this.toggleSections = this.toggleSections.bind(this); 
     this.loadMap =  this.loadMap.bind(this); 
  
   }
-
-  loadMap = () => {
-      var mapComponent = <Location location={this.state.data.location} onUpdate={this.locationUpdated} />;
-      this.setState({  mapComponent});
-  }
-  
 
   toggleSections = (activeKey) => {
     this.setState({ activeKey });
@@ -31,30 +24,22 @@ class MaintainOffer extends React.Component {
       var newState = Object.assign({}, this.state.data, data );
       this.setState({ "data" : newState });
   }
-
-  locationUpdated = (value) => {
-      let newLocation = Object.assign({}, this.state.data.location, value.location );
-      let newState = Object.assign({}, this.state.data, {location : newLocation } );
-      this.setState({ "data" : newState });
-  }
-
+  
   saveOffer = () =>
   {
       let data =   this.state.data;
       OfferService.AddOffer(data);
   }
 
-
-
   render() {
-    let medication = this.state.data.offer ? this.state.data.offer.medication : null;
+    let medication = this.state.data.product ? this.state.data.product.medication : null;
         
     return (
         <div className="row">
           
             <PanelGroup>
                 <Panel header="Step 1 : Enter Medicine Details" >
-                    <Offer offer={this.state.data.offer} onUpdate={this.offerUpdated} />
+                    <Offer product={this.state.data.product} onUpdate={this.offerUpdated} />
                     {( medication && 
                     <Collapse in={medication != null} timeout={1000} >
                     <div className="col-sm-4">
@@ -62,7 +47,7 @@ class MaintainOffer extends React.Component {
                             <div className="well">
                                 <p>{medication.trade_name}</p>
                                  {medication.generic_name}<br/>
-                                 <Label bsStyle={medication.product_control == "Controlled" ? "danger" : "success"} >
+                                 <Label bsStyle={medication.product_control === "Controlled" ? "danger" : "success"} >
                                      {medication.product_control}</Label><br/>
                                 <Label>{medication.storage_conditions}</Label>
                             </div>
@@ -70,10 +55,10 @@ class MaintainOffer extends React.Component {
                         </div></Collapse>)}
                 </Panel>
                 <Panel header="Step 2 : Specify Pickup Location">
-                    <Location location={this.state.data.location} onUpdate={this.locationUpdated} />
+                    <Location location={this.state.data.location} onChange={this.offerUpdated} />
                 </Panel>
                 <Well >
-                    <Acknowledge acknowledge={this.state.data.acknowledge} onUpdate={this.locationUpdated} />
+                    <Acknowledge acknowledge={this.state.data.acknowledge} onUpdate={this.offerUpdated} />
                 <button onClick={this.saveOffer}>Save</button>
                 </Well>
             </PanelGroup>

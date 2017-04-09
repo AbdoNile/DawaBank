@@ -3,22 +3,22 @@ import FormField from '../../generic/formField';
 import FormContainer from '../../generic/formContainer';
 import Wrapper from '../../generic/controlWrapper/wrapper';
 
-import MedicationLookup from '../medicationLookup';
+import ProductLookup from '../productLookup';
 
 class Offer extends React.Component {
   constructor(props) {
     super(props);
-        this.state = {offer : this.props.offer};
+        this.state = {product : this.props.product};
   }
 
   render() {
      return <div className="col-sm-8">
-      <FormContainer className="" boundValue={this.state.offer} onChange={this.props.onUpdate} dataElement="offer" >
-                    <Wrapper><MedicationLookup   label="Trade Name" /></Wrapper>
-                    <FormField  label="Medicine Name" type="text" dataElement="medicine_name" />
-                    <FormField  label="Expiry Date" type="date" dataElement="expiry_date" />
-                    <FormField  label="Quanity" type="number"  dataElement="quantity" />
-            </FormContainer></div>;
+              <FormContainer className="" boundValue={this.state.product} onChange={this.props.onUpdate} dataElement="medication" >
+                  <Wrapper><ProductLookup  dataElement="product" label="Trade Name" /></Wrapper>
+                  <FormField  label="Expiry Date" type="date" dataElement="expiry_date" />
+                  <FormField  label="Quanity" type="number"  dataElement="quantity" />
+              </FormContainer>
+        </div>;
   }
 }
 

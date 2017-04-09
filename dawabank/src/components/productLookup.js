@@ -3,7 +3,7 @@ import Autocomplete from 'react-autocomplete';
 import {ListGroup , ListGroupItem } from 'react-bootstrap';
 import baseControl from '../generic/baseControl';
 import medicationService from '../services/medicationService';
-class MedicationLookup extends baseControl {
+class ProductLookup extends baseControl {
    constructor(props) {
     super(props);
        this.state = {suggestions : [] , searchTerm : '', loading: true };
@@ -12,13 +12,22 @@ class MedicationLookup extends baseControl {
     findSuggestions = (event, searchTerm) => {
         this.setState({ searchTerm, loading: true })
         if(searchTerm.length > 2 ){
-        medicationService.FindMedication(searchTerm).then((items) => {
-            this.setState({ suggestions: items, loading: false });
-        });
+            medicationService.FindMedication(searchTerm).then((items) => {
+                this.setState({ suggestions: items, loading: false });
+            });
         }
         else{
             this.setState({ suggestions: [], loading: false });
         }
+    };
+
+    extractCurrentValue = (event) => {
+        return event;
+    }
+
+    onSelect = (searchTerm, item) => {
+            this.handleChange({ item });
+            this.setState({searchTerm : item.trade_name });
     };
   
     renderMenu = (items, value, style) => {
@@ -37,11 +46,7 @@ class MedicationLookup extends baseControl {
           value={this.state.searchTerm}
           items={this.state.suggestions}
           getItemValue={(item) => item._id}
-          onSelect={(searchTerm, item) => {
-            this.props.onChange({ medication : item });
-            this.setState({searchTerm : item.trade_name });
-          }}
-
+          onSelect={this.onSelect}
           onChange={this.findSuggestions}
           renderMenu={this.renderMenu}
           renderItem={this.renderItem}
@@ -50,4 +55,4 @@ class MedicationLookup extends baseControl {
   }
 }
 
-export default MedicationLookup;
+export default ProductLookup;

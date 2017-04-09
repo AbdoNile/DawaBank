@@ -3,12 +3,14 @@ import React from 'react';
 class LabelWrapper extends React.Component {
   
   render() {
+        let childrenToRender = React.cloneElement(this.props.children, this.props);
+  
     return  (<div className="form-group">
                 <div className="col-sm-4">
-                    <label className="control-label">{this.props.children.props.label}</label>
+                    <label className="control-label">{childrenToRender.props.label}</label>
                 </div>
                 <div className="col-sm-8">
-                    {this.props.children}
+                    {childrenToRender}
                 </div>
             </div>) ;
   }

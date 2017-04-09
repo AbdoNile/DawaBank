@@ -12,22 +12,19 @@ class Location extends React.Component {
         this.setState({selection_method : method});
   }
 
+
   render() {
     return <div>
         {
             this.state.selection_method === "history" && 
-             <MyLocations {...this.props} toggleMethod={this.setAddressSelectionMethod} />
+             <MyLocations location={this.props.location} onChange={this.props.onChange} toggleMethod={this.setAddressSelectionMethod} />
         }
 
         {
             this.state.selection_method === "picker" && 
-             <SelectLocation {...this.props} toggleMethod={this.setAddressSelectionMethod} />
+             <SelectLocation location={this.props.location}  onChange={this.props.onChange}  toggleMethod={this.setAddressSelectionMethod} />
         }
     </div>;
-  }
-
-  componentDidMount() {
-    this.setState({ someKey: 'otherValue' });
   }
 }
 

@@ -6,82 +6,82 @@ var Schema = mongoose.Schema;
 
 var MedicationSchema = new Schema({
         "agent_name": {
-            "type": "string"
+            type: String
         },
         "atc_code_1": {
-            "type": "string"
+            type: String
         },
         "atc_code_2": {
-            "type": "string"
+            type: String
         },
         "authorization_status": {
-            "type": "string"
+            type: String
         },
         "country_of_manufacturer": {
-            "type": "string"
+            type: String
         },
         "dosage_form": {
-            "type": "string"
+            type: String
         },
         "generic_name": {
-            "type": "string"
+            type: String
         },
         "legal_status": {
-            "type": "string"
+            type: String
         },
         "manufacturer_name": {
-            "type": "string"
+            type: String
         },
         "marketing_company": {
-            "type": "string"
+            type: String
         },
         "marketing_status": {
-            "type": "string"
+            type: String
         },
         "nationality": {
-            "type": "string"
+            type: String
         },
         "package_size": {
-            "type": "number"
+            type: Number
         },
         "package_type": {
-            "type": "string"
+            type: String
         },
         "product_control": {
-            "type": "string"
+            type: String
         },
         "public_price_(sar)": {
-            "type": "number"
+            type: Number
         },
         "registration_no": {
-            "type": "string"
+            type: String
         },
         "remarks": {
-            "type": "string"
+            type: String
         },
         "route_of_administration": {
-            "type": "string"
+            type: String
         },
         "shelf-life_(mon)": {
-            "type": "number"
+            type: Number
         },
         "storage_conditions": {
-            "type": "string"
+            type: String
         },
         "strength_value": {
-            "type": "number"
+            type: Number
         },
         "trade_name": {
-            "type": "string"
+            type: String
         },
         "unit_of_strength": {
-            "type": "string"
+            type: String
         },
         "unit_of_volume": {
-            "type": "string"
+            type: String
         },
         "volume": {
-            "type": "number"
+            type: Number
         }
     });
 

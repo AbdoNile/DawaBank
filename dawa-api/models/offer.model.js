@@ -5,10 +5,36 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var OfferSchema = new Schema({
-    offer : {
-        medicine_name : {
-            type : String,
-            required : true
+    acknowledge: {
+        agreed: {
+            type: Boolean
+        }
+    },
+    medication : {
+        product: {
+            item: {
+                _id: {
+                    type: String
+                },
+                generic_name: {
+                    type: String
+                },
+                product_control: {
+                    type: String
+                },
+                registration_no: {
+                    type: String
+                },
+                storage_conditions: {
+                    type: String
+                },
+                trade_name: {
+                    type: String
+                }
+            }
+        },
+        quantity: {
+            type: String
         },
         expiry_date: {
             type : Date,

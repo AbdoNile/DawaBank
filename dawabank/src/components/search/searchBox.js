@@ -1,42 +1,32 @@
 import React from 'react';
-
+import { Well} from 'react-bootstrap';
+import FormContainer from '../../generic/formContainer';
+import Wrapper from '../../generic/controlWrapper/wrapper';
+import ProductLookup from '../productLookup';
 class SearchBox extends React.Component {
- 
+    constructor(props) {
+        super(props);
+            this.state = {product : this.props.product};
+    }
 
-  render() {
-    return <div className="row">
-            <div>
-                <div className="panel panel-primary">
-                    <div className="panel-heading">
-                        <h3 className="panel-title">Search For Medicine</h3></div>
-                    <div className="panel-body">
-                        <form className="form-horizontal">
-                            <div className="form-group">
-                                <div className="col-sm-3">
-                                    <label className="control-label">Medicine Name</label>
-                                </div>
-                                <div className="col-sm-8">
-                                    <input className="form-control input-sm" type="text" autoComplete="on"/>                                </div>
-                            </div>
-                            <div className="form-group">
-                                <div className="col-sm-3">
-                                    <label className="control-label">Location </label>
-                                </div>
-                                <div className="col-sm-8">
-                                    <input className="form-control input-sm" type="text" autoComplete="on"/>
-                                </div>
-                            </div>
-                            <div className="form-group">
-                                <div className="col-sm-offset-2">
-                                    <button className="btn btn-primary" type="button">Search </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+    search_updated = (data) => {
+        var newState = Object.assign({}, this.state.search, data );
+        this.setState({ "search" : newState })
+        console.log(data);
+    }   
+
+    render() {
+        return <div className="row">
+                <div className="col-sm-6">
+                    <Well >
+                        <FormContainer className="" boundValue={this.state.product} onChange={this.search_updated} dataElement="Search" >
+                                <Wrapper><ProductLookup  dataElement="product" label="Product" /></Wrapper>
+                        </FormContainer>  
+                    </Well>
+                    <pre>{JSON.stringify(this.state.search, null, 2) }</pre>
                 </div>
-            </div>
-            </div>;
-  }
+                </div>;
+    }
 
  
 }
