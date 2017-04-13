@@ -12,9 +12,16 @@ class MaintainOffer extends React.Component {
     this.state = {data :  {} };
     this.offerUpdated =  this.offerUpdated.bind(this); 
     this.toggleSections = this.toggleSections.bind(this); 
-    this.loadMap =  this.loadMap.bind(this); 
+   // this.loadMap =  this.loadMap.bind(this); 
  
   }
+
+
+		  
+    // loadMap = () => {		
+    //     var mapComponent = <Location location={this.state.data.location} onUpdate={this.locationUpdated} />;		
+    //     this.setState({  mapComponent});		
+    // }		
 
   toggleSections = (activeKey) => {
     this.setState({ activeKey });

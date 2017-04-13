@@ -34,8 +34,10 @@ class SearchPage extends React.Component {
 
 
   componentDidMount() {
+      var thisComponent = this;
       OfferService.FindOffers().then((offers) => {
-            this.setState({ offers: offers });
+            thisComponent.setState({ offers: offers });
+          
       }).catch((err) => console.error(err));
     
   }
