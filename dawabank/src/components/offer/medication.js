@@ -5,7 +5,7 @@ import Wrapper from '../../generic/controlWrapper/wrapper';
 
 import ProductLookup from '../productLookup';
 
-class Offer extends React.Component {
+class Medication extends React.Component {
   constructor(props) {
     super(props);
         this.state = {product : this.props.product};
@@ -22,4 +22,4 @@ class Offer extends React.Component {
   }
 }
 
-export default Offer;
+export default Medication;

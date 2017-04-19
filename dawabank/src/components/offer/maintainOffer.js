@@ -1,5 +1,5 @@
 import React from 'react';
-import Offer from './offer';
+import Medication from './medication';
 import Location from './location';
 import Acknowledge from './acknowledge';
 import _ from 'lodash';
@@ -12,17 +12,9 @@ class MaintainOffer extends React.Component {
     this.state = {data :  {} };
     this.offerUpdated =  this.offerUpdated.bind(this); 
     this.toggleSections = this.toggleSections.bind(this); 
-   // this.loadMap =  this.loadMap.bind(this); 
- 
+   
   }
-
-
-		  
-    // loadMap = () => {		
-    //     var mapComponent = <Location location={this.state.data.location} onUpdate={this.locationUpdated} />;		
-    //     this.setState({  mapComponent});		
-    // }		
-
+   
   toggleSections = (activeKey) => {
     this.setState({ activeKey });
   }
@@ -46,7 +38,7 @@ class MaintainOffer extends React.Component {
           
             <PanelGroup>
                 <Panel header="Step 1 : Enter Medicine Details" >
-                    <Offer product={this.state.data.product} onUpdate={this.offerUpdated} />
+                    <Medication product={this.state.data.product} onUpdate={this.offerUpdated} />
                     {( medication && 
                     <Collapse in={medication != null} timeout={1000} >
                     <div className="col-sm-4">
