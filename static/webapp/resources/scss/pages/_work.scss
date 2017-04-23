@@ -57,10 +57,8 @@
 		}
 
 		&__info {
-			padding: 2rem 2rem;
-
-			background: #eee;
-
+			padding: 1rem;
+			border-bottom: 1px solid #e6e6e6;
 			@include bp(sm) {
 				padding: 3rem 3rem;
 			}

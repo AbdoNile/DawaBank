@@ -13905,8 +13905,8 @@ input[type="submit"] {
     border: 1px solid #e9ecef;
     border-radius: 100px; }
   .p-work-project__info {
-    padding: 2rem 2rem;
-    background: #eee; }
+    padding: 1rem;
+    border-bottom: 1px solid #e6e6e6; }
     @media (max-width: 991px) {
       .p-work-project__info {
         padding: 3rem 3rem; } }
