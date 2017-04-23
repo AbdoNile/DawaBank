@@ -1,0 +1,60 @@
+---
+component: Contact - Details Block
+---
+
+<section class="p-contact-info p-contact-info--meet-call">
+
+  <div class="container-fluid no-padding">
+
+    <div class="row-fluid">
+
+      <!-- Email -->
+      <div class="col-md-4 p-contact-info--meet-call__block p-contact-info__block p-contact-info__block--email" >
+        <div class="h-div-table">
+          <div class="h-div-cell text-center">
+            <div class="col-md-8 col-md-offset-2 col-xs-12 col-sm-12">
+              <h2>{{contact.info.email.header}}</h2>
+              <h5>General Inquries</h5>
+              <p>{{contact.info.email.general}}</p>
+              <h5>Ask for a quote</h5>
+              <p>{{contact.info.email.work}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phone -->
+      <div class="col-md-4 p-contact-info--meet-call__block p-contact-info__block p-contact-info__block--phone">
+        <div class="h-div-table">
+          <div class="h-div-cell text-center">
+            <div class="col-md-8 col-md-offset-2 col-xs-12 col-sm-12">
+              <h2>{{contact.info.phone.header}}</h2>
+              <h5>Phone</h5>
+              <p>{{contact.info.phone.number-primary}}</p>
+              <h5>Fax</h5>
+              <p>{{contact.info.phone.number-fax}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Location -->
+      <div class="col-md-4 p-contact-info--meet-call__block p-contact-info__block p-contact-info__block--location">
+        <div class="h-div-table">
+          <div class="h-div-cell text-center">
+            <div class="col-md-8 col-md-offset-2 col-xs-12 col-sm-12">
+              <h2>{{contact.info.location.header}}</h2>
+              <h5>Main Headquarters</h5>
+              <p>{{contact.info.location.london.address}}, {{contact.info.location.london.postcode}}</p>
+              <p>{{contact.info.location.london.city}}, {{contact.info.location.london.country}} </p>
+              <a href="{{contact.info.location.london.mapsurl}}" target="_blank">Get Directions</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

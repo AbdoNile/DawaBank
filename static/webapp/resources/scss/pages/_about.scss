@@ -1,0 +1,510 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to About page.
+// -----------------------------------------------------------------------------
+.p-about {
+	@include respond-to(xs) {
+		&--heroimgbg {
+			height: 35vh;
+			.c-hero__inner {
+				padding-top: 10vh;
+				.c-hero__content {
+					text-align: center;
+				}
+			}
+		}
+	}
+	@include respond-to(xs) {
+		&-values {
+			padding: 5rem 15px 5rem;
+
+			text-align: center;
+			&-content {
+				padding: 2rem 0 0rem;
+				&__ceoblock {
+					padding-bottom: 1rem;
+				}
+			}
+		}
+	}
+	@include respond-to(xs) {
+		&-why {
+			padding: 7rem 15px 7rem;
+
+			text-align: center;
+			&-header {
+				text-align: left;
+
+				color: white;
+				//Element - Header title
+				&__title {
+					font: 400 18px/30px "Montserrat", sans-serif;
+				}
+			}
+			&-content {
+				padding: 2rem 0 0rem;
+				&__service {
+					display: block;
+					h5 {
+						font: 400 12px/14px "Poppins", sans-serif;
+
+						margin: 35px 0 20px;
+
+						color: #eff3f7;
+					}
+					p {
+						font: 400 16px/24px "Open Sans", sans-serif;
+
+						color: #b3b7bd;
+					}
+				}
+			}
+		}
+	}
+	@include respond-to(xs) {
+		&-services {
+			padding: 7rem 15px 7rem;
+
+			text-align: center;
+			&-header {
+				text-align: left;
+
+				color: white;
+				//Element - Header title
+				&__title {
+					font: 400 18px/30px "Montserrat", sans-serif;
+				}
+			}
+			&-content {
+				padding: 2rem 0 0rem;
+				&__service {
+					display: block;
+					h5 {
+						font: 400 12px/14px "Poppins", sans-serif;
+
+						margin: 35px 0 20px;
+
+						color: #eff3f7;
+					}
+					p {
+						font: 400 16px/24px "Open Sans", sans-serif;
+
+						color: #b3b7bd;
+					}
+				}
+			}
+		}
+	}
+	@include respond-to(xs) {
+		&-services {
+			padding: 7rem 15px 7rem;
+
+			text-align: center;
+			&-header {
+				text-align: left;
+
+				color: white;
+				//Element - Header title
+				&__title {
+					font: 400 18px/30px "Montserrat", sans-serif;
+				}
+			}
+			&-content {
+				padding: 2rem 0 0rem;
+				&__service {
+					display: block;
+					h5 {
+						font: 400 12px/14px "Poppins", sans-serif;
+
+						margin: 35px 0 20px;
+
+						color: #eff3f7;
+					}
+					p {
+						font: 400 16px/24px "Open Sans", sans-serif;
+
+						color: #b3b7bd;
+					}
+				}
+			}
+		}
+	}
+	//Modiefier - Hero Image background
+	&--heroimgbg {
+		height: 35vh;
+
+		background: linear-gradient(rgba(57, 54, 79, 0.8), rgba(57, 54, 79, 0.9)), url("../img/contact-header.jpg") no-repeat center center;
+		background-position: center;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		.c-hero__inner {
+			.c-hero__content {
+				text-align: left;
+			}
+			.c-hero__content-subheader {
+				font: 400 11px/14px "Poppins", sans-serif;
+
+				margin: 10px 3px 5px;
+
+				letter-spacing: 2.5px;
+				text-transform: uppercase;
+
+				color: rgba(244, 245, 246, 0.8);
+			}
+			.c-hero__content-header {
+				font-size: 30px;
+
+				margin-top: 0;
+
+				color: white;
+			}
+		}
+	}
+	//Component - About Values and Intro Block
+	&-values {
+		/*About Page Values Block*/
+		padding: 7rem 0 8rem;
+		//Block - Header Title and sub-title
+		&-header {
+			text-align: center;
+			//Element - Header title
+			&__title {
+				display: block;
+			}
+			//Element - Header sub-title
+			&__subtitle {
+				display: block;
+
+				color: axetay("red", dark);
+			}
+		}
+		//Block - Content
+		&-content {
+			padding: 2rem 0 0rem;
+
+			text-align: left;
+			//Element - Header title
+			&__block {
+				display: block;
+			}
+		}
+		//Block - Content
+		&-content {
+			padding: 4rem 0 0rem;
+
+			text-align: left;
+			//Element - Header title
+			&__ceoblock {
+				padding-bottom: 0rem;
+				h6 {
+					font: 300 20px/32px "Poppins", sans-serif;
+				}
+			}
+		}
+	}
+	//Component - About Values and Intro Block
+	&-why {
+		/*About Page Values Block*/
+		padding: 5rem 0 5rem;
+
+		background-color: axetay("navy", dark);
+		//Block - Header Title and sub-title
+		&-header {
+			text-align: left;
+
+			color: white;
+			//Element - Header title
+			&__title {
+				font: 400 26px/40px "Montserrat", sans-serif;
+
+				display: block;
+
+				color: white;
+			}
+			//Element - Header sub-title
+			&__subtitle {
+				font: 300 18px/24px "Poppins", sans-serif;
+
+				display: block;
+
+				margin-bottom: 20px;
+
+				opacity: 0.8;
+				color: white;
+			}
+		}
+		//Block - Content
+		&-content {
+			padding: 2rem 0 0rem;
+
+			text-align: left;
+			//Element - Service
+			&__service {
+				display: block;
+				h5 {
+					font: 400 11px/14px "Poppins", sans-serif;
+
+					display: inline-block;
+
+					margin-bottom: 7px;
+					margin-left: 15px;
+					padding-bottom: 0;
+
+					color: #eff3f7;
+				}
+				p {
+					font: 400 16px/26px "Open Sans", sans-serif;
+
+					color: #b3b7bd;
+				}
+				i {
+					font-size: 35px;
+
+					position: relative;
+					top: 9px;
+
+					display: inline-block;
+
+					margin-bottom: 7px;
+					padding-bottom: 0;
+
+					color: white;
+				}
+			}
+		}
+	}
+	//Component - About Values and Intro Block
+	&-services {
+		/*About Page Values Block*/
+		padding: 7rem 0 7rem;
+
+		background-color: axetay("navy", light);
+		//Block - Header Title and sub-title
+		&-header {
+			text-align: left;
+
+			color: white;
+			//Element - Header title
+			&__title {
+				font: 400 26px/40px "Montserrat", sans-serif;
+
+				display: block;
+
+				color: white;
+			}
+			//Element - Header sub-title
+			&__subtitle {
+				display: block;
+
+				opacity: 0.8;
+				color: white;
+			}
+		}
+		//Block - Content
+		&-content {
+			padding: 4rem 0 0rem;
+
+			text-align: left;
+			//Element - Service
+			&__service {
+				display: block;
+				h5 {
+					font: 400 11px/14px "Poppins", sans-serif;
+
+					color: #eff3f7;
+				}
+				p {
+					font: 400 16px/26px "Open Sans", sans-serif;
+
+					color: #b3b7bd;
+				}
+			}
+		}
+	}
+	//Component - About Values and Intro Block
+	&-clients {
+		/*About Page Values Block*/
+		padding: 4rem 0 1rem;
+
+		background-color: axetay("navy", dark);
+
+		@include respond-to(xs) {
+			padding: 3rem 1rem 1rem;
+		}
+		&__logos-block {
+			margin-top: 30px;
+			.logo {
+				min-height: 50px;
+				margin: 17px 0;
+
+				text-align: center;
+			}
+		}
+		//Block - Header Title and sub-title
+		&-header {
+			text-align: left;
+
+			color: white;
+			//Element - Header title
+			&__title {
+				font: 400 26px/40px "Montserrat", sans-serif;
+
+				display: block;
+
+				color: white;
+			}
+			//Element - Header sub-title
+			&__subtitle {
+				display: block;
+
+				opacity: 0.8;
+				color: white;
+			}
+		}
+		//Block - Content
+		&-content {
+			padding: 4rem 0 0rem;
+
+			text-align: left;
+			//Element - Service
+			&__service {
+				display: block;
+				h5 {
+					font: 400 11px/14px "Poppins", sans-serif;
+
+					color: #eff3f7;
+				}
+				p {
+					font: 400 16px/26px "Open Sans", sans-serif;
+
+					color: #b3b7bd;
+				}
+			}
+		}
+	}
+
+	//Component - About Team Photos
+	&-team {
+		padding: 3rem 0 4rem;
+
+		@include respond-to(xs) {
+			padding: 3rem 1rem 1rem;
+		}
+		&__logos-block {
+			margin-top: 30px;
+			.logo {
+				min-height: 50px;
+				margin: 17px 0;
+
+				text-align: center;
+			}
+		}
+		h4 {
+			margin-bottom: 40px;
+		}
+		// --------------------------
+		// Team Picture Styling
+		// --------------------------
+		.team-pic {
+			display: table;
+
+			width: 100%;
+			height: 310px;
+
+			background: $lg1;
+			background-position: center;
+			background-size: cover;
+
+			@include bp(sm) {
+				height: 320px;
+			}
+			@include bp(xs) {
+				height: 310px;
+			}
+			.shader {
+				position: relative;
+
+				display: table;
+
+				width: 100%;
+				height: 100%;
+
+				opacity: 0;
+				background: $shader;
+
+				@include t1;
+			}
+			&:hover {
+				.name,
+				.social {
+					opacity: 1;
+				}
+				.shader {
+					opacity: 1;
+				}
+			}
+			.name {
+				position: relative;
+				z-index: 2;
+
+				display: table-cell;
+
+				vertical-align: middle;
+
+				opacity: 0;
+				color: white;
+
+				@include t1;
+				p {
+					font: 400 12px/18px "Open Sans", sans-serif;
+
+					margin: 0 25px;
+				}
+				h5 {
+					margin: 0;
+					margin-bottom: 5px;
+				}
+				h3 {
+					margin: 0;
+					margin-bottom: 10px;
+				}
+				h5,
+				h3,
+				p {
+					opacity: 0.8;
+					color: white;
+				}
+			}
+			.social {
+				position: absolute;
+				z-index: 2;
+				bottom: 0;
+				left: 0;
+
+				width: 100%;
+				padding: 30px 0;
+
+				text-align: center;
+
+				opacity: 0;
+
+				@include t1;
+				a {
+					margin: 0 3px;
+
+					color: white;
+					i {
+						font-size: 17px;
+
+						opacity: 0.75;
+						color: white;
+						&:hover {
+							opacity: 1;
+						}
+					}
+				}
+			}
+		}
+	}
+}

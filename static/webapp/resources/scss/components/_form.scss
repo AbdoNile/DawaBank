@@ -1,0 +1,143 @@
+form {
+	input,
+	textarea {
+		padding: 8px 15px 9px;
+
+		color: $p;
+		border: 2px solid $lg2;
+		border-radius: 4px;
+		background: none;
+
+		@include t1;
+		@include bp(xs) {
+			width: 100%;
+			padding: 5px 15px 5px;
+
+			text-align: center;
+		}
+	}
+}
+
+.dark1 form,
+.dark2 form,
+.dark3 form {
+	input {
+		border: 2px solid $dborder;
+	}
+}
+
+form.contact-form {
+	margin-right: -15px;
+	margin-left: -15px;
+	.input-field {
+		margin-bottom: 15px;
+
+		@include bp(xs) {
+			margin-bottom: 25px;
+		}
+	}
+	input[type="text"],
+	input[type="tel"],
+	input[type="email"],
+	input[type="password"],
+	textarea {
+		width: 100%;
+		padding: 10px 15px 11px;
+
+		border-color: transparent;
+		background: $lg3;
+	}
+	input[type="submit"] {
+		border-color: $primary;
+
+		@include bp(xs) {
+			min-width: 50%;
+		}
+	}
+	textarea {
+		padding-top: 12px;
+		padding-bottom: 12px;
+	}
+	.help-block ul li {
+		font-size: 12px;
+
+		color: #ec4640;
+	}
+	.messages {
+		font-weight: 700;
+
+		display: block;
+
+		padding: 21px 0 0;
+
+		text-align: center;
+
+		color: $primary;
+	}
+	.messages button {
+		display: none;
+	}
+}
+
+.dark1,
+.dark3 {
+	form.contact-form {
+		input[type="text"],
+		input[type="tel"],
+		input[type="email"],
+		input[type="password"],
+		textarea {
+			background: $dark2;
+		}
+	}
+}
+
+.dark2 {
+	form.contact-form {
+		input[type="text"],
+		input[type="tel"],
+		input[type="email"],
+		input[type="password"],
+		textarea {
+			background: $dark3;
+		}
+	}
+}
+
+.grey {
+	form.contact-form {
+		input[type="text"],
+		input[type="tel"],
+		input[type="email"],
+		input[type="password"],
+		textarea {
+			background: $white;
+		}
+	}
+}
+
+input[type="submit"] {
+	width: auto;
+
+	color: $primary;
+	border-color: $primary;
+	background: transparent;
+
+	@include bp(xs) {
+		color: white;
+		background: $primary;
+	}
+	&.disabled {
+		opacity: 0.8;
+		&:hover {
+			cursor: initial;
+
+			color: $primary;
+			background: transparent;
+		}
+	}
+	&:hover {
+		color: white;
+		background: $primary;
+	}
+}

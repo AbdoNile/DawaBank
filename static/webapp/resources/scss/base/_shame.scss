@@ -1,0 +1,11 @@
+// Shame file
+
+// Fix padding for menu items - _header.scss
+.nav > li > a {
+	padding-right: 30px;
+	padding-left: 0;
+
+	:hover {
+		border-bottom: 5px solid black;
+	}
+}

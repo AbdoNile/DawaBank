@@ -1,0 +1,96 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the footer of the site/application.
+// -----------------------------------------------------------------------------
+
+footer {
+	padding: 55px 20px 19px;
+
+	background: axetay("navy", dark);
+
+	.foot-title {
+		margin-top: 7px;
+
+		@include bp(sm) {
+			margin-top: 30px;
+		}
+	}
+
+	p {
+		font-size: 13px;
+
+		color: white;
+	}
+
+	a {
+		font-size: 13px;
+
+		text-decoration: none;
+
+		color: #5bc0be;
+		i {
+			color: white;
+			&:hover {
+			}
+		}
+	}
+
+	h5 {
+		color: #e2e2e2;
+	}
+
+	li a {
+		color: $lg3;
+		&:hover {
+			color: white;
+		}
+	}
+
+	hr {
+		margin: 50px 0 13px;
+
+		border-color: rgba(255, 255, 255, 0.1);
+	}
+
+	.social {
+		padding: 15px 0 10px;
+		a {
+			margin: 0 3px;
+
+			i {
+				font-size: 20px;
+
+				margin: 0 5px;
+
+				opacity: 0.75;
+				color: #fff;
+				&:hover {
+					opacity: 1;
+					color: $primary;
+				}
+			}
+		}
+	}
+
+	.footer-text {
+		font-size: 12px;
+
+		margin-bottom: 0;
+		a {
+			font-size: 12px;
+
+			margin: 0 0 0 10px;
+			&:hover {
+				color: white;
+			}
+		}
+	}
+
+	.footer-companydetails {
+		font-size: 9px;
+
+		margin: 0!important;
+
+		color: rgba(255, 255, 255, 0.48) !important;
+	}
+}
+

@@ -1,0 +1,73 @@
+.p-work {
+	/* Smartphones (portrait and landscape) ----------- */
+
+	//Modiefier - Hero Image background
+	&--heroimgbg {
+		height: 65vh;
+
+		background: linear-gradient(rgba(57, 54, 79, 0.8), rgba(57, 54, 79, 0.9)), url("../img/work-bg.jpg") no-repeat center center;
+		background-position: center;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	}
+
+	&-project {
+		@extend .parallax-container;
+		@include bp(sm) {
+			padding: 5rem 0rem;
+		}
+		@include bp(xs) {
+			padding: 3rem 1rem;
+		}
+
+		.row {
+			padding: 0;
+		}
+
+		h2 {
+			margin: 0;
+
+			@include bp(sm) {
+				font-size: 20px;
+			}
+		}
+
+		h5 {
+			margin-top: 0;
+			margin-bottom: 5px;
+		}
+		p {
+			margin-top: 0;
+		}
+		ul.tags {
+			li {
+				font-size: 12px;
+				line-height: 20px;
+
+				display: inline-block;
+
+				margin-right: 3px;
+				padding: 0 10px;
+
+				border: $lborder;
+				border-radius: 100px;
+			}
+		}
+
+		&__info {
+			padding: 2rem 2rem;
+
+			background: #eee;
+
+			@include bp(sm) {
+				padding: 3rem 3rem;
+			}
+
+			&::before {
+				display: none;
+			}
+		}
+	}
+}

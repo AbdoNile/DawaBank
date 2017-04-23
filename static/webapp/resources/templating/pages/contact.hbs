@@ -1,0 +1,28 @@
+---
+title: Hello
+description: Hello
+menuLink: Contact
+sortOrder: 07
+---
+
+{{#extend "lyt-default"}}
+	{{#content "main"}}
+
+		{{#block "Contact - Hero Block"}}
+			{{> c-contact-hero }}
+		{{/block}}
+
+		{{#block "Contact - Info Block"}}
+			{{> c-contact-map-info }}
+		{{/block}}
+		
+		{{#block "Contact - Form Block"}}
+			{{> c-contact-form }}
+		{{/block}}
+
+		{{#block "CTA - Social media"}}
+			{{> c-contact-social }}
+		{{/block}}
+
+	{{/content}}
+{{/extend}}

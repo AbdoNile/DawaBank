@@ -1,0 +1,114 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to Technology page.
+// -----------------------------------------------------------------------------
+
+.p-technology {
+	@include respond-to(xs) {
+		&--heroimgbg {
+			height: 35vh;
+
+			.c-hero__inner {
+				text-align: center;
+				.c-hero__content {
+					text-align: center;
+				}
+			}
+		}
+	}
+	//Modiefier - Hero Image background
+	&--heroimgbg {
+		height: 45vh;
+
+		background: linear-gradient(rgba(57, 54, 79, 0.8), rgba(57, 54, 79, 0.9)), url("../img/blog-page-hero.jpg") no-repeat center center;
+		background-position: center;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	}
+
+	&-info {
+		padding: 3rem 35px 3rem;
+
+		background: $lg3;
+		.image-fw img {
+			padding: 60px;
+		}
+	}
+
+
+	&-tech {
+		padding: 2rem 0rem;
+
+		color: axetay("navy", dark);
+
+		@include bp(sm) {
+			padding: 5rem 0rem;
+		}
+		@include bp(xs) {
+			padding: 3rem 10px;
+		}
+		h2 {
+			margin-bottom: 3rem;
+		}
+
+		&__info {
+			padding: 0rem 10px 1rem;
+
+			background: transparent;
+
+			@include bp(sm) {
+				padding: 0rem 10px 1rem;
+			}
+
+			&::before {
+				display: none;
+			}
+
+			h5 {
+				margin-top: 0;
+
+				color: axetay("navy", dark);
+			}
+			p {
+				margin-top: 0;
+			}
+			ul.tags {
+				li {
+					font-family: $font3;
+					font-size: 12px;
+					line-height: 20px;
+
+					display: inline-block;
+
+					margin: 5px;
+					padding: 0 15px;
+
+					color: axetay("navy", light);
+					border: $lborder;
+					border-radius: 100px;
+				}
+			}
+		}
+	}
+
+	&-tools {
+		padding: 2rem 0rem;
+
+		background: $lg3;
+
+		&__logo {
+			max-height: 30px;
+			margin: 20px auto;
+
+			text-align: center;
+		}
+
+		&__name {
+			min-height: 30px;
+			margin: 10px 0;
+
+			text-align: center;
+		}
+	}
+}

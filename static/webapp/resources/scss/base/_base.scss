@@ -1,0 +1,141 @@
+// -----------------------------------------------------------------------------
+// This file contains very basic styles.
+// -----------------------------------------------------------------------------
+
+/**
+ * Basic styles for links
+ */
+a {
+	text-decoration: none;
+}
+
+.btn,
+a {
+	-webkit-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+}
+
+/**
+ * Basic styles for input fields
+ */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+	outline: none;
+
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	-webkit-focus-ring-color: none;
+}
+
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+	font: inherit;
+	font-size: 100%;
+
+	margin: 0;
+	padding: 0;
+
+	list-style: none;
+
+	vertical-align: baseline;
+
+	border: 0;
+}
+
+
+
+hr {
+	border: 0;
+	border-top: 1px solid #e9ecef;
+}
+
+
+$vp: 80px;
+$vp-minus: -80px;
+$vp-sm: 60px;
+$vp-sm-minus: -60px;
+$vp-xs: 45px;
+$vp-xs-minus: -45px;
