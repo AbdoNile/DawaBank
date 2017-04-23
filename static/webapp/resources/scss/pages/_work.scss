@@ -58,6 +58,7 @@
 
 		&__info {
 			padding: 1rem;
+			background-color: white;
 			border-bottom: 1px solid #e6e6e6;
 			@include bp(sm) {
 				padding: 3rem 3rem;

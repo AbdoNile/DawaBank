@@ -13906,6 +13906,7 @@ input[type="submit"] {
     border-radius: 100px; }
   .p-work-project__info {
     padding: 1rem;
+    background-color: white;
     border-bottom: 1px solid #e6e6e6; }
     @media (max-width: 991px) {
       .p-work-project__info {
