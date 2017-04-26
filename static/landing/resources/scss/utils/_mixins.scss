@@ -1,0 +1,273 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass mixins.
+// -----------------------------------------------------------------------------
+
+
+@import "mixins/colors";
+
+
+
+// Sass mixin for Google Web Fonts, Usage Example:
+// $font-p: Kavoon;
+// $font-s: Wendy One;
+// $font-t: Bonbon;
+
+//  Or directly:
+// $fonts: Kavoon, Wendy One, Bonbon;
+
+// @include gwf($font-p, $font-s, $font-t);
+
+// .first { 
+//   font-family: Kavoon;
+// }
+
+@mixin gwf($fonts...) {
+  $url: "https://fonts.googleapis.com/css?family=";
+  $nb: 0;
+  
+  @each $font-name in $fonts {
+    $nb: $nb + 1;
+    $nb-word: 0;
+    
+    @each $word in $font-name {
+      $nb-word: $nb-word + 1;
+      $url: $url + $word;
+      
+      @if $nb-word < length($font-name) {
+        $url: $url + "+"; 
+      } 
+    }
+    
+    @if $nb < length($fonts) {
+       $url: $url + "|"; 
+    }
+  }
+  
+  @import url(#{$url});
+}
+
+
+
+
+/* mixin for multiline */
+@mixin multiLineEllipsis($lineHeight: 1.2em, $lineCount: 1, $bgColor: white){
+  overflow: hidden;
+  position: relative;
+  line-height: $lineHeight;
+  max-height: $lineHeight * $lineCount; 
+  text-align: justify;
+  margin-right: -1em;
+  padding-right: 1em;
+  &:before {
+    content: '...';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    width: 1em;
+    height: 1em;
+    margin-top: 0.2em;
+    background: $bgColor;
+  }
+}
+.block-with-text {
+  @include multiLineEllipsis($lineHeight: 1.2em, $lineCount: 3, $bgColor: white);  
+}
+
+
+
+
+
+
+
+/// Event wrapper
+/// @author Harry Roberts
+/// @param {Bool} $self [false] - Whether or not to include current selector
+/// @link https://twitter.com/csswizardry/status/478938530342006784 Original tweet from Harry Roberts
+@mixin on-event($self: false) {
+    @if $self {
+        &,
+        &:hover,
+        &:active,
+        &:focus {
+            @content;
+        }
+    }
+    @else {
+        &:hover,
+        &:active,
+        &:focus {
+            @content;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/// Make a context based selector a little more friendly
+/// @author Hugo Giraudel
+/// @param {String} $context
+@mixin when-inside($context) {
+    #{$context} & {
+        @content;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@mixin respond-to($breakpoint) {
+    @if $breakpoint == "xs" {
+        @media screen and (max-width: 767px) {
+          @content;
+        }
+    }
+
+    @else if $breakpoint == "sm" {
+        @media (min-width: 768px) and (max-width: 991px) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint == "md" {
+        @media (min-width: 992px) and (max-width: 1199px) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint == "lg" {
+        @media screen and (min-width: 1200px) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint == "xlg" {
+      @media screen and (min-width: 1700px) {
+        @content;
+      }
+    }
+
+    @else if $breakpoint == "xxlg" {
+      @media screen and (min-width: 1400px) {
+        @content;
+      }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@mixin t($args...) {
+    -webkit-transition: $args 200ms cubic-bezier(0.694, 0.0482, 0.335, 1);
+    -moz-transition: $args 200ms cubic-bezier(0.694, 0.0482, 0.335, 1);
+    -ms-transition: $args 200ms cubic-bezier(0.694, 0.0482, 0.335, 1);
+    -o-transition: $args 200ms cubic-bezier(0.694, 0.0482, 0.335, 1);
+    transition: $args 200ms cubic-bezier(0.694, 0.0482, 0.335, 1);
+    // usage: @include t(color .3s);
+}
+
+// ----------------------------------
+//   T R A N S I T I O N S
+// ----------------------------------
+@mixin t1 {
+    -webkit-transition: all 200ms cubic-bezier(0.694, 0.0482, 0.335, 1);
+    -moz-transition: all 200ms cubic-bezier(0.694, 0.0482, 0.335, 1);
+    -ms-transition: all 200ms cubic-bezier(0.694, 0.0482, 0.335, 1);
+    -o-transition: all 200ms cubic-bezier(0.694, 0.0482, 0.335, 1);
+    transition: all 200ms cubic-bezier(0.694, 0.0482, 0.335, 1);
+}
+
+@mixin nav {
+    -webkit-transition: all 400ms cubic-bezier(0.694, 0.0482, 0.335, 1);
+    -moz-transition: all 400ms cubic-bezier(0.694, 0.0482, 0.335, 1);
+    -ms-transition: all 400ms cubic-bezier(0.694, 0.0482, 0.335, 1);
+    -o-transition: all 400ms cubic-bezier(0.694, 0.0482, 0.335, 1);
+    transition: all 400ms cubic-bezier(0.694, 0.0482, 0.335, 1);
+}
+
+@mixin navappear {
+    -webkit-transition: visibility 400ms cubic-bezier(0.694, 0.0482, 0.335, 1), opacity 400ms cubic-bezier(0.694, 0.0482, 0.335, 1);
+    -moz-transition: visibility 400ms cubic-bezier(0.694, 0.0482, 0.335, 1), opacity 400ms cubic-bezier(0.694, 0.0482, 0.335, 1);
+    -ms-transition: visibility 400ms cubic-bezier(0.694, 0.0482, 0.335, 1), opacity 400ms cubic-bezier(0.694, 0.0482, 0.335, 1);
+    -o-transition: visibility 400ms cubic-bezier(0.694, 0.0482, 0.335, 1), opacity 400ms cubic-bezier(0.694, 0.0482, 0.335, 1);
+    transition: visibility 400ms cubic-bezier(0.694, 0.0482, 0.335, 1), opacity 400ms cubic-bezier(0.694, 0.0482, 0.335, 1);
+}
+
+@mixin search {
+    -webkit-transition: all 800ms ease;
+    -moz-transition: all 800ms ease;
+    -ms-transition: all 800ms ease;
+    -o-transition: all 800ms ease;
+    transition: all 800ms ease;
+}
+
+@mixin ease {
+    -webkit-transition: 400ms ease;
+    -moz-transition: 400ms ease;
+    -ms-transition: 400ms ease;
+    -o-transition: 400ms ease;
+    transition: 400ms ease;
+}
+
+// ----------------------------------
+//   B R E A K P O I N T S
+// ----------------------------------
+@mixin bp($point) {
+    @if $point==lg {
+        @media (min-width: 1200px) {
+            @content ;
+        }
+    }
+    @else if $point==md {
+        @media (max-width: 1200px) {
+            @content ;
+        }
+    }
+    @else if $point==mdmin {
+        @media (min-width: 991px) {
+            @content ;
+        }
+    }
+    @else if $point==sm {
+        @media (max-width: 991px) {
+            @content ;
+        }
+    }
+    @else if $point==xs {
+        @media (max-width: 767px) {
+            @content ;
+        }
+    }
+}

@@ -1,0 +1,194 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the header of the site/application.
+// -----------------------------------------------------------------------------
+
+//Navigation - block
+.b-navigation {
+	position: relative;
+	z-index: $zindex-navbar-fixed;
+	top: 0;
+
+	display: block;
+
+	width: 100%;
+	height: $navbar-height;
+
+	-webkit-transition: background 0.4s ease,height 0.4s ease;
+	transition: background 0.4s ease,height 0.4s ease;
+
+	//Transparent Background - modifier on parent block (navigation)
+	&--transparent {
+		background-color: transparent!important;
+
+		@extend .b-navigation;
+	}
+
+	//White Background - modifier on parent block (navigation)
+	&--white {
+		background-color: white!important;
+
+		@extend .b-navigation;
+	}
+
+
+
+
+
+
+	//Navigation container - element
+	&__container {
+		line-height: 65px;
+
+		position: relative;
+
+		margin: 0 0;
+		padding-right: 40px;
+		padding-left: 40px;
+
+		@extend .b-navigation;
+		@extend .row; //bootstrap row - extended for markup cleanup
+
+		//modifier - for dark background
+		&--dark {
+			background-color: axetay("navy", light);
+
+			@extend .b-navigation__container;
+		}
+
+		//modifier - for light background
+		&--light {
+			background-color: rgba(255, 255, 255, 0.98);
+
+			@extend .b-navigation__container;
+		}
+
+		//modifier - for transparent background (Over Hero section)
+		&--transparent {
+			background-color: transparent;
+
+			@extend .b-navigation__container;
+		}
+	}
+
+
+
+
+
+
+	//Logo - element
+	&__logo {
+		line-height: $navbar-height + 10px;
+
+		position: relative;
+
+		display: block;
+
+		//Logo Image - element
+		&img {
+			height: 40px;
+		}
+	}
+
+
+	//Navigation menu - element
+	&__menu {
+		line-height: 70px;
+
+		position: relative;
+
+		display: block;
+
+		//Logo Image - element
+		&img {
+			height: $navbar-height - 30px;
+		}
+
+		//Menu Items
+		li {
+			font-size: 15px;
+			font-weight: 300 !important;
+
+			display: inline-block;
+
+			margin-right: 22px;
+			padding-left: 3px;
+
+			list-style: none;
+
+			vertical-align: middle;
+
+			&:last-child {
+				margin-right: 0;
+			}
+
+			a {
+				padding: 30px 15px;
+			}
+		}
+	}
+
+
+	//Navigation menu - element
+	&__menu--responsive {
+		line-height: 70px;
+
+		position: relative;
+
+		display: block;
+
+		//Logo Image - element
+		&img {
+			height: $navbar-height - 30px;
+		}
+
+		//Menu Items
+		li {
+			font-size: 15px;
+			font-weight: 300 !important;
+
+			display: inline-block;
+
+			margin-right: 22px;
+			padding-left: 3px;
+
+			list-style: none;
+
+			vertical-align: middle;
+
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+	}
+}
+
+
+header.headroom--top {
+	position: relative;
+	top: 0;
+}
+
+header.headroom--not-top {
+	position: fixed;
+
+	-webkit-transition: all 400ms cubic-bezier(0.694, 0.0482, 0.335, 1);
+	-moz-transition: all 400ms cubic-bezier(0.694, 0.0482, 0.335, 1);
+	-ms-transition: all 400ms cubic-bezier(0.694, 0.0482, 0.335, 1);
+	-o-transition: all 400ms cubic-bezier(0.694, 0.0482, 0.335, 1);
+	transition: all 400ms cubic-bezier(0.694, 0.0482, 0.335, 1);
+	transition-property: opacity, transform;
+}
+
+header.fixed {
+	z-index: 2000;
+	top: 0;
+
+	transform: translateY(0);
+}
+
+header.unfixed {
+	top: 0;
+
+	transform: translateY(-150%);
+}

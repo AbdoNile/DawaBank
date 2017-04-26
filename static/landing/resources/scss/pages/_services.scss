@@ -1,0 +1,132 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to Services page.
+// -----------------------------------------------------------------------------
+
+.p-services {
+	@include respond-to(xs) {
+		&--heroimgbg {
+			height: 35vh;
+
+			.c-hero__inner {
+				text-align: center;
+				.c-hero__content {
+					text-align: center;
+				}
+			}
+		}
+	}
+	&--heroimgbg {
+		height: 35vh;
+
+		background: linear-gradient(rgba(57, 54, 79, 0.8), rgba(57, 54, 79, 0.9)), url("../img/services-hero.jpg") no-repeat center center;
+		background-position: center;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+
+		.c-hero__inner {
+			.c-hero__content {
+				text-align: left;
+			}
+
+
+
+			.c-hero__content-subheader {
+				font: 400 11px/14px "Poppins", sans-serif;
+
+				margin: 10px 3px 5px;
+
+				letter-spacing: 2.5px;
+				text-transform: uppercase;
+
+				color: rgba(244,245,246,0.8);
+			}
+
+			.c-hero__content-header {
+				font-size: 30px;
+
+				margin-top: 0;
+
+				color: white;
+			}
+		}
+	}
+
+
+
+	&-info {
+		padding: 2rem 25px 2rem;
+		.image-fw img {
+			padding: 60px;
+		}
+	}
+
+
+
+
+
+	&-list {
+		overflow: hidden;
+
+		padding: 4rem 20px 4rem;
+
+		background: $lg3;
+
+		@include respond-to(xs) {
+			text-align: center;
+		}
+
+		&__title {
+			margin-bottom: 30px;
+		}
+
+		&__image {
+			position: absolute;
+			top: 0;
+			left: 0;
+
+			overflow: hidden;
+
+			height: 100%;
+			padding: 0;
+
+			text-align: center;
+
+			img {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+
+				min-width: 100%;
+				min-height: 100%;
+
+				-webkit-transform: translateY(-50%) translateX(-50%);
+			}
+		}
+
+		&__service {
+			h5 {
+				display: inline-block;
+
+				margin-bottom: 7px;
+				margin-left: 15px;
+				padding-bottom: 0;
+			}
+
+			i {
+				font-size: 35px;
+
+				position: relative;
+				top: 9px;
+
+				display: inline-block;
+
+				margin-bottom: 7px;
+				padding-bottom: 0;
+
+				color: #39364f;
+			}
+		}
+	}
+}

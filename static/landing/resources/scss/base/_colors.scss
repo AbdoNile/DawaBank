@@ -1,0 +1,118 @@
+// -----------------------------------------------------------------------------
+// This file contains Axetay brand colours using Sass Maps.
+// -----------------------------------------------------------------------------
+
+
+// Global Color
+// --------------------------------------------------
+// Base Grey Guided Color * change only $base-light
+// --------------------------------------------------
+
+$axetay-colors: (
+  "navy": (
+    "light": #39364f,
+    "dark": #2d2b3f
+  ),
+  "green": (
+    "light": #f8b600,
+    "dark": #d79e00
+  ),
+  "red": (
+    "light": #e7522e,
+    "dark": #c24b2e
+  ),
+
+
+  "sec-grey": (
+    "light": #e3e3e7,
+    "dark": #6f6f71
+  ),
+  "sec-yellow": (
+    "light": #fbe6a4,
+    "dark": #bfae7b
+  ),
+  "sec-red": (
+    "light": #fbcabc,
+    "dark": #c19a90
+  ),
+
+
+  "gray": (
+    "base":#626262,
+    "light": mix(#626262, #fff, 16%),
+    "dark": mix(#626262, #000, 45%)
+  ),
+);
+
+
+//Function to access Sass Map - usage: axetay('swatch',variant)
+//Example - background-color: axetay('navy', dark);
+@function axetay($palette, $tone: "base") {
+	@return map-get(map-get($axetay-colors, $palette), $tone);
+}
+
+
+// Dark Blue's
+$dark1: #0d1422; // Used for H1 & Dark Blocks
+
+$dark2: #1c2541; // Used for H2, H3 & Mid Dark Blocks
+$dark3: #2a3454; // Lighter Dark Blocks
+$dark4: #3b476e; // Used for lines on dark areas and occassional places
+$black: #151617; // Used for alt darks
+
+
+// Nav Dark
+$nav-dark: #060b1b;
+
+
+// Greys
+$grey1: #4b596a; // Used for H5
+$grey2: #606b77; // Used for H6
+$grey3: #868a90; // Used for <p>
+
+
+// Light Greys
+$lg1: #c8ced4; // Defined Light Grey & Header 6 on Dark Background
+$lg2: #e9ecef; // All lines on light background & Paragraph Text on Dark Background
+$lg3: #f5f7f9; // Grey Blocks
+$l-line: $lg2;
+$d-line: $dark4;
+$lborder: 1px solid $l-line;
+$dborder: 1px solid $d-line;
+
+
+
+// White
+$white: #fff; // Backgrounds & H1, H2
+
+
+// Primary Colours
+$primary: #5bc0be; // Used for H4, Regular Links, Borders
+$secondary: #224b7d; // Secondary for text hovers
+
+
+// Shaders
+$shader: rgba(13, 20, 34, 0.9); // Used for shading on top of images and elements
+$navBg: rgba(13, 20, 34, 0.95); // Used for shading on top of images and elements
+
+
+// Typography on Light Background
+$header1: $dark1;
+$header2: $dark2;
+$header3: $dark2;
+$header4: $primary;
+$header5: $grey1;
+$header6: $grey2;
+$p: $grey3;
+$promo-head: $dark2;
+
+
+// Typography on Dark Background
+$header1-w: $white;
+$header2-w: $white;
+$header3-w: $white;
+$header4-w: $primary;
+$header5-w: $white;
+$header6-w: $lg1;
+$p-w: $lg2;
+$promo-head-w: $white;

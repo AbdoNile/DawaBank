@@ -1,0 +1,77 @@
+---
+component: Contact - form Block
+--- 
+
+<section class="p-contact-form">
+
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-md-8">
+
+        <h1>{{contact.form.title}}</h1>
+        <h4>{{contact.form.subtitle}}</h4>
+
+        <form class="contact-form" method="post" action="{{contact.form.action-script}}">
+
+          <div class="input-field col-sm-12">
+            <div class="form-group">
+              <input id="form-name" name="name" type="text" placeholder="{{contact.form.placeholders.name}}" required="required"
+                data-error="Name is required.">
+              <div class="help-block with-errors"></div>
+            </div>
+          </div>
+          <div class="input-field col-sm-6">
+            <div class="form-group">
+              <input id="form-email" name="email" type="email" placeholder="{{contact.form.placeholders.email}}" required="required"
+                data-error="Email is required.">
+              <div class="help-block with-errors"></div>
+            </div>
+          </div>
+          <div class="input-field col-sm-6">
+            <div class="form-group">
+              <input id="form-tel" name="tel" type="tel" placeholder="{{contact.form.placeholders.phone}}" data-error="Please provide real phone number.">
+              <div class="help-block with-errors"></div>
+            </div>
+          </div>
+          <div class="input-field col-sm-12">
+            <div class="form-group">
+              <textarea id="form-textarea" name="Message" id="" cols="30" rows="5" placeholder="{{contact.form.placeholders.message}}"
+                required="required" data-error="Message is required."></textarea>
+              <div class="help-block with-errors"></div>
+            </div>
+          </div>
+          <div class="col-sm-12 xs-center">
+            <input type="submit" value="{{contact.form.button-text}}">
+            <div class="messages"></div>
+          </div>
+
+        </form>
+
+      </div>
+
+      <div class="col-md-3 col-md-offset-1">
+          <h5>{{contact.formsidebar.hqaddress.title}}</h5>
+          <p>{{contact.formsidebar.hqaddress.address}}, {{contact.formsidebar.hqaddress.postcode}}, {{contact.formsidebar.hqaddress.city}}, {{contact.formsidebar.hqaddress.country}}</p>
+          <a target="_blank" href="{{contact.formsidebar.hqaddress.mapsurl}}">{{contact.formsidebar.hqaddress.mapstext}}</a>
+        <hr>
+          <h5>{{contact.formsidebar.careers.title}}</h5>
+          <p class="text-primary">{{contact.formsidebar.careers.status}}</p>
+          <p class="no-margin">{{contact.formsidebar.careers.resumemessage.message}}</p>
+          <a href="{{contact.formsidebar.careers.resumemessage.url}}"><strong>{{contact.formsidebar.careers.resumemessage.link}}</strong></a>
+
+          <hr>
+          <h5>{{contact.formsidebar.quote.title}}</h5>
+          <h5 class="text-muted no-margin no-padding">{{contact.formsidebar.quote.status}}</h5>
+          <p class="no-margin no-padding">{{contact.formsidebar.quote.email}}</p>
+          <p class="no-margin no-padding">{{contact.formsidebar.quote.phone}}</p>
+      </div>
+
+    </div>
+
+  </div>
+
+
+</section>
+

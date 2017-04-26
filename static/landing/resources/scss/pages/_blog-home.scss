@@ -1,0 +1,159 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to blog Home page.
+// -----------------------------------------------------------------------------
+
+
+.p-blog-home {
+	&--heroimgbg {
+		height: 60vh;
+
+		background: linear-gradient(rgba(57, 54, 79, 0.8), rgba(57, 54, 79, 0.9)), url("../img/9.jpeg") no-repeat center center;
+		background-position: center;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	}
+
+	&-postslist {
+		padding: 80px 20px;
+
+		background-color: #f5f7f9;
+
+		&__title {
+			padding-bottom: 40px;
+		}
+
+		&__item {
+			position: relative;
+
+			overflow: hidden;
+
+			-webkit-transition: all 400ms cubic-bezier(0.694, 0.0482, 0.335, 1);
+			-moz-transition: all 400ms cubic-bezier(0.694, 0.0482, 0.335, 1);
+			-ms-transition: all 400ms cubic-bezier(0.694, 0.0482, 0.335, 1);
+			-o-transition: all 400ms cubic-bezier(0.694, 0.0482, 0.335, 1);
+			transition: all 400ms cubic-bezier(0.694, 0.0482, 0.335, 1);
+			transform: scale(0.97);
+
+			border: 1px solid #e9ecef;
+			border-radius: 4px;
+			background: white;
+			box-shadow: 0 5px 30px rgba(0, 0, 0, 0.03);
+
+
+
+			&--thumbnail {
+				overflow: hidden;
+
+				width: 100%;
+
+				-webkit-transition: all 200ms cubic-bezier(0.694, 0.0482, 0.335, 1);
+				-moz-transition: all 200ms cubic-bezier(0.694, 0.0482, 0.335, 1);
+				-ms-transition: all 200ms cubic-bezier(0.694, 0.0482, 0.335, 1);
+				-o-transition: all 200ms cubic-bezier(0.694, 0.0482, 0.335, 1);
+				transition: all 200ms cubic-bezier(0.694, 0.0482, 0.335, 1);
+
+				background: #e9ecef;
+
+				img {
+					display: block;
+
+					width: 100%;
+					height: auto;
+				}
+			}
+
+
+
+			&--article {
+				position: relative;
+
+				padding-right: 25px;
+				padding-left: 25px;
+
+				.tag {
+					font-size: 14px;
+					line-height: 31px;
+
+					position: absolute;
+					top: -46px;
+					right: 16px;
+
+					display: inline-block;
+
+					padding: 0 17px;
+
+					color: white;
+					border-radius: 100px;
+					background: #5bc0be;
+				}
+
+				a {
+					h3 {
+						margin-top: 0;
+					}
+
+					p {
+						font-size: 14px;
+
+						margin-top: 30px;
+						margin-bottom: 0;
+					}
+				}
+
+
+
+				.author {
+					padding: 5px 0;
+				}
+			}
+		}
+	}
+
+	&-newsletter {
+		position: relative;
+
+		width: 100%;
+		padding: 50px 20px;
+
+		text-align: center;
+
+		background: linear-gradient(rgba(57, 54, 79, 0.8), rgba(57, 54, 79, 0.9)), url("../img/blog-backroom.jpg") no-repeat center center;
+		background-position: center;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+
+		@include respond-to(xs) {
+			padding: 30px 20px;
+		}
+
+
+
+		input {
+			margin: 7px 0;
+
+			@include respond-to(xs) {
+				min-width: 45%;
+
+				&[type="text"] {
+					max-width: 100%;
+				}
+			}
+
+			&[type="text"] {
+				width: 100%;
+				max-width: 320px;
+				margin-right: 6px;
+			}
+		}
+
+		.note {
+			font-size: 12px;
+
+			margin: 15px 0;
+		}
+	}
+}

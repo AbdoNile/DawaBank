@@ -1,0 +1,162 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the home page.
+// -----------------------------------------------------------------------------
+
+
+.p-home {
+
+	//for mobile screens
+	@include respond-to(xs) {
+		.p-home__work {
+			padding: 3rem 0rem;
+
+
+			&-blocks {
+				max-height: 180px;
+				margin: 0 auto;
+			}
+
+
+			.h-block-inner {
+				padding: 4rem 0rem 0rem 0rem;
+
+				text-align: center;
+			}
+
+
+			.h-block-inner-title {
+				font-weight: bold;
+
+				display: inline-block;
+
+				margin-bottom: 50px;
+				padding-bottom: 15px;
+
+				opacity: 1;
+				border-bottom: 2px solid #fff;
+			}
+
+
+			&-content {
+				padding: 40px;
+
+				text-align: center;
+
+				&-header {
+					font-size: 18px;
+					font-weight: bold;
+
+					margin: 0.67em 0;
+
+					color: white;
+				}
+
+				&-subheader {
+					font-family: "Open Sans";
+					font-size: 14px;
+
+					margin-top: 2em;
+					margin-bottom: 1.5em;
+
+					color: #fff;
+				}
+
+				&-button {
+					margin-top: 15px;
+				}
+			}
+		}
+	}
+
+
+
+	//Work section
+	&__work {
+		display: block;
+
+		box-sizing: border-box;
+		padding: 9rem 0rem;
+
+		background: linear-gradient(rgba(57, 54, 79, 0.8), rgba(57, 54, 79, 0.9)),url("/img/home-savills.jpg") no-repeat center center;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+
+		&-blocks {
+			margin: 0 auto;
+			margin-top: 10px;
+
+			@extend .img-responsive;
+		}
+
+
+		.h-block-inner {
+			margin-top: 5px;
+			padding: 8rem 10rem;
+
+			text-align: left;
+
+			background: axetay("navy", light);
+		}
+
+		.h-block-inner-title {
+			font-size: 14px;
+			font-weight: Lighter;
+
+			display: inline-block;
+
+			margin-bottom: 10px;
+			padding-bottom: 0;
+
+			opacity: 0.9;
+			color: #fff;
+		}
+
+
+		&-content {
+			text-align: left;
+
+			&-header {
+				font-weight: bold;
+
+				color: white;
+			}
+
+			&-subheader {
+				font-family: "Open Sans";
+				font-size: 16px;
+
+				margin-top: 1em;
+				margin-bottom: 1.5em;
+
+				color: #fff;
+			}
+
+			&-button {
+				font-family: "Open Sans";
+				font-size: 14px;
+
+				margin-top: 0;
+				padding: 9px 12px;
+
+				color: #fff!important;
+				border: 1px solid  #6e6c7e;
+				border-radius: 6px;
+
+				@extend .btn;
+				@extend .btn-primary;
+
+
+				&:hover {
+					padding: 9px 12px;
+
+					color: #fff !important;
+					border: 1px solid #6e6c7e;
+					border-radius: 6px;
+				}
+			}
+		}
+	}
+	//Work section
+}

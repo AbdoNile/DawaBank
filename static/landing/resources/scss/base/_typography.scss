@@ -1,0 +1,590 @@
+
+
+// Fonts
+$font1: "Poppins",sans-serif;
+$font3: "Montserrat",sans-serif;
+$font2: "Open Sans",sans-serif;
+
+// Headers
+$h1: 600 37px/48px $font3;
+$h2: 600 30px/40px $font3;
+$h3: 400 18px/29px $font3;
+$h4: 300 20px/29px $font2;
+$h5: 400 11px/14px $font1;
+$h6: 300 20px/32px $font2;
+$h1-xs: 600 26px/37px $font3;
+$h2-xs: 600 22px/32px $font3;
+$h4-xs: 300 17px/25px $font2;
+$h6-xs: 300 15px/25px $font2;
+
+// Paragraph
+$p1: 400 16px/26px $font2;
+
+// Promo Heading
+$promo-heading: 600 23px/34px $font1;
+$promo-heading-xs: 600 19px/25px $font1;
+
+// Navigation
+$nav: 600 12px/21px $font1;
+$nav-mobile: 600 25px/37px $font1;
+$nav-mobile2: 600 18px/33px $font1;
+$nav-mobile3: 600 15px/29px $font1;
+// --
+
+
+
+
+// Start
+:focus {
+	text-decoration: none !important;
+
+	outline: none;
+}
+
+.title {
+	position: relative;
+
+	text-align: center;
+
+	@include respond-to(xs) {
+		padding-bottom: 0;
+	}
+}
+
+.title-with-button {
+	padding-bottom: 20px;
+
+	@include respond-to(xs) {
+		padding-bottom: 5px;
+	}
+	.btn {
+		position: relative;
+
+		float: right;
+
+		margin-top: 0;
+
+		@include respond-to(xs) {
+			display: none;
+		}
+	}
+}
+
+nav li a {
+	font: $nav;
+
+	letter-spacing: 1.5px;
+	text-transform: uppercase;
+
+	@include respond-to(sm) {
+		font: $nav-mobile;
+
+		letter-spacing: 0;
+		text-transform: initial;
+	}
+}
+
+nav.minimal li a {
+	font: $nav-mobile;
+
+	letter-spacing: 0;
+	text-transform: initial;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+input,
+i,
+textarea,
+ul,
+blockquote {
+	margin: 0;
+
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+p,
+a,
+input,
+label,
+span,
+textarea,
+blockquote {
+	font: $p1;
+}
+
+
+label {
+	font-size: 14px;
+
+	color: $primary;
+}
+
+h1 {
+	font: $h1;
+
+	margin: 15px 0;
+
+	color: $header1;
+
+	@include respond-to(xs) {
+		font: $h1-xs;
+	}
+	&.h2 {
+		font: $h2;
+	}
+	&.h3 {
+		font: $h3;
+	}
+}
+
+h2 {
+	font: $h2;
+
+	margin: 10px 0;
+
+	color: $header2;
+
+	@include respond-to(xs) {
+		font: $h2-xs;
+	}
+}
+
+h3 {
+	font: $h3;
+
+	margin: 20px 0 15px;
+
+	color: $header3;
+
+	@include respond-to(xs) {
+		margin: 5px 0;
+	}
+}
+
+h4 {
+	font: $h4;
+
+	margin: 15px 0;
+
+	color: $header4;
+
+	@include respond-to(xs) {
+		font: $h4-xs;
+	}
+}
+
+h5 {
+	font: $h5;
+
+	margin: 20px 0 20px;
+
+	letter-spacing: 2.5px;
+	text-transform: uppercase;
+
+	color: $header5;
+}
+
+.primary h5 {
+	color: white !important;
+}
+
+h6 {
+	font: $h6;
+
+	margin: 10px 0;
+
+	color: $header6;
+
+	@include respond-to(xs) {
+		font: $h6-xs;
+	}
+}
+
+.promo-heading {
+	font: $promo-heading;
+
+	display: inline-block;
+
+	margin: 15px 0;
+
+	color: $promo-head;
+
+	@include respond-to(xs) {
+		font: $promo-heading-xs;
+	}
+}
+
+blockquote {
+	font-weight: 700;
+	font-style: italic;
+
+	display: block;
+
+	margin: 25px 0;
+	padding: 10px 25px;
+
+	color: $grey3;
+	border-left: 4px solid $lg2;
+}
+
+pre {
+	margin: 30px 0;
+	padding: 15px;
+}
+
+p {
+	font: $p1;
+
+	margin: 15px 0;
+
+	color: $p;
+	a {
+		margin: 0;
+
+		text-decoration: underline;
+	}
+}
+
+ul.list {
+	li {
+		font-family: $font2;
+		font-style: italic;
+
+		margin: 7px 0;
+
+		color: $p;
+	}
+}
+
+ul.list2 {
+	padding: 4px 0;
+	li {
+		font-family: $font2;
+		font-size: 15px;
+		font-style: italic;
+
+		margin: 10px 0;
+
+		color: $p;
+		color: $primary;
+		&::before {
+			font-family: "Ionicons";
+			font-size: 20px;
+			font-style: normal;
+
+			position: relative;
+			top: 2px;
+
+			margin-right: 15px;
+
+			content: "\f3fe";
+
+			color: $primary;
+		}
+	}
+}
+
+i {
+	font-size: 25px;
+
+	color: $primary;
+}
+
+.dark1,
+.dark2,
+.dark3,
+.dark,
+.primary,
+.masonry .project-info {
+	h1 {
+		color: $header1-w;
+	}
+	h2 {
+		color: $header2-w;
+	}
+	h3 {
+		color: $header3-w;
+	}
+	h4 {
+		color: $header4-w;
+	}
+	h5 {
+		color: $header5-w;
+	}
+	h6 {
+		color: $header6-w;
+	}
+	p,
+	ul li {
+		color: $p-w;
+	}
+	.promo-heading {
+		color: $promo-head-w;
+	}
+}
+
+.primary a.btn {
+	border-color: #fff;
+	span {
+		font-weight: bold;
+
+		color: #fff;
+	}
+	&:hover span {
+		font-weight: bold;
+
+		color: $primary;
+	}
+	&::after {
+		background-color: #fff;
+	}
+}
+
+//
+// Links
+//
+a {
+	font: $p1;
+
+	margin: 0 0;
+
+	text-decoration: none;
+
+	color: #39364f;
+
+	@include t1;
+	&:hover {
+		text-decoration: none;
+
+		color: $secondary;
+	}
+}
+
+
+
+
+
+
+
+//
+// Buttons
+//
+a.btn {
+	position: relative;
+
+	display: inline-block;
+
+	margin-left: 15px;
+	padding: 5px 25px 5px;
+
+	text-decoration: none;
+
+	border: 2px solid $primary;
+	border-radius: 8px;
+	background: none;
+
+	@include t1;
+	@include bp(xs) {
+		min-width: 46%;
+		padding: 13px 20px 14px;
+
+		text-align: center;
+		&::after {
+			width: 100%;
+
+			opacity: 1;
+		}
+		span {
+			color: white;
+		}
+	}
+	&:first-of-type {
+		margin-left: 0;
+	}
+	span {
+		font: 400 14px/26px "Open Sans", sans-serif;
+		font-weight: bold;
+
+		position: relative;
+		z-index: 3;
+
+		color: $primary;
+	}
+	&::after {
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		width: 0;
+		height: 100%;
+
+		content: "";
+
+		opacity: 0;
+		background: $primary;
+
+		@include t1;
+	}
+	&:hover {
+		text-decoration: none;
+
+		color: white;
+		span {
+			color: white;
+		}
+		&::after {
+			width: 100%;
+
+			opacity: 1;
+		}
+	}
+
+	&.primary {
+		border: 2px solid axetay("red",light)!important;
+
+		@include bp(xs) {
+			span {
+				color: axetay("navy",dark);
+			}
+		}
+
+		span {
+			font: 400 14px/26px "Open Sans", sans-serif;
+
+			position: relative;
+			z-index: 3;
+
+			color: axetay("red",light);
+		}
+
+		&::after {
+			background: axetay("red",light);
+
+			@include t1;
+		}
+
+		&:hover {
+			color: axetay("navy",light);
+			span {
+				color: axetay("navy",light);
+			}
+			&::after {
+				width: 100%;
+
+				opacity: 1;
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+.headroom--top a.btn.white {
+	border-color: white;
+	span {
+		color: white;
+	}
+}
+
+.primary a.btn {
+	@include respond-to(xs) {
+		span {
+			color: $primary;
+		}
+	}
+}
+
+a.btn.alt {
+	border-color: $lg2;
+
+	@include t1;
+	span {
+		color: $p;
+	}
+	&::after {
+		background: transparent;
+	}
+	&:hover {
+		border-color: $lg1;
+		span {
+			color: $grey3;
+		}
+	}
+}
+
+.dark1,
+.dark2,
+.dark3 {
+	a.btn.alt {
+		border-color: $dark3;
+		span {
+			color: $grey3;
+		}
+		&:hover {
+			span {
+				color: white;
+			}
+		}
+	}
+}
+
+// section a.btn:nth-child(odd) {
+//    margin-left: 15px;
+//    @include respond-to(xs) {
+//       margin-left: 0;
+//       margin-top: 0px;
+//    }
+// }
+.primary {
+	color: $primary;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+blockquote {
+	font-weight: 700;
+	font-style: italic;
+
+	display: block;
+
+	margin: 25px 0;
+	padding: 10px 25px;
+
+	color: #868a90;
+	border-left: 4px solid #e9ecef;
+}
+
+
+pre {
+	font-family: "Inconsolata";
+
+	margin: 30px 0;
+	padding: 15px;
+}

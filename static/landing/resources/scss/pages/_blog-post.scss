@@ -1,0 +1,264 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to blog Single post page.
+// -----------------------------------------------------------------------------
+
+
+.p-blog-post {
+	&--heroimgbg {
+		height: 60vh;
+
+		background: transparent!important;
+		background-position: center;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+
+		@extend .parallax-container;
+		@extend .dark;
+		@extend .c-hero--fullheight;
+		@include respond-to(xs) {
+			height: 40vh;
+		}
+	}
+
+
+	&-info {
+		z-index: 2;
+
+		display: block;
+
+		margin-top: -90px;
+
+		@include respond-to(xs) {
+			margin-top: 0;
+		}
+		@extend .dark;
+
+
+		h5 {
+			margin: 0;
+			padding: 0;
+		}
+
+		//Block - Contact Detail Info
+		&__block {
+			display: block;
+
+			padding: 3rem 3rem;
+
+			background: white;
+
+
+
+			//Modifier - Phone Block
+			&--title {
+				background: #1c3440;
+
+				@include respond-to(xs) {
+					padding: 3rem 1rem 3rem;
+
+					text-align: center;
+				}
+				p {
+					margin: 0 0;
+				}
+			}
+
+
+
+
+
+
+
+			//Modifier - Location Block
+			&--author {
+				padding: 2rem 1rem 2rem;
+
+				background: #39364f;
+
+				@include respond-to(xs) {
+					padding: 1rem 0rem 1rem;
+				}
+
+				h2 {
+					margin-bottom: 20px;
+				}
+				h5 {
+					margin: 15px 0 5px;
+
+					color: rgba(255, 255, 255, 0.68);
+				}
+				p {
+					margin-top: 0;
+					margin-bottom: 0;
+				}
+				a {
+					font: 600 16px/26px "poppins", sans-serif;
+
+					position: relative;
+
+					display: block;
+
+					margin-top: 0;
+				}
+
+
+				.article-short {
+					position: relative;
+
+					padding: 10px 20px 10px 100px;
+
+					@include respond-to(xs) {
+						padding: 10px 20px 10px 90px;
+					}
+
+					.user-pic img {
+						position: absolute;
+						top: 10px;
+						left: 20px;
+
+						width: 60px;
+						height: 60px;
+
+						border-radius: 100px;
+
+						@include respond-to(xs) {
+							top: 12px;
+							left: 20px;
+
+							width: 50px;
+							height: 50px;
+						}
+					}
+
+					p,
+					h3 {
+						margin: 0;
+					}
+				}
+			}
+		}
+	}
+
+
+	&-content {
+		z-index: 1;
+
+		&-body {
+			padding: 3rem 4rem 3rem;
+
+			background: $lg1;
+
+			@extend .row;
+			@include respond-to(xs) {
+				padding: 2rem;
+			}
+
+			img {
+				margin: 2rem auto;
+
+				@extend .img-responsive;
+				@extend .image-fw;
+				@extend .row;
+			}
+
+			p {
+				font-family: "Open Sans",Georgia,Cambria,"Times New Roman",Times,serif;
+				font-weight: 400;
+				font-style: normal;
+				line-height: 1.5;
+
+				letter-spacing: 0.01rem;
+				letter-spacing: -0.003em;
+
+				color: axetay("navy",dark);
+			}
+		}
+	}
+
+	//Modifier - for Blog post
+	&--social-share {
+		border-top: 1px solid #e9ecef;
+		border-bottom: 1px solid #e9ecef;
+
+		.p-cta-social__icons a i {
+			font-size: 30px;
+
+			margin-left: 50px;
+
+			@include respond-to(xs) {
+				margin-left: 25px;
+			}
+		}
+	}
+
+	// Comment Listing
+	&-comment-list {
+		padding: 2rem 0;
+
+		@include respond-to(xs) {
+			padding: 2rem 0;
+		}
+
+		.comment {
+			position: relative;
+
+			margin: 15px auto;
+			padding: 15px 50px;
+
+			border: 1px solid #e9ecef;
+			border-radius: 4px;
+			background: white;
+
+			@include respond-to(xs) {
+				padding: 15px 30px;
+			}
+
+			.date-posted {
+				font-size: 13px;
+
+				margin-top: 0;
+			}
+
+			h4 {
+				margin-bottom: 0;
+			}
+
+			img {
+				position: absolute;
+				top: 37px;
+				left: 25px;
+
+				width: 50px;
+				height: 50px;
+
+				border-radius: 100px;
+			}
+
+			.reply {
+				position: absolute;
+				top: 15px;
+				right: 25px;
+			}
+		}
+
+		ol.children {
+			margin-left: 50px;
+
+			@include bp(sm) {
+				margin-left: 30px;
+			}
+			@include bp(xs) {
+				margin-left: 15px;
+			}
+			li {
+				list-style: none;
+			}
+		}
+
+		&__form {
+			margin: 2rem 0  0;
+		}
+	}
+}
