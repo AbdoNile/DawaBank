@@ -24,9 +24,7 @@ class CheckInput extends baseControl {
                             </div>
                         </div>
                     </div>
-  }
-
- 
+      }
 }
 
 export default CheckInput;

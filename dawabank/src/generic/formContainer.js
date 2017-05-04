@@ -2,10 +2,7 @@ import React from 'react';
 import baseControl from './baseControl';
 class FormContainer extends baseControl {
     
-  extractCurrentValue = (event) => {
-    return event.target.value;
-  }
-
+ 
   liftStateUp = (datum) => {
     var newContext =  Object.assign({}, this.state.boundValue , datum);
      this.handleChange({target :{ value : newContext } });

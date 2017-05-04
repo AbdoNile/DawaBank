@@ -10,7 +10,7 @@ var offers = require('./routes/offers');
 var medications = require('./routes/medications');
 var db = require('./services/db');
 
-var error_handler = require('./middle_ware/error_handlers');
+var error_handler = require('./middleware/error_handlers');
 
 var app = express();
 
