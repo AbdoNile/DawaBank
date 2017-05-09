@@ -8,7 +8,6 @@ import Acknowledge from './partials/acknowledge';
 
 import OfferService from '../../services/offerService';
 
-
 class MaintainOffer extends React.Component {
   constructor() {
     super();
@@ -45,7 +44,6 @@ class MaintainOffer extends React.Component {
 
     return (
       <div className="row">
-
         <PanelGroup>
           <Panel header="Step 1 : Enter Medicine Details">
             <Medication product={this.state.data.product} onUpdate={this.offerUpdated}/> {(medication && <Collapse in={medication != null} timeout={1000}>
@@ -70,16 +68,16 @@ class MaintainOffer extends React.Component {
             <Location location={this.state.data.location} onChange={this.offerUpdated}/>
           </Panel>
 
-          <Well>
+          <Panel header="Step 3 : Specify Pickup Location">
             <Acknowledge
               acknowledge={this.state.data.acknowledge}
               onUpdate={this.offerUpdated}/>
             <button onClick={this.saveOffer}>Save</button>
-          </Well>
+          </Panel>
         </PanelGroup>
         
         <hr/>
-        <pre>{JSON.stringify(this.state.data, null, 2) }</pre>
+        <pre>{JSON.stringify(this.state.data, null, 2)}</pre>
       </div>
     );
   }

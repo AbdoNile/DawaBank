@@ -3,7 +3,7 @@ import FormField from '../../../generic/formField';
 import FormContainer from '../../../generic/formContainer';
 import Wrapper from '../../../generic/controlWrapper/wrapper';
 
-import ProductLookup from '../../productLookup';
+import ProductLookup from '../../common/productLookup';
 
 class Medication extends React.Component {
   constructor(props) {
