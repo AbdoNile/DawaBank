@@ -1,0 +1,61 @@
+//
+// Pager pagination
+// --------------------------------------------------
+
+
+.pager {
+	margin: $line-height-computed 0;
+	padding-left: 0;
+
+	list-style: none;
+
+	text-align: center;
+
+	@include clearfix;
+	li {
+		display: inline;
+		> a,
+		> span {
+			display: inline-block;
+
+			padding: 5px 14px;
+
+			border: 1px solid $pager-border;
+			border-radius: $pager-border-radius;
+			background-color: $pager-bg;
+		}
+
+		> a:hover,
+		> a:focus {
+			text-decoration: none;
+
+			background-color: $pager-hover-bg;
+		}
+	}
+
+	.next {
+		> a,
+		> span {
+			float: right;
+		}
+	}
+
+	.previous {
+		> a,
+		> span {
+			float: left;
+		}
+	}
+
+	.disabled {
+		> a,
+		> a:hover,
+		> a:focus,
+		> span {
+			cursor: $cursor-disabled;
+
+			color: $pager-disabled-color;
+			background-color: $pager-bg;
+		}
+	}
+}

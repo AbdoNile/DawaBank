@@ -1,0 +1,83 @@
+//
+// Code (inline and block)
+// --------------------------------------------------
+
+
+// Inline and block code styles
+code,
+kbd,
+pre,
+samp {
+	font-family: $font-family-monospace;
+}
+
+// Inline code
+code {
+	font-size: 90%;
+
+	padding: 2px 4px;
+
+	color: $code-color;
+	border-radius: $border-radius-base;
+	background-color: $code-bg;
+}
+
+// User input typically entered via keyboard
+kbd {
+	font-size: 90%;
+
+	padding: 2px 4px;
+
+	color: $kbd-color;
+	border-radius: $border-radius-small;
+	background-color: $kbd-bg;
+	box-shadow: inset 0 -1px 0 rgba(0,0,0,0.25);
+
+	kbd {
+		font-size: 100%;
+		font-weight: bold;
+
+		padding: 0;
+
+		box-shadow: none;
+	}
+}
+
+// Blocks of code
+pre {
+	font-size: ($font-size-base - 1); // 14px to 13px
+	line-height: $line-height-base;
+
+	display: block;
+
+	margin: 0 0 ($line-height-computed / 2);
+	padding: (($line-height-computed - 1) / 2);
+
+	word-wrap: break-word;
+	word-break: break-all;
+
+	color: $pre-color;
+	border: 1px solid $pre-border-color;
+	border-radius: $border-radius-base;
+	background-color: $pre-bg;
+
+	// Account for some code outputs that place code tags in pre tags
+	code {
+		font-size: inherit;
+
+		padding: 0;
+
+		white-space: pre-wrap;
+
+		color: inherit;
+		border-radius: 0;
+		background-color: transparent;
+	}
+}
+
+// Enable scrollable blocks of code
+.pre-scrollable {
+	overflow-y: scroll;
+
+	max-height: $pre-scrollable-max-height;
+}

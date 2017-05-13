@@ -2,7 +2,8 @@ import React from 'react';
 import { Well} from 'react-bootstrap';
 import FormContainer from '../../generic/formContainer';
 import Wrapper from '../../generic/controlWrapper/wrapper';
-import ProductLookup from '../productLookup';
+import ProductLookup from '../common/productLookup';
+
 class SearchBox extends React.Component {
     constructor(props) {
         super(props);
@@ -28,7 +29,6 @@ class SearchBox extends React.Component {
                 </div>;
     }
 
- 
 }
 
 export default SearchBox;

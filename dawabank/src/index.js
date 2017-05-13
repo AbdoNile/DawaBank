@@ -2,6 +2,8 @@ import React from 'react';
 import {render} from 'react-dom';
 import RouteMap from './routeMap';
 
+//Import CSS
+import './stylesheets/main.scss'
 
 class App extends React.Component {
     render () {
