@@ -59,3 +59,7 @@ typings/
 
 .vscode/chrome/*
 /dawabank/.vscode
+
+dawabank/\.eslintrc\.json
+
+\.vscode/settings\.json
