@@ -8,7 +8,7 @@ class Theatre extends React.Component {
       <div>
         <TopNavBar/>
 
-        <div className="container">
+        <div className="container-fluid no-padding no-margin">
           {this.props.children}
         </div>
         

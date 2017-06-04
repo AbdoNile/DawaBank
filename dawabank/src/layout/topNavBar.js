@@ -5,7 +5,7 @@ import {LinkContainer} from 'react-router-bootstrap';
 class TopNavBar extends React.Component {
   render() {
     return (
-      <Navbar collapseOnSelect>
+      <Navbar className="no-margin" collapseOnSelect>
         
         <Navbar.Header>
           <Navbar.Brand>Dawa Bank</Navbar.Brand>

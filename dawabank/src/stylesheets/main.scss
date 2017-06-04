@@ -1,5 +1,8 @@
 @charset 'UTF-8';
 
+// BEM Constructor
+@import 'vendor/bem-constructor';
+
 // 1. Configuration and helpers
 @import
   'abstracts/functions',
@@ -27,7 +30,8 @@
 
 // 5. Components
 @import
-  'components/button';
+  'components/button',
+  'components/listItem';
 
 // 6. Page-specific styles
 @import

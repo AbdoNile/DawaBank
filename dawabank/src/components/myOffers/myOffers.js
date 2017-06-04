@@ -8,38 +8,36 @@ import ListContainer from '../listing/listContainer';
 class MyOffers extends React.Component {
  constructor() {
     super();
-        this.state = { offers: [] };
-
-  }
-  render() {
-    return <div>
-        {this.state.confirm}
-        <h2>My Offers</h2>
-        <ListContainer offers={this.state.offers} deleteHandler={this.deleteOffer}/>
-    </div>;
+    this.state = { offers: [] };
   }
     
   deleteOffer = (offer) => {
-      var modelProps = { heading : 'Confirm Deletion' , body : 'are you sure to want to delete this offer?'};
-      var thisComponent = this;
-      InteractionUtility.confirm(this, modelProps).then(function(result){
-          OfferService.DeleteOffer(offer.Id);
-          thisComponent.refreshOffers();
-      });
-
-    
+    var modelProps = { heading : 'Confirm Deletion' , body : 'are you sure to want to delete this offer?'};
+    var thisComponent = this;
+    InteractionUtility.confirm(this, modelProps).then(function(result){
+        OfferService.DeleteOffer(offer.Id);
+        thisComponent.refreshOffers();
+    });
   }
 
   refreshOffers = () => {
-        OfferService.FindOffers().then((offers) => {
-            this.setState({ offers });
-        });
-        
-  
+    OfferService.FindOffers().then((offers) => {
+        this.setState({ offers });
+    });
   }
 
   componentDidMount() {
     this.refreshOffers();
+  }
+
+
+  render() {
+    return (
+        <div>
+            {this.state.confirm}
+            <ListContainer offers={this.state.offers} deleteHandler={this.deleteOffer}/>
+        </div>
+    )
   }
   
 }

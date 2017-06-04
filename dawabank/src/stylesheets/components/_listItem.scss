@@ -1,0 +1,68 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the Dawa single Item component.
+// -----------------------------------------------------------------------------
+// Variables:
+$listItem-bg: #FFFFFF;
+$listItem-border: #F1F1F0;
+$listItem-tradeName: #3A3A3A;
+$listItem-genericName: #868383;
+$listItem-addressNote : #737272;
+
+
+@include component('listItem') {
+    background: $listItem-bg;
+    border: 1px solid $listItem-border;
+    box-sizing: border-box;
+    width: 100%; 
+    padding: 20px 25px 15px;
+    
+    // If it's an alternative medicine with the same generic name.
+    @include state('alt-generic') {
+        opacity: 0.7;
+    }
+    
+    /* Medicine Name */
+    @include element ('tradeName') {
+        font-family: $text-font-stack;
+        font-weight: normal;
+        font-size: $font-size-h4;
+        line-height: 100%;
+        color: $listItem-tradeName;
+        margin-bottom: 5px;
+    }
+
+
+    /* Generic Name */
+    @include element ('genericName') {
+        font-family: $text-font-stack;
+        font-weight: 300;
+        font-size: $font-size-small;
+        line-height: 100%;
+        color: $listItem-genericName;
+    }
+    /* Doner Address */
+    @include element ('address') {
+        font-family: $text-font-stack;
+        font-weight: 300;
+        font-size: $font-size-small;
+        color: $listItem-tradeName;
+        margin: 10px auto;
+    }
+
+
+    /* Doner Address */
+    @include element ('noteTitle') {
+        font-family: $text-font-stack;
+        font-weight: bolder;
+        font-size: $font-size-small;
+        color: $gray-darker;
+    }
+    
+    /* Doner Address */
+    @include element ('noteText') {
+        font-family: $text-font-stack;
+        font-weight: 200;
+        font-size: $font-size-small;
+        color: $listItem-addressNote;
+    }
+}
