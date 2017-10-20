@@ -21,7 +21,7 @@
             "type": "node",
             "request": "attach",
             "skipFiles": [
-                "node_modules\\*.*"
+                "*\\node_modules\\*.*"
             ],
             "name": "Attach to Process",
             "address": "localhost",

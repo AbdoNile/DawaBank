@@ -1,5 +1,6 @@
 var db = require('./db');
 var Offer = require('../models/offer.model');
+var user_service = require('./user_service');
 var _ = require('lodash');
 
 var offer_service = {
@@ -10,8 +11,11 @@ var offer_service = {
         var offer = new Offer(input);
         offer.save(offer, function(err){
             if(err == null){
-                cb()
-            }else{
+                user_service.addAddress("12",  input.location,function(){
+                    cb(offer);
+                });
+            } 
+            else{
                 cb(err)
             }
         });
@@ -20,5 +24,6 @@ var offer_service = {
         Offer.findByIdAndRemove(id, cb);
     }
 }
+
 
 module.exports = offer_service;

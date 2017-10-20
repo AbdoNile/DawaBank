@@ -14,6 +14,7 @@ exports.connect = function(url) {
     }
      else {
         console.log('Conncected to mongo db');
+        mongoose.set('debug', true);
       }
     });
   }
