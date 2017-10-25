@@ -33,7 +33,7 @@ class ProductLookup extends baseControl {
 
   onSelect = (searchTerm, item) => {
     this.handleChange({item});
-    this.setState({searchTerm: item.trade_name});
+    this.setState({searchTerm: item.searchableName});
   };
 
   renderMenu = (items, value, style) => {
@@ -47,8 +47,8 @@ class ProductLookup extends baseControl {
   }
 
   renderItem = (item, isHighlighted) => {
-    return <ListGroupItem header={item.trade_name} active={isHighlighted} key={item._id}>
-      {item.generic_name}
+    return <ListGroupItem header={item.tradeName} active={isHighlighted} key={item.medicationId}>
+      {item.genericName}
     </ListGroupItem>
   };
 
@@ -63,14 +63,15 @@ class ProductLookup extends baseControl {
         inputProps={{
             className: "form-control input-sm"
         }}
+        autoHighlight="true"
         ref="autocomplete"
         value={this.state.searchTerm}
         items={this.state.suggestions}
-        getItemValue={(item) => item._id}
+        getItemValue={(item) => item.medicationId}
         onSelect={this.onSelect}
         onChange={this.findSuggestions}
         renderMenu={this.renderMenu}
-        renderItem={this.renderItem}/>
+        renderItem={this.renderItem} />
     )
   }
 }

@@ -11,7 +11,7 @@ const SiteSettings = {
 
     },
     api : {
-        address : "http://localhost:3030"
+        address : "http://localhost:5000/api/"
     },
     authentication : {
         google : {

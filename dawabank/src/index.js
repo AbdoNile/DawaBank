@@ -3,7 +3,7 @@ import {render} from 'react-dom';
 import RouteMap from './routeMap';
 
 //Import CSS
-import './stylesheets/main.scss'
+import './sass/app.scss'
 
 class App extends React.Component {
     render () {
