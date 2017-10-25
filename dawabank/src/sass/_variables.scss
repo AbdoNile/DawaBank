@@ -1,0 +1,85 @@
+
+// General COLORS VARIABLES
+$white:             #ffffff;
+$curiousBlue:       #3498DB;
+$cinnabar:          #E74C3C;
+$buttercup:         #f1c40f;
+$downy:             #66bed0;
+$shamrock:          #2ECC71;
+$doveGray:          #666666;
+$mineShaft:         #333333;
+$porcelain:         #ecf0f1;
+$alto:              #dddddd;
+$galery:            #eeeeee;
+$wildSand:          #f5f5f5;
+$dustyGray:         #999999;
+
+
+// Site Specific Colors
+$primaryColor:      #9955e6;
+$secondaryColor:    #4dc9cb;
+
+
+
+// FONTS VARIABLES
+$bodyFont:      'Raleway', sans-serif;
+$mIcon:         'Material-Design-Iconic-Font';
+
+
+// Responsive Variables
+$desktopLarge:      1440px;
+$desktopSmall:      991px;
+$tablet:            767px;
+$phablet:           602px;
+$mobileLarge:       479px;
+$mobileMedium:      375px;
+$mobileSmall:       320px;
+
+//function for mobile phone landscape breakpoint
+@mixin mobileLandscape($breakpoint){
+    @if $breakpoint == "mobileLandscape"{
+        @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+            @content;
+        }
+    }
+}
+
+@mixin maxHeight($height){
+    @if $height == 900px {
+        @media screen and ( max-width: 2000px ) and ( max-height: 900px ) {
+            @content;
+        }
+    }
+
+    @if $height == 700px {
+        @media screen and ( max-width: 2000px ) and ( max-height: 700px ) {
+            @content;
+        }
+    }
+
+    @if $height == 600px {
+        @media screen and ( max-width: 2000px ) and ( max-height: 600px ) {
+            @content;
+        }
+    }
+}
+
+//usecase example for the above breapoint function ...
+@include mobileLandscape("mobile-landscape") {
+    //styles goes here for the selector
+}
+
+
+// LAYOUT SETTINGS
+$susy: (
+    flow: ltr,
+    // container: 1200px,
+    math: fluid,
+    // math: static,
+    columns: 12,
+    column-width: 70px,
+    gutters: 3/7,
+    output: float,
+    gutter-position: split,
+    global-box-sizing: border-box
+);
