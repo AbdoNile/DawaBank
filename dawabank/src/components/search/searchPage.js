@@ -13,7 +13,9 @@ class SearchPage extends React.Component {
 
   }
   render() {
-    return (this.state.offers != null && <div>
+    return (this.state.offers != null && 
+    <div className="container">
+		<h1 className="page-title"><i className="mIcon">&#xf1c3;</i>Search Results</h1>
         {this.state.confirm}
         <SearchBox/>
         <ListContainer offers={this.state.offers} deleteHandler={this.deleteOffer}/>
