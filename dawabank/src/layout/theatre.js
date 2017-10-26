@@ -8,9 +8,9 @@ class Theatre extends React.Component {
       <div>
         <TopNavBar/>
 
-        <div className="container">
+        <main className="container">
           {this.props.children}
-        </div>
+        </main>
         
         <Footer/>
       </div>

@@ -2,7 +2,7 @@ import React from 'react';
 
 class Footer extends React.Component {
   render() {
-    return <p></p>;
+    return <div> <footer>Copyright © 2017 Dawa Bank</footer></div>;
   }
 }
 
