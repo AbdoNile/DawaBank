@@ -20,32 +20,44 @@ class ListContainer extends React.Component {
         return  <ListItem item={item}  deleteHandler={this.props.deleteHandler} key={item._id} />
     }, this) : null;
 
-    return <div className="row">
-              {(items.length > 0) &&
-                <div className="col-sm-4">
-                    <LocationPicker readOnly boundValue={pins}  containerElement={this.containerElement} 
-                        loadingElement={this.loadingElement} dataElement="coordinates" singleLocation />
+    return  (
+        //(items.length > 0) &&
+        <div className="section other_medicines">
+            <div className="row same_height">
+                <div className="col-sm-6 col-xs-12">
+                        <LocationPicker readOnly boundValue={pins}  containerElement={this.containerElement} 
+                        loadingElement={this.loadingElement} dataElement="coordinates" singleLocation />    
                 </div>
-              }
-            
-            <div className="col-sm-8">
-                <div className="table-responsive">
-                    <table className="table">
-                        <thead>
-                            <tr>
-                                <th>Medication </th>
-                                <th>Quantity </th>
-                                <th>Actions </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            
+                <div className="col-sm-6 col-xs-12">
+                    <div className="table-responsive">
+                        <div className="sorting">
+                            <select name="" id="" className="form-control">
+                            <option value="" selected disabled>Sorting</option>
+                            <option value="">1</option>
+                            <option value="">2</option>
+                            <option value="">3</option>
+                        </select>
+                        </div>
+                        <table className="table table-striped wraped_table table_colored no_margin">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th className="text-center">Quantity</th>
+                                    <th className="text-center">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
                             {offersTags}
-                        </tbody>
-                    </table>
+                            
+                            
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
-        </div>;
+        </div>);
+    
+    
   }
 
  

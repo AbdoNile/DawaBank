@@ -11,23 +11,18 @@ class ListItem extends React.Component {
   else 
     return (
       <tr>
-        <td className="col-sm-8">
-            <div>
-                <h4>{medication.product.item.trade_name}</h4>
-                <p>Expiry date : {medication.expiry_date}
-                    <br/> 
-                    {item.location
+      <td>
+          <h4>{medication.product.item.trade_name}</h4>
+          <p className="expiry_date">Expiry Date
+              <time>{medication.expiry_date}</time>
+          </p>
+          <p className="grey"> {item.location
                     ? item.location.title
-                    : null}
-                </p>
-            </div>
-        </td>
-
-        <td>{medication.quantity}</td>
-        
-        <td>
-            <div className="btn-group btn-group-sm" role="group">
-            <button className="btn btn-primary" type="button">Edit</button>
+                    : null}</p>
+      </td>
+      <td className="text-center"><b>Quantity: </b>{medication.quantity}</td>
+      <td className="text-center actions">
+      <button className="btn btn-primary" type="button">Edit</button>
             <button className="btn btn-default" type="button">Taken</button>
             <button
             className="btn btn-danger"
@@ -37,9 +32,12 @@ class ListItem extends React.Component {
             .deleteHandler
             .bind(this, item)}>Delete
             </button>
-            </div>
-        </td>
-      </tr>
+          <button type="button" className="btn btn-icon btn-warning" data-toggle="modal" data-target="#send_message"><i className="mIcon">&#xf15a;</i></button>
+          <button type="button" className="btn btn-icon btn-info" data-toggle="modal" data-target="#send_message"><i className="mIcon">&#xf1f9;</i></button>
+      </td>
+  </tr>
+
+    
     )
   }
   

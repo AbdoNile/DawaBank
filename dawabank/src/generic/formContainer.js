@@ -17,7 +17,7 @@ class FormContainer extends baseControl {
                 })
         }
     );
-    return   <div className="form-horizontal">
+    return   <div  >
                   {childrenToRender}
               </div>;
   }

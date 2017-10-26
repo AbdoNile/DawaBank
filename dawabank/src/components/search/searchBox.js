@@ -17,16 +17,25 @@ class SearchBox extends React.Component {
     }   
 
     render() {
-        return <div className="row">
-                <div className="col-sm-6">
-                    <Well >
-                        <FormContainer className="" boundValue={this.state.product} onChange={this.search_updated} dataElement="Search" >
-                                <Wrapper><ProductLookup  dataElement="product" label="Product" /></Wrapper>
-                        </FormContainer>  
-                    </Well>
-                    <pre>{JSON.stringify(this.state.search, null, 2) }</pre>
-                </div>
-                </div>;
+        return         <div className="section">
+            <div className="search">
+                <h3>Search</h3>
+                <form className="inline">
+                <FormContainer className="" boundValue={this.state.product} onChange={this.search_updated} dataElement="Search" >
+                <ProductLookup  dataElement="product"  />
+                    </FormContainer>  
+                <select name="" id="" className="form-control">
+                    <option value="" selected disabled>Location</option>
+                    <option value="">1</option>
+                    <option value="">2</option>
+                    <option value="">3</option>
+                    <option value="">4</option>
+                </select>
+                    <button type="button" className="btn btn-primary">Search</button>
+                </form>
+            </div>
+        <pre>{JSON.stringify(this.state.search, null, 2) }</pre>
+          </div>
     }
 
 }
