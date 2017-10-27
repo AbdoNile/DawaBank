@@ -1,7 +1,7 @@
 import React from 'react';
-import InteractionUtility from '../../generic/utility/interactionUtility';
+import InteractionUtility from 'generic/utility/interactionUtility';
 
-import OfferService from '../../services/offerService';
+import OfferService from 'services/offerService';
 
 import SearchBox from './searchBox';
 import ListContainer from '../listing/listContainer';

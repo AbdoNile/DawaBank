@@ -1,6 +1,6 @@
 import React from 'react';
-import FormField from '../../../generic/formField';
-import FormContainer from '../../../generic/formContainer'
+import FormField from 'generic/formField';
+import FormContainer from 'generic/formContainer'
 
 class Acknowledge extends React.Component {
   constructor(props) {

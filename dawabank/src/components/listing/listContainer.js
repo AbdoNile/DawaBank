@@ -1,7 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 import ListItem from './listItem';
-import LocationPicker from '../../generic/controls/locationPicker';
+import LocationPicker from 'generic/bootstrap/controls/locationPicker';
 
 class ListContainer extends React.Component {
   containerElement = <div  style={{ height: "300px"  }} />;
@@ -32,7 +32,7 @@ class ListContainer extends React.Component {
                     <div className="table-responsive">
                         <div className="sorting">
                             <select name="" id="" className="form-control">
-                            <option value="" selected disabled>Sorting</option>
+                            <option value="" disabled>Sorting</option>
                             <option value="">1</option>
                             <option value="">2</option>
                             <option value="">3</option>

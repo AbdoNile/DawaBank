@@ -1,10 +1,10 @@
 import React from 'react';
 
-import TextInput from './controls/textInput';
-import DateInput from './controls/dateInput';
-import NumericInput from './controls/numericInput';
-import CheckInput from './controls/checkInput';
-import Wrapper from './controlWrapper/wrapper';
+import TextInput from './bootstrap/controls/textInput';
+import DateInput from './bootstrap/controls/dateInput';
+import NumericInput from './bootstrap/controls/numericInput';
+import CheckInput from './bootstrap/controls/checkInput';
+import Wrapper from './bootstrap/controlWrapper/wrapper';
 
 class FormField extends React.Component {
   render() {
@@ -21,7 +21,7 @@ class FormField extends React.Component {
             inputControl = <NumericInput   />
         break;
         case "checkbox":
-            inputControl = <CheckInput   hasLabel />
+            inputControl = <CheckInput  />
         break;
     }
   

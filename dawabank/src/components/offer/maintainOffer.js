@@ -1,12 +1,12 @@
 import React from 'react';
-import {PanelGroup, Panel, Well, Collapse, Label} from 'react-bootstrap';
+import {PanelGroup, Panel,  Collapse, Label} from 'react-bootstrap';
 import _ from 'lodash';
 
 import Medication from './partials/medication';
 import Location from './partials/location';
 import Acknowledge from './partials/acknowledge';
 
-import OfferService from '../../services/offerService';
+import OfferService from 'services/offerService';
 
 class MaintainOffer extends React.Component {
   constructor() {

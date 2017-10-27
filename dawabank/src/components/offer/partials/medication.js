@@ -1,7 +1,7 @@
 import React from 'react';
-import FormField from '../../../generic/formField';
-import FormContainer from '../../../generic/formContainer';
-import Wrapper from '../../../generic/controlWrapper/wrapper';
+import FormField from 'generic/formField';
+import FormContainer from 'generic/formContainer';
+import Wrapper from 'generic/bootstrap/controlWrapper/wrapper';
 
 import ProductLookup from '../../common/productLookup';
 

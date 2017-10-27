@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SiteSettings from '../../settings/siteSettings';
+import SiteSettings from 'settings/siteSettings';
 import scriptLoader from 'react-async-script-loader';
 
 class Login extends React.Component {

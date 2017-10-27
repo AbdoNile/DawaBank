@@ -1,7 +1,7 @@
 import React from 'react';
-import LocationPicker from '../../../generic/controls/locationPicker';
-import FormField from '../../../generic/formField';
-import FormContainer from '../../../generic/formContainer'
+import LocationPicker from 'generic/bootstrap/controls/locationPicker';
+import FormField from 'generic/formField';
+import FormContainer from 'generic/formContainer'
 import {Button} from 'react-bootstrap';
 
 class SelectLocation extends React.Component {

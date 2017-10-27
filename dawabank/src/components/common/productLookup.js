@@ -1,8 +1,8 @@
 import React from 'react';
 import Autocomplete from 'react-autocomplete';
 import {ListGroup, ListGroupItem} from 'react-bootstrap';
-import baseControl from '../../generic/baseControl';
-import medicationService from '../../services/medicationService';
+import baseControl from 'generic/baseControl';
+import medicationService from 'services/medicationService';
 
 class ProductLookup extends baseControl {
   constructor(props) {
@@ -59,7 +59,7 @@ class ProductLookup extends baseControl {
         inputProps={{
             className: "form-control"
         }}
-        autoHighlight="true"
+        autoHighlight={true}
         ref="autocomplete"
         value={this.state.searchTerm}
         items={this.state.suggestions}

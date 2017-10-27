@@ -1,7 +1,5 @@
 import React from 'react';
-import { Well} from 'react-bootstrap';
-import FormContainer from '../../generic/formContainer';
-import Wrapper from '../../generic/controlWrapper/wrapper';
+import FormContainer from 'generic/formContainer';
 import ProductLookup from '../common/productLookup';
 
 class SearchBox extends React.Component {
@@ -25,7 +23,7 @@ class SearchBox extends React.Component {
                 <ProductLookup  dataElement="product"  />
                     </FormContainer>  
                 <select name="" id="" className="form-control">
-                    <option value="" selected disabled>Location</option>
+                    <option value=""  disabled>Location</option>
                     <option value="">1</option>
                     <option value="">2</option>
                     <option value="">3</option>

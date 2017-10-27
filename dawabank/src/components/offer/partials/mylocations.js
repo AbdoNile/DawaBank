@@ -1,5 +1,5 @@
 import React from 'react';
-import UserService from '../../../services/userService';
+import UserService from 'services/userService';
 import {Glyphicon} from 'react-bootstrap';
 class Mylocations extends React.Component {
  
