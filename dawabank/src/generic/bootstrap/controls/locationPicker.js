@@ -136,7 +136,6 @@ class LocationPicker extends baseControl {
             defaultZoom={SiteSettings.map.defaultZoom}
             defaultCenter={SiteSettings.map.defaultCentre}
             ref={this.onMapMounted}
-            height="100%"
             onClick={this.onPinPlaced} >
              {markerTags}
 
