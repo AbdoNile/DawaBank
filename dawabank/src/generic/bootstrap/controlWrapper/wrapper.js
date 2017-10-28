@@ -1,16 +1,16 @@
 import React from 'react';
-
+import _ from 'lodash';
 import LabelWrapper from './labelWrapper';
 
 class Wrapper extends React.Component {
    render() {
-    let childrenToRender = React.cloneElement(this.props.children, this.props);
-    if(childrenToRender.props.hasLabel !== true){
-        return <LabelWrapper>{childrenToRender}</LabelWrapper>
+    let child = React.cloneElement(this.props.children, this.props);
+    if(child.props.hasLabel !== true){
+        return <LabelWrapper >{child}</LabelWrapper>
     }
     else
     {
-        return ( childrenToRender);
+        return ( child);
     }
   }
 }

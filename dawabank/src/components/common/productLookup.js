@@ -55,7 +55,7 @@ class ProductLookup extends baseControl {
   render() {
     return (
         <Autocomplete
-        wrapperProps={{}}
+        wrapperProps={{ style : { display : "block"}}}
         inputProps={{
             className: "form-control"
         }}

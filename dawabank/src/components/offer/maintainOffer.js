@@ -1,5 +1,4 @@
 import React from 'react';
-import {PanelGroup, Panel,  Collapse, Label} from 'react-bootstrap';
 import _ from 'lodash';
 
 import Medication from './partials/medication';
@@ -38,45 +37,27 @@ class MaintainOffer extends React.Component {
   }
 
   render() {
-    let medication = this.state.data.product
-      ? this.state.data.product.medication
-      : null;
-
+    
     return (
       <div className="row">
-        <PanelGroup>
-          <Panel header="Step 1 : Enter Medicine Details">
-            <Medication product={this.state.data.product} onUpdate={this.offerUpdated}/> {(medication && <Collapse in={medication != null} timeout={1000}>
-              <div className="col-sm-4">
-                {(
-                  <div className="well">
-                    <p>{medication.trade_name}</p>
-                    {medication.generic_name}<br/>
-                    <Label
-                      bsStyle={medication.product_control === "Controlled"
-                      ? "danger"
-                      : "success"}>
-                      {medication.product_control}</Label><br/>
-                    <Label>{medication.storage_conditions}</Label>
-                  </div>
-                )}
-              </div>
-            </Collapse>)}
-          </Panel>
+        	<h1 className="page-title"><i className="mIcon">&#xf158;</i>New Offer</h1>
+	
+          <fieldset>
+          <legend>Step 1 : Enter Medicine Details </legend>
+             <Medication product={this.state.data.product} onUpdate={this.offerUpdated}/> 
+          </fieldset>
 
-          <Panel header="Step 2 : Specify Pickup Location">
-            <Location location={this.state.data.location} onChange={this.offerUpdated}/>
-          </Panel>
+          <fieldset>
+          <legend>Step 2 : Specify Pickup Location </legend>
+             <Location location={this.state.data.location} onChange={this.offerUpdated}/>
+          </fieldset>
 
-          <Panel header="Step 3 : Specify Pickup Location">
-            <Acknowledge
-              acknowledge={this.state.data.acknowledge}
-              onUpdate={this.offerUpdated}/>
-            <button onClick={this.saveOffer}>Save</button>
-          </Panel>
-        </PanelGroup>
-        
-        <hr/>
+          <fieldset>
+          <legend>Step 3 : Specify Pickup Location </legend>
+            <Acknowledge  acknowledge={this.state.data.acknowledge} onUpdate={this.offerUpdated}/>
+          </fieldset>
+          <button type="button" className="btn btn-success" onClick={this.saveOffer}>Save</button>
+			    <button type="button" className="btn btn-basic">Cancel</button>
         <pre>{JSON.stringify(this.state.data, null, 2)}</pre>
       </div>
     );

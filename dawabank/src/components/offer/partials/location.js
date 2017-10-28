@@ -5,7 +5,7 @@ import SelectLocation from './selectLocation';
 class Location extends React.Component {
    constructor(props) {
     super(props);
-        this.state = {selection_method : "history"};
+        this.state = {selection_method : "picker"};
   }
 
   setAddressSelectionMethod = (method) => {
