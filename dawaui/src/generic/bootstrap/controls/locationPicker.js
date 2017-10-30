@@ -1,7 +1,8 @@
 /* eslint-disable no-undef */
 import React from 'react';
-import {GoogleMap, Marker, SearchBox, withScriptjs, withGoogleMap} from "react-google-maps"
+import {GoogleMap, Marker,   withGoogleMap} from "react-google-maps"
 import { compose, withProps } from "recompose"
+import SearchBox from "react-google-maps/lib/components/places/SearchBox";
 
 import baseControl from '../../baseControl';
 import _ from 'lodash';
@@ -15,7 +16,8 @@ class LocationPicker extends baseControl {
     this.onPinPlaced =  this.onPinPlaced.bind(this); 
   }
 
-  
+ 
+
   mapInitialized = (mapRef) => {
     if(mapRef == null) return;
     this._map = mapRef.props.map;
@@ -100,63 +102,58 @@ class LocationPicker extends baseControl {
       return promise;
   }
 
-  MapComponent =  compose(
-    withProps({
-      googleMapURL: this.props.googleMapURL,
-      loadingElement : this.props.loadingElement,
-      containerElement :this.props.containerElement,
-      mapElement:this.props.containerElement
-    }),  
-  withScriptjs
-  ,withGoogleMap)  ((props) => { return  <GoogleMap
-  defaultZoom={SiteSettings.map.defaultZoom}
-  defaultCenter={SiteSettings.map.defaultCentre}
-  ref={this.mapInitialized}
-  onClick={this.onPinPlaced} >
-   {this.props.markerTags}
-
-  <SearchBox
-      controlPosition={2}
-      inputPlaceholder="Search for location"
-      ref={this.searchBoxInitialized}
-      onPlacesChanged={this.onPlaceSelected} >
-      <input
-         type="text"
-         placeholder="Customized your placeholder"
-         style={{
-           boxSizing: `border-box`,
-           border: `1px solid transparent`,
-           width: `240px`,
-           height: `32px`,
-           marginTop: `27px`,
-           padding: `0 12px`,
-           borderRadius: `3px`,
-           boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
-           fontSize: `14px`,
-           outline: `none`,
-           textOverflow: `ellipses`,
-         }}  />
-  </SearchBox>
-
-</GoogleMap>
-  });
-  
   render() {
     var pins = this.props.readOnly ? this.props.boundValue : this.state.boundValue;
 
+    
    
     var markers = _.isArray(pins)  ?  pins.map((pin, index)=> {
         return this.pinToMarker(pin);
     }) : [];
+
    let markerTags = markers.map((marker, index) => {
               return (
                 <Marker {...marker} />
               );
             });
-          
-            var googleMapURL = "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key="
-            && SiteSettings.map.googleApiKey + "&language="+SiteSettings.map.language;
-  return <MapComponent /> ;
+
+    const  MapComponent =    withGoogleMap ((props) =>  <GoogleMap
+    defaultZoom={SiteSettings.map.defaultZoom}
+    defaultCenter={SiteSettings.map.defaultCentre}
+    ref={this.mapInitialized}
+    onClick={this.onPinPlaced} >
+    <SearchBox
+      ref={this.searchBoxInitialized}
+      controlPosition={google.maps.ControlPosition.TOP_LEFT}
+      onPlacesChanged={this.onPlaceSelected}
+    >
+      <input
+        type="text"
+        placeholder="Customized your placeholder"
+        style={{
+          boxSizing: `border-box`,
+          border: `1px solid transparent`,
+          width: `240px`,
+          height: `32px`,
+          marginTop: `27px`,
+          padding: `0 12px`,
+          borderRadius: `3px`,
+          boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
+          fontSize: `14px`,
+          outline: `none`,
+          textOverflow: `ellipses`,
+        }}
+      />
+    </SearchBox>
+      {props.markerTags}
+
+    </GoogleMap>
+      );
+
+return <MapComponent   
+          mapElement={this.props.containerElement}
+         containerElement={this.props.containerElement}
+          markerTags={markerTags} /> ;
      
   
      
