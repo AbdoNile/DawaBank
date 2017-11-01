@@ -1,7 +1,6 @@
 /* eslint-disable no-undef */
 import React from 'react';
 import {GoogleMap, Marker,   withGoogleMap} from "react-google-maps"
-import { compose, withProps } from "recompose"
 import SearchBox from "react-google-maps/lib/components/places/SearchBox";
 
 import baseControl from '../../baseControl';

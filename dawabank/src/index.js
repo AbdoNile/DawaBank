@@ -2,7 +2,6 @@ import React from 'react';
 import {render} from 'react-dom';
 import RouteMap from './routeMap';
 import {withScriptjs} from "react-google-maps"
-import { compose, withProps } from "recompose"
 import SiteSettings from 'settings/siteSettings';
 
 //Import CSS
