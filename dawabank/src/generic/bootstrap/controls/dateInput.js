@@ -9,6 +9,7 @@ class DateInput extends baseControl {
 
         return (
                 <input className="form-control input-sm" 
+                 id={this.props.dataElement}
                 type="date" 
                 value={assignedValue} 
                 onChange={this.handleChange} />

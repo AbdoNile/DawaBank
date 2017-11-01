@@ -8,7 +8,9 @@ class LabelWrapper extends React.Component {
     return  (
     	<div className={child.props.wrapperClass}>
         <div className="form-group">
-            <label>{child.props.label}</label>
+            <label htmlFor={child.props.dataElement}>
+                {child.props.label}
+            </label>
             {child}
         </div>
     </div>) ;

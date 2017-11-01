@@ -1,5 +1,4 @@
 import React from 'react';
-import _ from 'lodash';
 import LabelWrapper from './labelWrapper';
 
 class Wrapper extends React.Component {

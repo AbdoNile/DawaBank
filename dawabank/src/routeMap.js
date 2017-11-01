@@ -1,5 +1,6 @@
 import React from 'react';
-import { Router, Route, IndexRoute,  hashHistory } from 'react-router';
+import {  Route } from 'react-router';
+import {HashRouter} from 'react-router-dom';
 
 import Theatre from './layout/theatre';
 import SearchPage from './components/search/searchPage';
@@ -9,16 +10,15 @@ import Login from './components/user/login';
 
 class RouteMap extends React.Component {
    render() {
-    return  <Router history={hashHistory}>
-         <Route path="/" component={Theatre} >
-           <IndexRoute component={SearchPage} />
+    return  <HashRouter >
+         <Theatre >
            
            <Route path="/Login" component={Login} />
            <Route path="/Find" component={SearchPage} />
            <Route path="/Offer" component={MaintainOffer} />   
            <Route path="/MyOffers" component={MyOffers} /> 
-         </Route>
-     </Router> ;
+         </Theatre>
+     </HashRouter> ;
   }
 
 }

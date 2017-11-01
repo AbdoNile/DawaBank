@@ -8,7 +8,8 @@ class NumericInput extends baseControl {
 
 
         return <input className="form-control input-sm" 
-                           type="number" 
+                           type="number"  
+                           id={this.props.dataElement}
                             value={assignedValue} 
                             onChange={this.handleChange} />
     }

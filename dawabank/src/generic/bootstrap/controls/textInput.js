@@ -6,7 +6,8 @@ class TextInput extends baseControl {
         let assignedValue = this.state.boundValue != null ?  this.state.boundValue : "" ;
 
         return  <input className="form-control input-sm" type="text"
-                    value={assignedValue} 
+                    value={assignedValue}  
+                    id={this.props.dataElement}
                 onChange={this.handleChange}
                 />
     }

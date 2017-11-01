@@ -1,5 +1,4 @@
 
-import _ from 'lodash';
 import SiteSettings from '../settings/siteSettings';
 import UserService from './userService';
 import  'whatwg-fetch';

@@ -25,7 +25,7 @@ class FormField extends React.Component {
         break;
     }
   
-    return (<Wrapper {...this.props} >{inputControl}</Wrapper>);
+    return (<Wrapper {...this.props}  >{inputControl}</Wrapper>);
   }
 
   

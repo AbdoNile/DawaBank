@@ -1,6 +1,6 @@
 const SiteSettings = {
     map : {
-        googleApiKey : "AIzaSyCb2py3CyokO7FRqvess1ERZ6_n3grbVfQ	",
+        googleApiKey : "AIzaSyCb2py3CyokO7FRqvess1ERZ6_n3grbVfQ",
         language : "ar",
         defaultZoom : 3,
         defaultCentre :  {
