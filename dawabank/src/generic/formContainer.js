@@ -1,5 +1,6 @@
 import React from 'react';
 import baseControl from './baseControl';
+import GroupContainer from './bootstrap/groupContainer'
 class FormContainer extends baseControl {
     
  
@@ -17,15 +18,13 @@ class FormContainer extends baseControl {
                 else{
 
                 return React.cloneElement(child, {
-                  boundValue:   this.state.boundValue != null ? this.state.boundValue[child.props.dataElement] : null,
+                  boundValue:   this.props.boundValue != null ? this.props.boundValue[child.props.dataElement] : null,
                   onChange : this.liftStateUp
                 });
               }
         }
     );
-    return   <div>
-                  {childrenToRender}
-              </div>;
+    return   <GroupContainer> {childrenToRender} </GroupContainer>;
   }
 }
 
