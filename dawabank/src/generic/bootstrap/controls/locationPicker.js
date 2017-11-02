@@ -77,8 +77,8 @@ class LocationPicker extends baseControl {
 
     // Set markers; set map center to first search result
     const mapCenter = pins.length > 0 ? pins[0].latLng : SiteSettings.map.defaultCentre;
-    this._map.setCenter(mapCenter);
-    this._map.setZoom(13)
+    this.refs.googleMap.setCenter(mapCenter);
+    this.refs.googleMap.setZoom(13)
 
     pins.map( pin => this.onPinPlaced(pin));
     
@@ -131,7 +131,7 @@ class LocationPicker extends baseControl {
             });
 
    return <RenderMap
-    ref={this.mapInitialized}
+    ref="googleMap"
     onClick={this.onPinPlaced}
     mapElement={this.props.containerElement}
     containerElement={this.props.containerElement} >
