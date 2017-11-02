@@ -8,6 +8,20 @@ import _ from 'lodash';
 
 import SiteSettings from 'settings/siteSettings';
 
+const RenderMap = withGoogleMap(props => (
+  <GoogleMap
+      ref={props.ref}
+      onClick={props.onClick}
+      defaultZoom={SiteSettings.map.defaultZoom}
+      defaultCenter={SiteSettings.map.defaultCentre}
+      mapElement={props.mapElement}
+      containerElement={props.mapElement} >
+
+        {props.children}
+     </GoogleMap>
+   
+));
+
 class LocationPicker extends baseControl {
  constructor(props) {
     super(props);
@@ -19,7 +33,7 @@ class LocationPicker extends baseControl {
 
   mapInitialized = (mapRef) => {
     if(mapRef == null) return;
-    this._map = mapRef.props.map;
+    this._map = mapRef;
   }
 
   onPinPlaced = (event) => {
@@ -116,16 +130,15 @@ class LocationPicker extends baseControl {
               );
             });
 
-    const  MapComponent =    withGoogleMap ((props) =>  <GoogleMap
-    defaultZoom={SiteSettings.map.defaultZoom}
-    defaultCenter={SiteSettings.map.defaultCentre}
+   return <RenderMap
     ref={this.mapInitialized}
-    onClick={this.onPinPlaced} >
+    onClick={this.onPinPlaced}
+    mapElement={this.props.containerElement}
+    containerElement={this.props.containerElement} >
     <SearchBox
       ref={this.searchBoxInitialized}
       controlPosition={google.maps.ControlPosition.TOP_LEFT}
-      onPlacesChanged={this.onPlaceSelected}
-    >
+      onPlacesChanged={this.onPlaceSelected} >
       <input
         type="text"
         placeholder="Customized your placeholder"
@@ -144,16 +157,9 @@ class LocationPicker extends baseControl {
         }}
       />
     </SearchBox>
-      {props.markerTags}
+      {markerTags}
 
-    </GoogleMap>
-      );
-
-return <MapComponent   
-          mapElement={this.props.containerElement}
-         containerElement={this.props.containerElement}
-          markerTags={markerTags} /> ;
-     
+    </RenderMap>
   
      
   }
