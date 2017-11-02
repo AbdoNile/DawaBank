@@ -13,11 +13,11 @@ class App extends React.Component {
     + SiteSettings.map.googleApiKey + "&language="+SiteSettings.map.language;
   
     render () {
-       const MyMapComponent = withScriptjs((props) => <RouteMap /> );
+       const GoogleMapScriptWrappedApplication = withScriptjs((props) => <RouteMap /> );
        var googleMapURL = this.googleMapURL;
        var loadingElement = <div style={{ height: "100%" }} />;
        
-     return <MyMapComponent googleMapURL={googleMapURL} loadingElement={loadingElement} /> ;
+     return <GoogleMapScriptWrappedApplication googleMapURL={googleMapURL} loadingElement={loadingElement} /> ;
     }
 }
 export default App;
