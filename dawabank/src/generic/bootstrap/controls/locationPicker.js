@@ -8,32 +8,38 @@ import _ from 'lodash';
 
 import SiteSettings from 'settings/siteSettings';
 
-const RenderMap = withGoogleMap(props => (
-  <GoogleMap
-      ref={props.ref}
-      onClick={props.onClick}
-      defaultZoom={SiteSettings.map.defaultZoom}
-      defaultCenter={SiteSettings.map.defaultCentre}
-      mapElement={props.mapElement}
-      containerElement={props.mapElement} >
-
-        {props.children}
-     </GoogleMap>
+class RenderMap extends React.Component {
    
-));
+    render(){
+      return  withGoogleMap((props) => (
+       <GoogleMap
+          ref= {props.ref}
+          onClick={props.onClick}
+          defaultZoom={SiteSettings.map.defaultZoom}
+          defaultCenter={SiteSettings.map.defaultCentre}
+          mapElement={props.mapElement}
+          containerElement={props.mapElement} >
+
+            {props.children}
+        </GoogleMap>
+      
+    ));
+}
+}
 
 class LocationPicker extends baseControl {
  constructor(props) {
     super(props);
     this.onPlaceSelected =  this.onPlaceSelected.bind(this); 
     this.onPinPlaced =  this.onPinPlaced.bind(this); 
+    
   }
 
  
 
-  mapInitialized = (mapRef) => {
-    if(mapRef == null) return;
-    this._map = mapRef;
+  mapInitialized =  (ref) => {
+    if(ref == null) return;
+    this._map = ref;
   }
 
   onPinPlaced = (event) => {
@@ -131,7 +137,7 @@ class LocationPicker extends baseControl {
             });
 
    return <RenderMap
-    ref="googleMap"
+    ref={this.mapInitialized}
     onClick={this.onPinPlaced}
     mapElement={this.props.containerElement}
     containerElement={this.props.containerElement} >
@@ -139,23 +145,14 @@ class LocationPicker extends baseControl {
       ref={this.searchBoxInitialized}
       controlPosition={google.maps.ControlPosition.TOP_LEFT}
       onPlacesChanged={this.onPlaceSelected} >
-      <input
-        type="text"
-        placeholder="Customized your placeholder"
-        style={{
-          boxSizing: `border-box`,
-          border: `1px solid transparent`,
-          width: `240px`,
-          height: `32px`,
-          marginTop: `27px`,
-          padding: `0 12px`,
-          borderRadius: `3px`,
-          boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
-          fontSize: `14px`,
-          outline: `none`,
-          textOverflow: `ellipses`,
-        }}
-      />
+                <div className="form-group">
+									<label>Address</label>
+									<div className="row">
+										<div className="col-sm-12 search_input">
+											<input type="text" className="form-control" placeholder="Search for address" />
+										</div>
+									</div>
+								</div>
     </SearchBox>
       {markerTags}
 

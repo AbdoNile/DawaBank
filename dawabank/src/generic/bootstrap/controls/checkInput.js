@@ -9,10 +9,7 @@ class CheckInput extends baseControl {
 
     render() {
         return   <input type="checkbox" 
-        id={this.props.dataElement}
-        checked={!this.state.boundValue}
-                                       onChange={this.handleChange}
-                                    /> 
+        id={this.props.dataElement}  checked={!this.state.boundValue}  onChange={this.handleChange} /> 
                          
       }
 }
