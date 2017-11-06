@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ConfirmDialog from '../interaction/confirmDialog';
+import ConfirmDialog from '../bootstrap/interaction/confirmDialog';
 
 class InteractionUtility {
 

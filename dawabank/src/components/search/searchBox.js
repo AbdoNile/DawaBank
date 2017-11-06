@@ -11,8 +11,12 @@ class SearchBox extends React.Component {
     search_updated = (data) => {
         var newState = Object.assign({}, this.state.search, data );
         this.setState({ "search" : newState })
-        console.log(data);
+        
     }   
+
+    search = () => {
+        this.props.onSearch(this.state.search);
+    }
 
     render() {
         return         <div className="section">
@@ -21,7 +25,7 @@ class SearchBox extends React.Component {
                 <form className="inline">
                 <FormContainer className="" boundValue={this.state.product} onChange={this.search_updated} dataElement="Search" >
                 <ProductLookup  dataElement="product"  />
-                    </FormContainer>  
+                </FormContainer>  
                 <select name="" id="" className="form-control">
                     <option value=""  disabled>Location</option>
                     <option value="">1</option>
@@ -29,7 +33,7 @@ class SearchBox extends React.Component {
                     <option value="">3</option>
                     <option value="">4</option>
                 </select>
-                    <button type="button" className="btn btn-primary">Search</button>
+                    <button type="button" onClick={this.search} className="btn btn-primary">Search</button>
                 </form>
             </div>
         <pre>{JSON.stringify(this.state.search, null, 2) }</pre>

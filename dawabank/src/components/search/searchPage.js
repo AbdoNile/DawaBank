@@ -17,7 +17,7 @@ class SearchPage extends React.Component {
     <div className="container">
 		<h1 className="page-title"><i className="mIcon">&#xf1c3;</i>Search Results</h1>
         {this.state.confirm}
-        <SearchBox/>
+        <SearchBox onSearch={this.performSearch}/>
         <ListContainer offers={this.state.offers} deleteHandler={this.deleteOffer}/>
     </div>);
   }
@@ -36,14 +36,17 @@ class SearchPage extends React.Component {
 
 
   componentDidMount() {
-      var thisComponent = this;
-      OfferService.FindOffers().then((offers) => {
-            thisComponent.setState({ offers: offers });
-          
-      }).catch((err) => console.error(err));
+      this.performSearch();
     
   }
   
+
+    performSearch(query) {
+        var thisComponent = this;
+        OfferService.FindOffers(query).then((offers) => {
+            thisComponent.setState({ offers: offers });
+        }).catch((err) => console.error(err));
+    }
 }
 
 export default SearchPage;

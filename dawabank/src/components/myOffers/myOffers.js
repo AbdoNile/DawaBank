@@ -15,7 +15,7 @@ class MyOffers extends React.Component {
     return <div>
         {this.state.confirm}
         <h2>My Offers</h2>
-        <ListContainer offers={this.state.offers} deleteHandler={this.deleteOffer}/>
+        <ListContainer showOwnerActions={true} offers={this.state.offers} deleteHandler={this.deleteOffer}/>
     </div>;
   }
     

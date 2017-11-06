@@ -33,7 +33,7 @@ class ProductLookup extends baseControl {
 
   onSelect = (searchTerm, item) => {
     this.handleChange({item});
-    this.setState({searchTerm: item.searchableName});
+    this.setState({searchTerm: item.tradeName});
   };
 
   renderMenu = (items, value, style) => {

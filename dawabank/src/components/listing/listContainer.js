@@ -1,7 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 import ListItem from './listItem';
-import LocationPicker from 'generic/bootstrap/controls/locationPicker';
+import LocationPicker from 'generic/google/locationPicker';
 
 class ListContainer extends React.Component {
   containerElement = <div  style={{ height: "300px"  }} />;
@@ -14,10 +14,10 @@ class ListContainer extends React.Component {
     let items = this.props.offers;
     let pins = [];
     const offersTags = items ? items.map(function(item){
-        if(item.location == null) return null;
-        item.location.key = item._id;
-        pins = _.concat(pins, item.location);
-        return  <ListItem item={item}  deleteHandler={this.props.deleteHandler} key={item._id} />
+        if(item.pickUpLocation == null) return null;
+        item.pickUpLocation.key = item.id;
+        pins = _.concat(pins, item.pickUpLocation);
+        return  <ListItem item={item}  deleteHandler={this.props.deleteHandler} key={item.id} />
     }, this) : null;
 
     return  (

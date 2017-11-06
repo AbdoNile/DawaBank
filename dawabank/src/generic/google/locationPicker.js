@@ -3,7 +3,7 @@ import React from 'react';
 import {GoogleMap, Marker,   withGoogleMap} from "react-google-maps"
 import SearchBox from "react-google-maps/lib/components/places/SearchBox";
 
-import baseControl from '../../baseControl';
+import baseControl from '../baseControl';
 import _ from 'lodash';
 
 import SiteSettings from 'settings/siteSettings';
@@ -11,19 +11,20 @@ import SiteSettings from 'settings/siteSettings';
 class RenderMap extends React.Component {
    
     render(){
-      return  withGoogleMap((props) => (
-       <GoogleMap
-          ref= {props.ref}
-          onClick={props.onClick}
-          defaultZoom={SiteSettings.map.defaultZoom}
-          defaultCenter={SiteSettings.map.defaultCentre}
-          mapElement={props.mapElement}
-          containerElement={props.mapElement} >
-
-            {props.children}
-        </GoogleMap>
-      
-    ));
+      const Tag = withGoogleMap((props) => (
+        <GoogleMap
+           ref= {props.ref}
+           onClick={props.onClick}
+           defaultZoom={SiteSettings.map.defaultZoom}
+           defaultCenter={SiteSettings.map.defaultCentre}
+           mapElement={props.mapElement}
+           containerElement={props.mapElement} >
+ 
+             {props.children}
+         </GoogleMap>
+       
+     ));
+      return  <Tag {...this.props } />
 }
 }
 
@@ -83,8 +84,8 @@ class LocationPicker extends baseControl {
 
     // Set markers; set map center to first search result
     const mapCenter = pins.length > 0 ? pins[0].latLng : SiteSettings.map.defaultCentre;
-    this.refs.googleMap.setCenter(mapCenter);
-    this.refs.googleMap.setZoom(13)
+    // this.refs.googleMap.setCenter(mapCenter);
+    // this.refs.googleMap.setZoom(13)
 
     pins.map( pin => this.onPinPlaced(pin));
     
@@ -141,7 +142,7 @@ class LocationPicker extends baseControl {
     onClick={this.onPinPlaced}
     mapElement={this.props.containerElement}
     containerElement={this.props.containerElement} >
-    <SearchBox
+    { this.props.readOnly != true && <SearchBox
       ref={this.searchBoxInitialized}
       controlPosition={google.maps.ControlPosition.TOP_LEFT}
       onPlacesChanged={this.onPlaceSelected} >
@@ -153,7 +154,7 @@ class LocationPicker extends baseControl {
 										</div>
 									</div>
 								</div>
-    </SearchBox>
+    </SearchBox> }
       {markerTags}
 
     </RenderMap>

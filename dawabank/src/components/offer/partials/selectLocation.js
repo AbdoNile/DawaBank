@@ -1,5 +1,5 @@
 import React from 'react';
-import LocationPicker from 'generic/bootstrap/controls/locationPicker';
+import LocationPicker from 'generic/google/locationPicker';
 import FormField from 'generic/formField';
 import FormContainer from 'generic/formContainer';
 
