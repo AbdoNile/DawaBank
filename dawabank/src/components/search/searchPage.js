@@ -10,7 +10,8 @@ class SearchPage extends React.Component {
  constructor() {
     super();
         this.state = { offers: [] };
-
+        this.performSearch = this.performSearch.bind(this);
+        
   }
   render() {
     return (this.state.offers != null && 
@@ -42,8 +43,9 @@ class SearchPage extends React.Component {
   
 
     performSearch(query) {
+        query = query ? query : {};
         var thisComponent = this;
-        OfferService.FindOffers(query).then((offers) => {
+        OfferService.FindOffers(query.Search).then((offers) => {
             thisComponent.setState({ offers: offers });
         }).catch((err) => console.error(err));
     }

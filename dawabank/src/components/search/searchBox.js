@@ -1,7 +1,7 @@
 import React from 'react';
 import FormContainer from 'generic/formContainer';
 import ProductLookup from '../common/productLookup';
-
+import PlacesSearch from 'generic/google/placesSearch';
 class SearchBox extends React.Component {
     constructor(props) {
         super(props);
@@ -23,20 +23,17 @@ class SearchBox extends React.Component {
             <div className="search">
                 <h3>Search</h3>
                 <form className="inline">
-                <FormContainer className="" boundValue={this.state.product} onChange={this.search_updated} dataElement="Search" >
-                <ProductLookup  dataElement="product"  />
+                <FormContainer className="form-control" boundValue={this.state.product} onChange={this.search_updated} dataElement="Search" >
+                <ProductLookup  dataElement="product" className="form-control" />
+               						
+                <PlacesSearch dataElement="location" className="form-control">
+                        <input type="text" className="form-control" placeholder="Enter Location"/>
+                </PlacesSearch>
                 </FormContainer>  
-                <select name="" id="" className="form-control">
-                    <option value=""  disabled>Location</option>
-                    <option value="">1</option>
-                    <option value="">2</option>
-                    <option value="">3</option>
-                    <option value="">4</option>
-                </select>
-                    <button type="button" onClick={this.search} className="btn btn-primary">Search</button>
+               
+                <button type="button" onClick={this.search} className="btn btn-primary">Search</button>
                 </form>
             </div>
-        <pre>{JSON.stringify(this.state.search, null, 2) }</pre>
           </div>
     }
 

@@ -4,8 +4,13 @@ import  'whatwg-fetch';
 class OfferService {
     static allOffers =  [];
 
-    static FindOffers(){
-         return fetch(SiteSettings.api.address + "offers").then(function(res){
+    static FindOffers(query){
+         return fetch(SiteSettings.api.address + "offers/search",{
+            method: 'POST', 
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(query) }).then(function(res){
                 return res.json();
          });
     }
