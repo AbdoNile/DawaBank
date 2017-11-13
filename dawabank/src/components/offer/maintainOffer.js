@@ -9,16 +9,10 @@ import OfferService from 'services/offerService';
 class MaintainOffer extends React.Component {
   constructor() {
     super();
-    this.state = {
-      data: {}
-    };
-    this.offerUpdated = this
-      .offerUpdated
-      .bind(this);
-    this.toggleSections = this
-      .toggleSections
-      .bind(this);
-
+    this.currentValue = {};
+    this.offerUpdated = this.offerUpdated.bind(this);
+    this.toggleSections = this.toggleSections.bind(this);
+    this.state = {"data": {}};
   }
 
   toggleSections = (activeKey) => {
@@ -26,12 +20,17 @@ class MaintainOffer extends React.Component {
   }
 
   offerUpdated(data) {
-    var newState = Object.assign({}, this.state.data, data);
-    this.setState({"data": newState});
+    var newState = Object.assign({}, this.currentValue.data, data);
+    this.currentValue = {"data": newState};
+  
+  }
+
+  componentMounted = () => {
+    
   }
 
   saveOffer = () => {
-    let data = this.state.data;
+    let data = this.currentValue.data;
     OfferService.AddOffer(data);
   }
 
@@ -57,7 +56,7 @@ class MaintainOffer extends React.Component {
           </fieldset>
           <button type="button" className="btn btn-success" onClick={this.saveOffer}>Save</button>
 			    <button type="button" className="btn btn-basic">Cancel</button>
-        <pre>{JSON.stringify(this.state.data, null, 2)}</pre>
+      
       </div>
     );
   }

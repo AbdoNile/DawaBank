@@ -3,9 +3,14 @@ import baseControl from './baseControl';
 import GroupContainer from './bootstrap/groupContainer'
 class FormContainer extends baseControl {
     
- 
+  handleChange(event) {
+    let currentValue = this.extractCurrentValue(event);
+    this.currentValue = currentValue;
+    this.props.onChange({ [this.dataElement] : currentValue});
+  }
+
   liftStateUp = (datum) => {
-    var newContext =  Object.assign({}, this.state.boundValue , datum);
+    var newContext =  Object.assign({}, this.currentValue , datum);
      this.handleChange({target :{ value : newContext } });
   }
 

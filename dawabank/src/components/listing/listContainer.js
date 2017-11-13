@@ -4,7 +4,7 @@ import ListItem from './listItem';
 import LocationPicker from 'generic/google/locationPicker';
 
 class ListContainer extends React.Component {
-  containerElement = <div  style={{ height: "300px"  }} />;
+  containerElement = <div  style={{ height: "100%"  }} />;
   loadingElement =  <div  style={{ height: "100%" }}>
                 <p>Loading map</p>
           </div>;
@@ -17,7 +17,7 @@ class ListContainer extends React.Component {
         if(item.pickUpLocation == null) return null;
         item.pickUpLocation.key = item.id;
         pins = _.concat(pins, item.pickUpLocation);
-        return  <ListItem item={item}  deleteHandler={this.props.deleteHandler} key={item.id} />
+        return  <ListItem item={item} showOwnerActions={this.props.showOwnerActions} deleteHandler={this.props.deleteHandler} key={item.id} />
     }, this) : null;
 
     return  (
@@ -25,8 +25,10 @@ class ListContainer extends React.Component {
         <div className="section other_medicines">
             <div className="row same_height">
                 <div className="col-sm-6 col-xs-12">
-                        <LocationPicker readOnly boundValue={pins}  containerElement={this.containerElement} 
-                        loadingElement={this.loadingElement} dataElement="coordinates" singleLocation />    
+                        <LocationPicker 
+                        
+                        readOnly boundValue={pins}  containerElement={this.containerElement} 
+                        mapElement={this.loadingElement} dataElement="coordinates" singleLocation />    
                 </div>
                 <div className="col-sm-6 col-xs-12">
                     <div className="table-responsive">

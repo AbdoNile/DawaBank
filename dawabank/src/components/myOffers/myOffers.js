@@ -23,7 +23,7 @@ class MyOffers extends React.Component {
       var modelProps = { heading : 'Confirm Deletion' , body : 'are you sure to want to delete this offer?'};
       var thisComponent = this;
       InteractionUtility.confirm(this, modelProps).then(function(result){
-          OfferService.DeleteOffer(offer.Id);
+          OfferService.DeleteOffer(offer.id);
           thisComponent.refreshOffers();
       });
 

@@ -7,7 +7,6 @@ class SelectLocation extends React.Component {
  constructor(props) {
     super(props);
        this.state = {location : this.props.location};
-
   }
 
   containerElement = <div  style={{ height: "100%"  }} />;
@@ -20,7 +19,6 @@ class SelectLocation extends React.Component {
 
     locationUpdated = (value) => {
       let mergedValue = Object.assign({}, this.state.data, value.location );
-      this.setState({ data : mergedValue });
       this.props.onChange( {"location" : mergedValue});
     }
 
@@ -59,7 +57,7 @@ class SelectLocation extends React.Component {
             </div>
             <div className="col-sm-6 col-xs-12">
                     <LocationPicker  boundValue={this.state.pins}  containerElement={this.containerElement} 
-                        loadingElement={this.loadingElement} dataElement="pins"  
+                        mapElement={this.loadingElement} dataElement="pins"  
                         singleLocation onChange={(event) => this.onCoordinatePicked(event)} searchBox={this.searchBoxElement}  />
             </div>
     </div>;
