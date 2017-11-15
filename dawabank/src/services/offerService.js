@@ -4,6 +4,13 @@ import  'whatwg-fetch';
 class OfferService {
     static allOffers =  [];
 
+    static Get(offerId){
+        return fetch(SiteSettings.api.address + "offers/" + offerId, {method: 'GET'})
+         .then(function(res){
+                return res.json();
+         });
+    }
+
     static FindOffers(query){
          return fetch(SiteSettings.api.address + "offers/search",{
             method: 'POST', 
@@ -26,11 +33,7 @@ class OfferService {
                 "phone" : offer.location.phone,
                 "notes" : offer.location.notes,
               },
-              "Donation": {
-                "ProductId": offer.medication.product.item.medicationId,
-                "ExpiryDate":offer.medication.expiry_date,
-                "quantity": offer.medication.quantity
-              },
+              "Donation": offer.Donation,
               "AddLocationToBookMarks" : offer.location.addToFavorite
         }
 
@@ -45,7 +48,13 @@ class OfferService {
     }
 
     static DeleteOffer(id){
-        return fetch(SiteSettings.api.address + "offers/" + id , { method: 'DELETE'}).then((res) => {
+        return fetch(SiteSettings.api.address + "offers/delete", {
+             method: 'POST',
+             headers: {
+                'Content-Type': 'application/json'
+            },
+             body : JSON.stringify( {id : id })          
+            }).then((res) => {
             console.log('deleting' + id);    
         });
         

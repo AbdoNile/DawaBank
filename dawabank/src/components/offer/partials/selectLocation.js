@@ -12,41 +12,30 @@ class SelectLocation extends React.Component {
   containerElement = <div  style={{ height: "100%"  }} />;
   loadingElement =  <div  style={{ height: "100%" }}> <p>Loading map</p></div>;
 
-    onCoordinatePicked = (value) => {
-        let location = value.pins[0];
-        this.locationUpdated({location : location});
-    }       
+  onCoordinatePicked = (value) => {
+      let googleLocation = value.pins[0];
+      let location = {
+        key : googleLocation.google_address_id,
+        position : googleLocation.position , 
+        FullAddress : googleLocation.title
+      };
+      this.locationUpdated({PickupLocation : location});
+  }       
 
-    locationUpdated = (value) => {
-      let mergedValue = Object.assign({}, this.state.data, value.location );
-      this.props.onChange( {"location" : mergedValue});
-    }
-
-    searchBoxElement =   <input
-        type="text"
-        placeholder="Customized your placeholder"
-        style={{
-          boxSizing: `border-box`,
-          border: `1px solid transparent`,
-          width: `240px`,
-          height: `32px`,
-          marginTop: `27px`,
-          padding: `0 12px`,
-          borderRadius: `3px`,
-          boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
-          fontSize: `14px`,
-          outline: `none`,
-          textOverflow: `ellipses`,
-        }}
-      />;
+  locationUpdated = (value) => {
+    
+    let mergedValue = Object.assign({}, this.currentValue, value.PickupLocation );
+    this.currentValue = mergedValue;
+    this.props.onChange( {"PickupLocation" : mergedValue});
+  }
 
     render() {
         return      <div className="row same_height">
             <div className="col-sm-6 col-xs-12">
                 <FormContainer  className="form-horizontal"
-                 boundValue={this.state.location} onChange={(event) => this.locationUpdated(event)} dataElement="location" >
+                 boundValue={this.state.location} onChange={(event) => this.locationUpdated(event)} dataElement="PickupLocation" >
              
-                    <FormField   wrapperClass="col-sm-12" label="Name" type="text" dataElement="contact_person" />
+                    <FormField   wrapperClass="col-sm-12" label="Name" type="text" dataElement="Name" />
                     <FormField   wrapperClass="col-sm-12" label="Telephone" type="text"  dataElement="phone" />
                     <FormField   wrapperClass="col-sm-12" label="Notes" type="text"  dataElement="notes" />
                     <FormField   label="Add to my favorite locations" type="checkbox"

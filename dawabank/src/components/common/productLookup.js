@@ -32,7 +32,7 @@ class ProductLookup extends baseControl {
   }
 
   onSelect = (searchTerm, item) => {
-    this.handleChange({item});
+    this.handleChange(item.medicationId);
     this.setState({searchTerm: item.tradeName});
   };
 

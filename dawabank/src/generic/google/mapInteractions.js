@@ -85,7 +85,7 @@ class MapInteractions extends baseControl {
           key : pin.key,
           animation: 2,
           draggable: !this.props.readOnly,
-          onDragend : this.onPinPlaced
+          onDragEnd : this.onPinPlaced
       }
   }
 
@@ -123,12 +123,11 @@ class MapInteractions extends baseControl {
     defaultZoom={SiteSettings.map.defaultZoom}
     defaultCenter={SiteSettings.map.defaultCentre} 
     center={this.state.center} zoom={this.state.zoom} >
-        {(this.props.readOnly != true && 
+        {(this.props.readOnly !== true && 
           <SearchBox
             ref={this.searchBoxInitialized} controlPosition={google.maps.ControlPosition.TOP_LEFT}
             onPlacesChanged={this.onPlaceSelected} >
                       <div className="form-group">
-                      <label>Address</label>
                       <div className="row">
                         <div className="col-sm-12 search_input">
                           <input type="text" className="form-control" placeholder="Search for address" />

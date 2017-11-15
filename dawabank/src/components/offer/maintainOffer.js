@@ -22,11 +22,16 @@ class MaintainOffer extends React.Component {
   offerUpdated(data) {
     var newState = Object.assign({}, this.currentValue.data, data);
     this.currentValue = {"data": newState};
-  
+    console.log(newState);
   }
 
-  componentMounted = () => {
-    
+  componentDidMount = () => {
+    if(this.props.match.params.id != null){
+      OfferService.Get(this.props.match.params.id).then(offer => {
+        this.setState({ "data" : offer});
+      });
+      
+    }
   }
 
   saveOffer = () => {
@@ -38,16 +43,16 @@ class MaintainOffer extends React.Component {
     
     return (
       <div className="row">
-        	<h1 className="page-title"><i className="mIcon">&#xf158;</i>New Offer</h1>
+          <h1 className="page-title"><i className="mIcon">&#xf158;</i>New Offer</h1>
 	
           <fieldset>
           <legend>Step 1 : Enter Medicine Details </legend>
-             <Medication product={this.state.data.product} onUpdate={this.offerUpdated}/> 
+             <Medication product={this.state.data.Donation} onUpdate={this.offerUpdated}/> 
           </fieldset>
 
           <fieldset>
           <legend>Step 2 : Specify Pickup Location </legend>
-             <Location location={this.state.data.location} onChange={this.offerUpdated}/>
+             <Location location={this.state.data.PickupLocation} onUpdate={this.offerUpdated}/>
           </fieldset>
 
           <fieldset>

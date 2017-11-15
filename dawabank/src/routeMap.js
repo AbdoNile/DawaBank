@@ -15,7 +15,8 @@ class RouteMap extends React.Component {
            
            <Route path="/Login" component={Login} />
            <Route path="/Find" component={SearchPage} />
-           <Route path="/Offer" component={MaintainOffer} />   
+           <Route path="/Offer" component={MaintainOffer} exact={true} />   
+           <Route path="/Offer/edit/:id" component={MaintainOffer} />   
            <Route path="/MyOffers" component={MyOffers} /> 
          </Theatre>
      </HashRouter> ;
