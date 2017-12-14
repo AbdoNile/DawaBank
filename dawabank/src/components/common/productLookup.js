@@ -14,6 +14,7 @@ class ProductLookup extends baseControl {
     };
   }
 
+
   findSuggestions = (event, searchTerm) => {
     this.setState({searchTerm, loading: true})
     if (searchTerm.length > 2) {
@@ -53,7 +54,10 @@ class ProductLookup extends baseControl {
   };
 
   render() {
-    return (
+    const suggestions = this.state != null && this.state.suggestions ? this.state.suggestions : [];
+    let searchTerm = this.state != null  && this.state.boundValue != null ?  this.state.boundValue : "" ;
+    
+     return (
         <Autocomplete
         wrapperProps={{ style : { display : "block"}}}
         inputProps={{
@@ -61,8 +65,8 @@ class ProductLookup extends baseControl {
         }}
         autoHighlight={true}
         ref="autocomplete"
-        value={this.state.searchTerm}
-        items={this.state.suggestions}
+        value={searchTerm}
+        items={suggestions}
         getItemValue={(item) => item.medicationId}
         onSelect={this.onSelect}
         onChange={this.findSuggestions}

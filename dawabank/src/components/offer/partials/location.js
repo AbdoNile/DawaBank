@@ -17,12 +17,12 @@ class Location extends React.Component {
     return <div>
         {
             this.state.selection_method === "history" && 
-             <MyLocations location={this.props.PickupLocation} onChange={this.props.onUpdate} toggleMethod={this.setAddressSelectionMethod} />
+             <MyLocations location={this.props.location} onChange={this.props.onUpdate} toggleMethod={this.setAddressSelectionMethod} />
         }
 
         {
             this.state.selection_method === "picker" && 
-             <SelectLocation location={this.props.PickupLocation}  onChange={this.props.onUpdate}  toggleMethod={this.setAddressSelectionMethod} />
+             <SelectLocation location={this.props.location}  onChange={this.props.onUpdate}  toggleMethod={this.setAddressSelectionMethod} />
         }
     </div>;
   }

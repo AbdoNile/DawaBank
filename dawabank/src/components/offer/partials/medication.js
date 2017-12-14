@@ -14,11 +14,12 @@ class Medication extends React.Component {
   render() {
     return (
       <div >
-        <FormContainer className="" boundValue={this.state.product} onChange={this.props.onUpdate} dataElement="Donation" >
+        <FormContainer className="" boundValue={this.props.product} onChange={this.props.onUpdate} dataElement="donation" >
           <Wrapper>
-            <ProductLookup  dataElement="ProductId" label="Medicine Name"    wrapperClass="col-sm-4" />
+            <ProductLookup  dataElement="productId" label="Medicine Name" boundValue={this.props.product}  
+             wrapperClass="col-sm-4" />
           </Wrapper>
-          <FormField label="Expiry Date" type="date" dataElement="ExpiryDate"  wrapperClass="col-sm-4"/>
+          <FormField label="Expiry Date" type="date" dataElement="expiryDate"  wrapperClass="col-sm-4"/>
           <FormField label="Quanity" type="number"  dataElement="quantity"   wrapperClass="col-sm-4" />
         </FormContainer>
       </div>

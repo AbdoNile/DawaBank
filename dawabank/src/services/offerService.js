@@ -25,20 +25,14 @@ class OfferService {
     static AddOffer(offer){
       
         var saveOfferRequest = {
-            "PickupLocation": {
-                "position" : offer.location.position,
-                "FullAddress" : offer.location.title,
-                "Key" : offer.location.google_address_id,
-                "Name" : offer.location.contact_person,
-                "phone" : offer.location.phone,
-                "notes" : offer.location.notes,
-              },
-              "Donation": offer.Donation,
-              "AddLocationToBookMarks" : offer.location.addToFavorite
+            "Id" : offer.id,
+            "PickupLocation": offer.pickupLocation,
+            "Donation": offer.donation,
+            "AddLocationToBookMarks" : offer.pickupLocation.addToFavorite
         }
 
 
-         fetch(SiteSettings.api.address + "offers" , {
+        return fetch(SiteSettings.api.address + "offers" , {
                 method: 'POST', 
                 headers: {
                     'Content-Type': 'application/json'

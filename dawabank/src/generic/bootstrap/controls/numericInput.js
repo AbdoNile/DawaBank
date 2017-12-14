@@ -4,7 +4,7 @@ import baseControl from '../../baseControl';
 class NumericInput extends baseControl {
 
     render() {
-       let assignedValue = this.state.boundValue != null ?  this.state.boundValue : "" ;
+       let assignedValue = this.state != null  && this.state.boundValue != null ?  this.state.boundValue : "" ;
 
 
         return <input className="form-control input-sm" 

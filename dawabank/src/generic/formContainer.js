@@ -15,20 +15,22 @@ class FormContainer extends baseControl {
   }
 
   render() {
+    const boundValue = this.props.boundValue;
     const childrenToRender = React.Children.map(this.props.children,
      (child) => {
-                if(child.type.prototype == null){
-                  return child;
-                }
-                else{
+                  var appenedProperties = {
+                     onChange : this.liftStateUp
+                  };
 
-                return React.cloneElement(child, {
-                  boundValue:   this.props.boundValue != null ? this.props.boundValue[child.props.dataElement] : null,
-                  onChange : this.liftStateUp
-                });
-              }
-        }
-    );
+                  if(child.props.dataElement != null){
+                    if(boundValue != null && boundValue[child.props.dataElement]){
+                    appenedProperties.boundValue =  boundValue[child.props.dataElement];
+                  }
+                }
+                 
+                return React.cloneElement(child, appenedProperties);
+               
+        }, this);
     return   <GroupContainer> {childrenToRender} </GroupContainer>;
   }
 }

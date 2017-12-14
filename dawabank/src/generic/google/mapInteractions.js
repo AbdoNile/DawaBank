@@ -107,11 +107,18 @@ class MapInteractions extends baseControl {
       return promise;
   }
 
+  componentWillMount() {
+      this.setState({     boundValue :  this.props.boundValue});
+      if(this.props.boundValue != null){
+      this.adjustView(15, this.props.boundValue.position);
+      }
+      
+  }
   render() {
-    var pins = this.props.readOnly ? this.props.boundValue : this.state.boundValue;
+    var pins =  this.state.boundValue;
     var markers = _.isArray(pins)  ?  pins.map((pin, index)=> {
         return this.pinToMarker(pin);
-    }) : [];
+    }) : [pins];
 
    let markerTags = markers.map((marker, index) => {
               return (
@@ -125,11 +132,11 @@ class MapInteractions extends baseControl {
     center={this.state.center} zoom={this.state.zoom} >
         {(this.props.readOnly !== true && 
           <SearchBox
-            ref={this.searchBoxInitialized} controlPosition={google.maps.ControlPosition.TOP_LEFT}
+            ref={this.searchBoxInitialized} controlPosition={google.maps.ControlPosition.BOTTOM_LEFT}
             onPlacesChanged={this.onPlaceSelected} >
                       <div className="form-group">
                       <div className="row">
-                        <div className="col-sm-12 search_input">
+                        <div className="col-sm-12  search_input">
                           <input type="text" className="form-control" placeholder="Search for address" />
                         </div>
                       </div>
