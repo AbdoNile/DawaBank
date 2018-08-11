@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import {FormattedDate} from 'react-intl';
+import moment from 'moment';
 class ListItem extends React.Component {
 
   render() {
@@ -15,7 +16,7 @@ class ListItem extends React.Component {
           <h4>{product.productName}</h4>
           <p className="expiry_date">Expiry Date 
           
-              <date>{product.expiryDate}</date>
+              <date> {moment(product.expiryDate).fromNow()}</date>
           </p>
           <p className="grey"> {item.pickupLocation
                     ? item.pickupLocation.fullAddress

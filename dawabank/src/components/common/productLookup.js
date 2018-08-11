@@ -55,7 +55,8 @@ class ProductLookup extends baseControl {
 
   render() {
     const suggestions = this.state != null && this.state.suggestions ? this.state.suggestions : [];
-    let searchTerm = this.state != null  && this.state.boundValue != null ?  this.state.boundValue : "" ;
+    let selectedItem = this.state != null  && this.state.boundValue != null ?  this.state.boundValue : "" ;
+    let searchTerm = this.state != null  && this.state.searchTerm != null ?  this.state.searchTerm : "" ;
     
      return (
         <Autocomplete

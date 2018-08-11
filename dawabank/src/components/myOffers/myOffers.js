@@ -4,17 +4,28 @@ import InteractionUtility from 'generic/utility/interactionUtility';
 import OfferService from 'services/offerService';
 
 import ListContainer from '../listing/listContainer';
+import { LinkContainer } from 'react-router-bootstrap';
 
 class MyOffers extends React.Component {
  constructor() {
     super();
         this.state = { offers: [] };
-
   }
+
   render() {
+    var result = null;
+    if(this.state.offers == null || this.state.offers.length === 0){
+        return (<div className="page-header">
+        <h1>You don't have any offers active    <small>
+            <LinkContainer to="/offer">
+                        <a className="btn btn-primary has_icon"><i className="mIcon">&#xf158;</i>Place an offer now</a>    
+                    </LinkContainer> </small></h1>
+      </div>);
+    }
     return <div>
         {this.state.confirm}
         <h2>My Offers</h2>
+        
         <ListContainer showOwnerActions={true} offers={this.state.offers} deleteHandler={this.deleteOffer}/>
     </div>;
   }
@@ -24,22 +35,18 @@ class MyOffers extends React.Component {
       var thisComponent = this;
       InteractionUtility.confirm(this, modelProps).then(function(result){
           OfferService.DeleteOffer(offer.id);
-          thisComponent.refreshOffers();
+          thisComponent.loadOffers();
       });
-
-    
   }
 
-  refreshOffers = () => {
+  loadOffers = () => {
         OfferService.FindOffers().then((offers) => {
             this.setState({ offers });
         });
-        
-  
   }
 
   componentDidMount() {
-    this.refreshOffers();
+    this.loadOffers();
   }
   
 }
