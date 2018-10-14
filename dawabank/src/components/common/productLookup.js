@@ -66,7 +66,7 @@ class ProductLookup extends baseControl {
         }}
         autoHighlight={true}
         ref="autocomplete"
-        value={searchTerm}
+        value={selectedItem.productName}
         items={suggestions}
         getItemValue={(item) => item.medicationId}
         onSelect={this.onSelect}
