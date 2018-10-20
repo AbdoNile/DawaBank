@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {FormattedDate} from 'react-intl';
 import moment from 'moment';
 class ListItem extends React.Component {
 
