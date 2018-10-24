@@ -1,6 +1,8 @@
 import React from 'react';
 import _ from 'lodash';
 import ListItem from './listItem';
+import '../../stylesheets/listing.css'
+
 import LocationPicker from 'generic/google/locationPicker';
 import { Tabs, Tab } from 'react-bootstrap';
 class ListContainer extends React.Component {
@@ -21,29 +23,24 @@ class ListContainer extends React.Component {
         }, this) : null;
 
         return (
-            <div className="section other_medicines">
 
-                <Tabs defaultActiveKey={1} id="uncontrolled-tab-example">
-                   
-                    <Tab eventKey={1} title="Map">
-                        <div className="col-lg-12 col-xs-12">
-                            <div className="list-group">
-                                {offersTags}
-                            </div>
-                        </div>
-                    </Tab>
-                    <Tab eventKey={2} title="List">
-                        <div className="col-lg-12 col-xs-12">
-                            <LocationPicker
+            <table className="table table-hover shopping-cart-wrap">
+                <thead className="text-muted">
+                    <tr>
+                        <th scope="col">Product</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Price</th>
+                        <th scope="col" width="200" className="text-right">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {offersTags}
 
-                                readOnly boundValue={pins} containerElement={this.containerElement}
-                                mapElement={this.loadingElement} dataElement="coordinates" singleLocation />
-                        </div>
 
-                    </Tab>
-                </Tabs>
+                </tbody>
+            </table>
 
-            </div>
+
         );
 
 
