@@ -15,7 +15,7 @@ class ProductLookup extends React.Component {
 
 
   findSuggestions = (event, searchTerm) => {
-    if(searchTerm == null || searchTerm.length == 0){
+    if(searchTerm === null || searchTerm.length === 0){
       this.onSelect(searchTerm, null);
       return;
     }

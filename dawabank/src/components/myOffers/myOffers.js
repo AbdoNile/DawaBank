@@ -13,7 +13,6 @@ class MyOffers extends React.Component {
   }
 
   render() {
-    var result = null;
     if(this.state.offers == null || this.state.offers.length === 0){
         return (<div className="page-header">
         <h1>You don't have any offers active    <small>
