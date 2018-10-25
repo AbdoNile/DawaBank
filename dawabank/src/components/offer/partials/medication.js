@@ -1,27 +1,41 @@
 import React from 'react';
-import FormField from 'generic/formField';
-import FormContainer from 'generic/formContainer';
-import Wrapper from 'generic/bootstrap/controlWrapper/wrapper';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 import ProductLookup from '../../common/productLookup';
+import LabelWrapper from '../../../generic/bootstrap/controlWrapper/labelWrapper';
 
 class Medication extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {product : this.props.product};
+    this.state = {} | props.initialData;
   }
 
+  updateStateWithValue = (field, value) => {
+    this.setState({ [field]: value });
+    this.props.onChange(this.state);
+  }
+
+  
   render() {
     return (
       <div >
-        <FormContainer className="" boundValue={this.props.product} onChange={this.props.onUpdate} dataElement="donation" >
-          <Wrapper>
-            <ProductLookup  dataElement="productId" label="Medicine Name" boundValue={this.props.product}  
-             wrapperClass="col-sm-4" />
-          </Wrapper>
-          <FormField label="Expiry Date" type="date" dataElement="expiryDate"  wrapperClass="col-sm-4"/>
-          <FormField label="Quanity" type="number"  dataElement="quantity"   wrapperClass="col-sm-4" />
-        </FormContainer>
+
+        <LabelWrapper wrapperClass="col-sm-12 col-lg-6" controlId="product" labelText="Product">
+          <ProductLookup
+            onChange={(product) => this.updateStateWithValue("product", product)} />
+        </LabelWrapper>
+        <LabelWrapper wrapperClass="col-sm-12 col-lg-3" controlId="expiryDate" labelText="Expiry Date">
+          <DatePicker className="form-control input-sm" id={this.props.dataElement}
+            type="date"
+            selected={this.state.expiryDate}
+            onChange={(e) => this.updateStateWithValue("expiryDate", e)} />
+        </LabelWrapper>
+        <LabelWrapper wrapperClass="col-sm-12 col-lg-3" controlId="quantity" labelText="Quantity">
+          <input className="form-control input-sm" type="number"
+            id="quantity" value={this.state.quantity}
+            onChange={(e) => this.updateStateWithValue("quantity", e.target.value)} />
+        </LabelWrapper>
       </div>
     )
   }

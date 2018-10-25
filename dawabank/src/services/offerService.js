@@ -5,6 +5,23 @@ class OfferService {
     static allOffers =  [];
 
     static Get(offerId){
+        return Promise.resolve({
+            "donation": {
+              "product": {
+                "id": "string",
+                "tradeName": "medication_name_1",
+                "genericName": "generice_name1",
+                "medicationId": "id_1"
+              },
+              "expiryDate": "2018-10-19T23:00:00.000Z",
+              "quantity": "2"
+            },
+            "pickupLocation": {
+              "name": "asas",
+              "phone": "asas",
+              "notes": "asasa"
+            }
+          });
         return fetch(SiteSettings.api.address + "offers/" + offerId, {method: 'GET'})
          .then(function(res){
                 return res.json();
