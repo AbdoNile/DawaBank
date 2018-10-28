@@ -3,13 +3,7 @@ import { withGoogleMap} from "react-google-maps"
 import MapInteractions from './mapInteractions';
 class LocationPicker extends React.Component {
    
-    shouldComponentUpdate(nextProps, nextState) {
-        if (this.props.boundValue !== nextProps.boundValue) {
-          return true;
-        }
-        
-        return false;
-      }
+ 
     
       
     render(){

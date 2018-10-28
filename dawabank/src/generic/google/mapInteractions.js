@@ -106,7 +106,7 @@ class MapInteractions extends React.Component {
 
   }
   render() {
-    var pins = this.state.boundValue;
+    var pins = this.props.value;
     var markers = _.isArray(pins) ? pins.map((pin, index) => {
       return this.pinToMarker(pin);
     }) : [pins];
@@ -123,7 +123,7 @@ class MapInteractions extends React.Component {
       center={this.state.center} zoom={this.state.zoom} >
       {(this.props.readOnly !== true &&
         <SearchBox
-          ref={this.searchBoxInitialized} controlPosition={google.maps.ControlPosition.BOTTOM_LEFT}
+          ref={this.searchBoxInitialized} controlPosition={google.maps.ControlPosition.TOP_CENTER}
           onPlacesChanged={this.onPlaceSelected} >
           <div className="form-group">
             <div className="row">
@@ -134,8 +134,7 @@ class MapInteractions extends React.Component {
           </div>
         </SearchBox>)}
       {markerTags}
-    </GoogleMap>
-      ;
+    </GoogleMap>;
 
 
 

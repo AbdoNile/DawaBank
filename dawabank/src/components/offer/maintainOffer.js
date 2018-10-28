@@ -62,7 +62,6 @@ class MaintainOffer extends React.Component {
         <fieldset>
           <legend>Where will it be picked up? </legend>
           <SelectLocation initialData={offerData.pickupLocation} onChange={this.locationUpdated} />
-
         </fieldset>
 
         <fieldset>

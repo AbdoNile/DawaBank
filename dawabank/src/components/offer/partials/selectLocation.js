@@ -31,17 +31,17 @@ class SelectLocation extends React.Component {
           <LabelWrapper wrapperClass="col-sm-12" labelText="Name" controlId="name" >
             <input className="form-control input-sm" type="text"
               id="name" value={location.name}
-              onChange={(e) => this.updateStateWithValue("name", e.target.value)} />
+              onChange={(e) => this.props.onChange({"name" : e.target.value})} />
           </LabelWrapper>
           <LabelWrapper wrapperClass="col-sm-12" labelText="Telephone" controlId="phone" >
             <input className="form-control input-sm" type="phone"
               id="phone" value={location.phone}
-              onChange={(e) => this.updateStateWithValue("phone", e.target.value)} />
+              onChange={(e) => this.props.onChange({"phone" : e.target.value})} />
           </LabelWrapper>
           <LabelWrapper wrapperClass="col-sm-12" labelText="Notes" controlId="notes" >
             <input className="form-control input-sm" type="text"
               id="notes" value={location.notes}
-              onChange={(e) => this.updateStateWithValue("notes", e.target.value)} />
+              onChange={(e) => this.props.onChange({"notes" : e.target.value})} />
           </LabelWrapper>
         </div>
       </div>
