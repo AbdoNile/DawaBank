@@ -8,40 +8,37 @@ class ProductLookup extends React.Component {
     super(props);
     this.state = {
       suggestions: [],
-      searchTerm: '',
-      loading: true
-    };
+      searchTerm : ''
+     };
   }
 
 
   findSuggestions = (event, searchTerm) => {
+    this.setState({searchTerm});
+    // if the user clears input box .. set the selected value to null
     if(searchTerm === null || searchTerm.length === 0){
       this.onSelect(searchTerm, null);
       return;
     }
 
-    this.setState({searchTerm, loading: true})
+    this.setState({searchTerm})
     if (searchTerm.length > 2) {
       medicationService
         .FindMedication(searchTerm)
         .then((items) => {
-          this.setState({suggestions: items, loading: false});
+          this.setState({suggestions: items});
         });
     } else {
-      this.setState({suggestions: [], loading: false});
+      this.setState({suggestions: []});
     }
   };
 
   onSelect = (searchTerm, item) => {
     this.props.onChange(item);
-    if(item != null) {
-      searchTerm = item.tradeName 
-    }
-    
-    this.setState({searchTerm});
+    this.setState({"searchTerm" : null });
   };
 
-  renderMenu = (items, value, style) => {
+  renderMenuControl = (items, value, style) => {
     return <ListGroup
       style={{
       "zIndex": + 20,
@@ -51,18 +48,21 @@ class ProductLookup extends React.Component {
       children={items}/>;
   }
 
-  renderItem = (item, isHighlighted) => {
+  renderItemControl = (item, isHighlighted) => {
     return <ListGroupItem header={item.tradeName} active={isHighlighted} key={item.medicationId}>
       {item.genericName}
     </ListGroupItem>
   };
 
   render() {
-    const suggestions = this.state != null && this.state.suggestions ? this.state.suggestions : [];
-    let selectedItem = this.state != null  && this.state.boundValue != null ?  this.state.boundValue : null ;
-    let searchTerm = this.state != null  && this.state.searchTerm != null ?  this.state.searchTerm : null ;
-    let autoCompleteBoxText = selectedItem != null ? selectedItem.ProductName : searchTerm;
-     return (
+    var selectedItem = this.props.value || {};
+    var selectedValue = selectedItem.tradeName  ;
+   
+    if(this.state.searchTerm !== null && this.state.searchTerm !== '' ){
+      selectedValue = this.state.searchTerm;
+    }
+  
+    return (
         <Autocomplete
         wrapperProps={{ style : { display : "block"}}}
         inputProps={{
@@ -71,13 +71,13 @@ class ProductLookup extends React.Component {
         }}
         autoHighlight={true}
         ref="autocomplete"
-        value={autoCompleteBoxText}
-        items={suggestions}
-        getItemValue={(item) => item.medicationId}
+        value={selectedValue}
+        items={this.state.suggestions }
+        getItemValue={(item) => item.tradeName}
         onSelect={this.onSelect}
         onChange={this.findSuggestions}
-        renderMenu={this.renderMenu}
-        renderItem={this.renderItem} />
+        renderMenu={this.renderMenuControl}
+        renderItem={this.renderItemControl} />
     )
   }
 }

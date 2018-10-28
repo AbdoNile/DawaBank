@@ -6,9 +6,7 @@ import ProductLookup from '../../common/productLookup';
 import LabelWrapper from '../../../generic/bootstrap/controlWrapper/labelWrapper';
 
 class Medication extends React.Component {
-  constructor(props) {
-    super(props);
-   }
+  
 
   updateStateWithValue = (field, value) => {
     this.props.onChange({ [field]: value });
@@ -17,17 +15,16 @@ class Medication extends React.Component {
   render() {
     const parseStateToValue = state => moment(state, 'YYYY-MM-DD')
     var medication = this.props.initialData || {};
-    var expiryDate = medication.expiryDate;
+    
     return (
       <div >
         <LabelWrapper wrapperClass="col-sm-12 col-lg-6" controlId="product" labelText="Product">
           <ProductLookup
-            onChange={(product) => this.updateStateWithValue("product", product)} />
+            onChange={(product) => this.updateStateWithValue("product", product)} value={medication.product} />
         </LabelWrapper>
         <LabelWrapper wrapperClass="col-sm-12 col-lg-3" controlId="expiryDate" labelText="Expiry Date">
-          <DatePicker className="form-control input-sm" id={this.props.dataElement}
-            type="date"
-            selected={parseStateToValue(expiryDate)}
+          <DatePicker className="form-control input-sm" id="expiryDate" 
+          type="date" selected={parseStateToValue( medication.expiryDate)}
             onChange={(e) => this.updateStateWithValue("expiryDate", e)} />
         </LabelWrapper>
         <LabelWrapper wrapperClass="col-sm-12 col-lg-3" controlId="quantity" labelText="Quantity">
