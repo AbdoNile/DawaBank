@@ -21,7 +21,17 @@ class OfferService {
             "pickupLocation": {
               "name": "asas",
               "phone": "asas",
-              "notes": "asasa"
+              "notes": "asasa",
+              "coords": [
+                {
+                  "key": "ChIJN9rqM5cAcUgRlOZFRbCoYi8",
+                  "position": {
+                    "lat": 51.93684201972726,
+                    "lng": -2.327728271484375
+                  },
+                  "fullAddress": "Unnamed Road, Gloucester GL19 3DB، المملكة المتحدة"
+                }
+              ]
             },
             "acknowledge": true
           });

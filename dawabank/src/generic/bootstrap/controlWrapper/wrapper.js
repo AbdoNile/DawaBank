@@ -9,7 +9,7 @@ class Wrapper extends React.Component {
     }
     else
     {
-        return ( child);
+        return ( child ); 
     }
   }
 }

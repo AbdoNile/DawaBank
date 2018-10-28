@@ -4,29 +4,25 @@ import LabelWrapper from '../../../generic/bootstrap/controlWrapper/labelWrapper
 
 class SelectLocation extends React.Component {
   
-  updateStateWithValue = (field, value) => {
-    this.props.onChange({ [field]: value });
-  }
+ 
 
   containerElement = <div style={{ height: "100%" }} />;
   loadingElement = <div style={{ height: "100%" }}> <p>Loading map</p></div>;
 
-  onCoordinatePicked = (value) => {
-    let googleLocation = value.pins[0];
-
-    let location = {
-      key: googleLocation.google_address_id,
-      position: googleLocation.position,
-      fullAddress: googleLocation.title
-    };
-
-    this.updateStateWithValue({ PickupLocation: location });
+  onCoordinatePicked = (pins) => {
+    
+    var locations = pins.map((googleLocation, index) => {
+      return  {
+        key: googleLocation.google_address_id,
+        position: googleLocation.position,
+        fullAddress: googleLocation.title
+      };
+    })
+    
+    this.props.onChange( {"coords" : locations} );
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.currentValue = nextProps.location;
-  }
-
+ 
   render() {
     const location = this.props.initialData || {};
     return <div className="row same_height">
@@ -50,9 +46,9 @@ class SelectLocation extends React.Component {
         </div>
       </div>
       <div className="col-lg-8 col-xs-12">
-        <LocationPicker boundValue={this.props.location} containerElement={this.containerElement}
-          mapElement={this.loadingElement} dataElement="pins"
-          singleLocation onChange={(event) => this.onCoordinatePicked(event)} searchBox={this.searchBoxElement} />
+        <LocationPicker value={location.coords} containerElement={this.containerElement}
+          mapElement={this.loadingElement} 
+          singleLocation onChange={(e) => this.onCoordinatePicked(e.target.value)} searchBox={this.searchBoxElement} />
       </div>
     </div>;
   }
