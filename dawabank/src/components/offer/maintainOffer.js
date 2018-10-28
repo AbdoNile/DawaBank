@@ -9,23 +9,24 @@ import OfferService from 'services/offerService';
 class MaintainOffer extends React.Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = { };
    
   }
 
   offerUpdated = (data) => {
-    this.setState({ "donation": data });
+    var newState = Object.assign({},this.state.donation, data);
+    this.setState({ "donation" : newState});
   }
 
   locationUpdated = (data) => {
-    this.setState({ "pickupLocation": data });
+    var newState = Object.assign({},this.state.pickupLocation, data);
+    this.setState({ "pickupLocation": newState });
   }
 
   componentDidMount = () => {
     if (this.props.match.params.id != null) {
       OfferService.Get(this.props.match.params.id).then(offer => {
-       
-        this.setState({  offer });
+        this.setState(  offer );
       });
 
     }
@@ -43,8 +44,6 @@ class MaintainOffer extends React.Component {
     return (
       <div className="row">
         <pre> {JSON.stringify(this.state, null, 2)}</pre>
-
-
         <h1 className="page-title"><i className="mIcon">&#xf158;</i>New Offer</h1>
 
         <fieldset>

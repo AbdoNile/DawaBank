@@ -3,16 +3,10 @@ import LocationPicker from 'generic/google/locationPicker';
 import LabelWrapper from '../../../generic/bootstrap/controlWrapper/labelWrapper';
 
 class SelectLocation extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { product: this.props.location };
-  }
-
+  
   updateStateWithValue = (field, value) => {
-    this.setState({ [field]: value });
-    this.props.onChange(this.state);
+    this.props.onChange({ [field]: value });
   }
-
 
   containerElement = <div style={{ height: "100%" }} />;
   loadingElement = <div style={{ height: "100%" }}> <p>Loading map</p></div>;
@@ -26,14 +20,7 @@ class SelectLocation extends React.Component {
       fullAddress: googleLocation.title
     };
 
-    this.locationUpdated({ PickupLocation: location });
-  }
-
-  locationUpdated = (value) => {
-
-    let mergedValue = Object.assign({}, this.currentValue, value.PickupLocation);
-    this.currentValue = mergedValue;
-    this.updateStateWithValue({ "pickupLocation": mergedValue });
+    this.updateStateWithValue({ PickupLocation: location });
   }
 
   componentWillReceiveProps(nextProps) {
@@ -41,23 +28,23 @@ class SelectLocation extends React.Component {
   }
 
   render() {
+    const location = this.props.initialData || {};
     return <div className="row same_height">
       <div className="col-lg-4 col-xs-12">
-        <div className="form-horizontal"
-          boundValue={this.props.location} onChange={(event) => this.locationUpdated(event)} dataElement="PickupLocation" >
+        <div className="form-horizontal" >
           <LabelWrapper wrapperClass="col-sm-12" labelText="Name" controlId="name" >
             <input className="form-control input-sm" type="text"
-              id="name" value={this.state.name}
+              id="name" value={location.name}
               onChange={(e) => this.updateStateWithValue("name", e.target.value)} />
           </LabelWrapper>
           <LabelWrapper wrapperClass="col-sm-12" labelText="Telephone" controlId="phone" >
             <input className="form-control input-sm" type="phone"
-              id="phone" value={this.state.phone}
+              id="phone" value={location.phone}
               onChange={(e) => this.updateStateWithValue("phone", e.target.value)} />
           </LabelWrapper>
           <LabelWrapper wrapperClass="col-sm-12" labelText="Notes" controlId="notes" >
             <input className="form-control input-sm" type="text"
-              id="notes" value={this.state.notes}
+              id="notes" value={location.notes}
               onChange={(e) => this.updateStateWithValue("notes", e.target.value)} />
           </LabelWrapper>
         </div>
