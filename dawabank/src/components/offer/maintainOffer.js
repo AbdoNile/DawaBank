@@ -1,4 +1,5 @@
 import React from 'react';
+import LabelWrapper from 'generic/bootstrap/controlWrapper/labelWrapper';
 
 import Medication from './partials/medication';
 import SelectLocation from './partials/selectLocation';
@@ -15,6 +16,10 @@ class MaintainOffer extends React.Component {
   offerUpdated = (data) => {
     var newState = Object.assign({},this.state.donation, data);
     this.setState({ "donation" : newState});
+  }
+
+  CanSubmit = () => {
+    return this.state.acknowledge;
   }
 
   TermnsAndConditionsAgreed = (value) => {
@@ -62,11 +67,12 @@ class MaintainOffer extends React.Component {
 
         <fieldset>
           <legend>Agree few legal stuff.. </legend>
+          <LabelWrapper wrapperClass="col-sm-12 col-lg-6" controlId="acknowledge" labelText="Agree few legal stuff..">
           <input type="checkbox"  id="acknowledge" checked={offerData.acknowledge} 
            onChange={(event) => this.TermnsAndConditionsAgreed(event.target.checked)} /> 
-         
+          </LabelWrapper>
         </fieldset>
-        <button type="button" className="btn btn-success" onClick={this.saveOffer}>Save</button>
+        <button type="button" className="btn btn-success" disabled={!this.CanSubmit()} onClick={this.saveOffer}>Save</button>
         <button type="button" className="btn btn-basic">Cancel</button>
 
       </div>
