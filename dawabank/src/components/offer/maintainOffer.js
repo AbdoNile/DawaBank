@@ -2,7 +2,6 @@ import React from 'react';
 
 import Medication from './partials/medication';
 import SelectLocation from './partials/selectLocation';
-import Acknowledge from './partials/acknowledge';
 
 import OfferService from 'services/offerService';
 
@@ -16,6 +15,10 @@ class MaintainOffer extends React.Component {
   offerUpdated = (data) => {
     var newState = Object.assign({},this.state.donation, data);
     this.setState({ "donation" : newState});
+  }
+
+  TermnsAndConditionsAgreed = (value) => {
+    this.setState({ "acknowledge" : value});
   }
 
   locationUpdated = (data) => {
@@ -59,7 +62,9 @@ class MaintainOffer extends React.Component {
 
         <fieldset>
           <legend>Agree few legal stuff.. </legend>
-          <Acknowledge acknowledge={offerData.acknowledge} onUpdate={this.offerUpdated} />
+          <input type="checkbox"  id="acknowledge" checked={offerData.acknowledge} 
+           onChange={(event) => this.TermnsAndConditionsAgreed(event.target.checked)} /> 
+         
         </fieldset>
         <button type="button" className="btn btn-success" onClick={this.saveOffer}>Save</button>
         <button type="button" className="btn btn-basic">Cancel</button>

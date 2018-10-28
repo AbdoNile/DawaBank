@@ -15,12 +15,15 @@ class OfferService {
               },
               "expiryDate": "2018-10-19T23:00:00.000Z",
               "quantity": "2"
+             
+
             },
             "pickupLocation": {
               "name": "asas",
               "phone": "asas",
               "notes": "asasa"
-            }
+            },
+            "acknowledge": true
           });
         return fetch(SiteSettings.api.address + "offers/" + offerId, {method: 'GET'})
          .then(function(res){

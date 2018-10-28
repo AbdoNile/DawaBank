@@ -1,5 +1,5 @@
 import React from 'react';
-import InteractionUtility from 'generic/utility/interactionUtility';
+import dialogs from 'utility/dialogs';
 
 import OfferService from 'services/offerService';
 
@@ -24,19 +24,7 @@ class SearchPage extends React.Component {
             </div>);
     }
 
-    deleteOffer = (offer) => {
-        var modelProps = { heading: 'Confirm Deletion', body: 'are you sure to want to delete this offer?' };
-        var thisComponent = this;
-        InteractionUtility.confirm(this, modelProps).then(function (result) {
-            OfferService.DeleteOffer(offer._id).then(() => {
-                OfferService.FindOffers().then((offers) => {
-                    thisComponent.setState({ offers: offers });
-                });
-            });
-        });
-    }
-
-
+  
     componentDidMount() {
         this.performSearch();
 

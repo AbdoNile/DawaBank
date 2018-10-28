@@ -1,5 +1,5 @@
 import React from 'react';
-import InteractionUtility from 'generic/utility/interactionUtility';
+import dialogs from 'utility/dialogs';
 
 import OfferService from 'services/offerService';
 
@@ -32,7 +32,7 @@ class MyOffers extends React.Component {
   deleteOffer = (offer) => {
       var modelProps = { heading : 'Confirm Deletion' , body : 'are you sure to want to delete this offer?'};
       var thisComponent = this;
-      InteractionUtility.confirm(this, modelProps).then(function(result){
+      dialogs.confirm(this, modelProps).then(function(result){
           OfferService.DeleteOffer(offer.id);
           thisComponent.loadOffers();
       });

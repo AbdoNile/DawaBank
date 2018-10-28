@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { withGoogleMap} from "react-google-maps"
 import MapInteractions from './mapInteractions';
-class LocationPicker extends Component {
+class LocationPicker extends React.Component {
    
     shouldComponentUpdate(nextProps, nextState) {
         if (this.props.boundValue !== nextProps.boundValue) {

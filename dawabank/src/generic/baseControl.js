@@ -1,6 +1,6 @@
 import React from 'react';
 
-class baseControl extends React.Component {
+class baseControlX extends React.Component {
       constructor(props) {
         super(props);
         
@@ -29,4 +29,4 @@ class baseControl extends React.Component {
     }
 }
 
-export default baseControl;
+export default baseControlX;

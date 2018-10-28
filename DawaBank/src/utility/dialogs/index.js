@@ -1,8 +1,8 @@
 import React from 'react';
 
-import ConfirmDialog from '../bootstrap/interaction/confirmDialog';
+import ConfirmDialog from './confirmDialog';
 
-class InteractionUtility {
+class dialog {
 
     static confirm(component, properties){
         var promise = new Promise(function(resolve , reject){
@@ -26,4 +26,4 @@ class InteractionUtility {
 
 }
 
-export default InteractionUtility; 
+export default dialog; 

@@ -7,8 +7,6 @@ import SearchBox from "react-google-maps/lib/components/places/SearchBox";
 import baseControl from '../baseControl';
 import _ from 'lodash';
 
-
-
 class MapInteractions extends baseControl {
  constructor(props) {
     super(props);
