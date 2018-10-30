@@ -1,12 +1,12 @@
 import React from 'react';
 import LabelWrapper from 'generic/bootstrap/controlWrapper/labelWrapper';
-
+import ProtectedRoute from 'security/protectedRoute';
 import Medication from './partials/medication';
 import SelectLocation from './partials/selectLocation';
 
 import OfferService from 'services/offerService';
 
-class MaintainOffer extends React.Component {
+class MaintainOffer extends ProtectedRoute {
   constructor() {
     super();
     this.state = { };
