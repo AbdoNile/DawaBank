@@ -7,6 +7,7 @@ import SearchPage from './components/search/searchPage';
 import MaintainOffer from './components/offer/maintainOffer';
 import MyOffers from './components/myOffers/myOffers';
 import Login from './components/user/login';
+import LoginCallBack from './security/loginCallBack';
 
 class RouteMap extends React.Component {
  render() {
@@ -14,6 +15,7 @@ class RouteMap extends React.Component {
       <Theatre >
 
           <Route path="/Login" component={Login} />
+          <Route path="/login-call-back"  component={LoginCallBack} />
           <Route path="/Find" component={SearchPage} />
           <Route path="/Offer" component={MaintainOffer} exact={true} />
           <Route path="/Offer/edit/:id" component={MaintainOffer} />

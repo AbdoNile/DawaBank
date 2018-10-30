@@ -16,6 +16,9 @@ const SiteSettings = {
     authentication : {
         google : {
             client_id : "539302904518-ja3mcnpg4vdubpn7sk3soe18n2pp08dj.apps.googleusercontent.com",
+        },
+        cognito : {
+            login_page : "https://minttest.auth.us-east-2.amazoncognito.com/login?response_type=token&client_id=5p973ntoftvhdut4skdrgucba3&redirect_uri=",
         }
     }
 

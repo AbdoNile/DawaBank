@@ -1,6 +1,6 @@
 import React from 'react';
 import LabelWrapper from 'generic/bootstrap/controlWrapper/labelWrapper';
-import ProtectedRoute from 'security/protectedRoute';
+import {ProtectedRoute} from 'security/protectedRoute';
 import Medication from './partials/medication';
 import SelectLocation from './partials/selectLocation';
 
