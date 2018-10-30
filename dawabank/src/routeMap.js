@@ -1,6 +1,6 @@
 import React from 'react';
-import {  Route } from 'react-router';
-import {HashRouter} from 'react-router-dom';
+import { Route } from 'react-router';
+import { BrowserRouter } from 'react-router-dom';
 
 import Theatre from './layout/theatre';
 import SearchPage from './components/search/searchPage';
@@ -9,17 +9,17 @@ import MyOffers from './components/myOffers/myOffers';
 import Login from './components/user/login';
 
 class RouteMap extends React.Component {
-   render() {
-    return  <HashRouter >
-         <Theatre >
-           
-           <Route path="/Login" component={Login} />
-           <Route path="/Find" component={SearchPage} />
-           <Route path="/Offer" component={MaintainOffer} exact={true} />   
-           <Route path="/Offer/edit/:id" component={MaintainOffer} />   
-           <Route path="/MyOffers" component={MyOffers} /> 
-         </Theatre>
-     </HashRouter> ;
+ render() {
+    return <BrowserRouter >
+      <Theatre >
+
+          <Route path="/Login" component={Login} />
+          <Route path="/Find" component={SearchPage} />
+          <Route path="/Offer" component={MaintainOffer} exact={true} />
+          <Route path="/Offer/edit/:id" component={MaintainOffer} />
+          <Route path="/MyOffers" component={MyOffers} />
+      </Theatre>
+    </BrowserRouter>;
   }
 
 }
