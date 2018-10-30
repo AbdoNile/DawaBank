@@ -7,7 +7,7 @@ class ProtectedRoute extends React.Component {
     }
 
     componentWillMount = () => {
-          window.alert('New URL '+ this.props.location.pathname);
+          window.alert('New URL  '+ this.props.location.pathname);
         }
       
 
