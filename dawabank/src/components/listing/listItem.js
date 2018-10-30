@@ -32,7 +32,7 @@ class ListItem extends React.Component {
             </figure>
           </td>
           <td >
-            <div class="btn-group-vertical" role="group" >
+            <div className="btn-group-vertical" role="group" >
               {(this.props.showOwnerActions && <OwnerActions offerId={item.id} deleteHandler={this.props.deleteHandler} />)}
               {(!this.props.showOwnerActions && <VisitorActions offerId={item.id} />)}
             </div>
