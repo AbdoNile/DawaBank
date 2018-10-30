@@ -13,7 +13,6 @@ class MapInteractions extends React.Component {
       zoom: SiteSettings.map.defaultZoom,
       center: SiteSettings.map.defaultCentre
     };
-
   }
 
   mapInitialized = (ref) => {
@@ -64,7 +63,7 @@ class MapInteractions extends React.Component {
     const pins = places.map(place => ({ latLng: place.geometry.location }));
     // Set markers; set map center to first search result
     const mapCenter = pins.length > 0 ? pins[0].latLng : SiteSettings.map.defaultCentre;
-    this.adjustView(13, mapCenter);
+    this.adjustView(4, mapCenter);
     pins.map(pin => this.onPinPlaced(pin));
   }
 
@@ -98,15 +97,9 @@ class MapInteractions extends React.Component {
     return promise;
   }
 
-  componentWillMount() {
-    this.setState({ boundValue: this.props.boundValue });
-    if (this.props.boundValue != null) {
-      this.adjustView(15, this.props.boundValue.position);
-    }
-
-  }
   render() {
     var pins = this.props.value;
+
     var markers = _.isArray(pins) ? pins.map((pin, index) => {
       return this.pinToMarker(pin);
     }) : [pins];
@@ -116,6 +109,7 @@ class MapInteractions extends React.Component {
         <Marker {...marker} />
       );
     });
+
     return <GoogleMap
       ref={this.mapInitialized} onClick={this.onPinPlaced}
       defaultZoom={SiteSettings.map.defaultZoom}
@@ -135,8 +129,6 @@ class MapInteractions extends React.Component {
         </SearchBox>)}
       {markerTags}
     </GoogleMap>;
-
-
 
   }
 }
