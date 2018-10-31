@@ -1,19 +1,12 @@
 import React from 'react';
 import AuthService from './authService';
 class ProtectedRoute extends React.Component {
-    constructor() {
-        super();
-
-    }
-
+ 
     componentWillMount = () => {
         if (!AuthService.isLoggedIn()) {
-            window.alert('New URL  ' + this.props.location.pathname);
             AuthService.redirectToLoginPage();
         }
-       
     }
-
 }
 
 class RequireLogin extends React.Component {

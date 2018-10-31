@@ -1,8 +1,5 @@
 import React from 'react';
-import dialogs from 'utility/dialogs';
-
 import OfferService from 'services/offerService';
-
 import SearchBox from './searchBox';
 import ListContainer from '../listing/listContainer';
 

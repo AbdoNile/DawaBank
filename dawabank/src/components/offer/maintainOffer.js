@@ -40,6 +40,15 @@ class MaintainOffer extends ProtectedRoute {
     }
   }
 
+  title = () => {
+    if (this.props.match.params.id != null) {
+      return "Edit Offer"; 
+    }
+    else{
+      return "New Offer";
+    };
+  }
+
   saveOffer = () => {
     let data = this.state;
     OfferService.AddOffer(data).then(result => {
@@ -51,8 +60,10 @@ class MaintainOffer extends ProtectedRoute {
     var offerData = this.state;
     return (
       <div className="row">
-        <pre> {JSON.stringify(this.state, null, 2)}</pre>
-        <h1 className="page-title"><i className="mIcon">&#xf158;</i>New Offer</h1>
+        {/*<pre> {JSON.stringify(this.state, null, 2)}</pre> */}
+        <h3 className="page-title"><i className="mIcon">
+        <span class="glyphicon glyphicon-gift"></span>
+        </i>{this.title()}</h3>
 
         <fieldset>
           <legend>What are you donating? </legend>

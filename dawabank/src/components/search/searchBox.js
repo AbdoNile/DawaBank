@@ -40,9 +40,8 @@ class SearchBox extends React.Component {
                         </div>
                         <button type="button" onClick={this.doSearch} className="btn btn-primary">Search</button>
                     </form>
-                    <div> <pre> {JSON.stringify(this.state.search, null, 2)}</pre>
-                       
-                    </div>
+                    {/*<pre> {JSON.stringify(this.state.search, null, 2)}</pre> */}
+      
                 </div>
             </div>
         );

@@ -14,14 +14,14 @@ class TopNavBar extends React.Component {
                         <a href="index.html"><img src="images/logo.png" alt="" /></a>
                     </div>
                     <Nav>
-                        <LinkContainer to="/Find">
+                        <LinkContainer to="/search">
                             <NavItem>Search</NavItem>
                         </LinkContainer>
-                        <LinkContainer to="/offer">
+                        <LinkContainer to="/create-offer">
                             <NavItem>Create Offer</NavItem>
                         </LinkContainer>
                         <RequireLogin>
-                            <LinkContainer to="/MyOffers">
+                            <LinkContainer to="/my-offers">
                                 <NavItem>My Offers</NavItem>
                             </LinkContainer>
                         </RequireLogin>
@@ -51,7 +51,7 @@ class TopNavBar extends React.Component {
                             </button>
 
                         </div>
-                        <LinkContainer to="/offer">
+                        <LinkContainer to="/create-offer">
                             <a className="btn btn-primary has_icon"><i className="mIcon">&#xf158;</i>New Offer</a>
                         </LinkContainer>
 
