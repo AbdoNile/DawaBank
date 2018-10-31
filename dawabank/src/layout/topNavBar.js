@@ -18,11 +18,11 @@ class TopNavBar extends React.Component {
                             <NavItem>Search</NavItem>
                         </LinkContainer>
                         <LinkContainer to="/create-offer">
-                            <NavItem>Create Offer</NavItem>
+                            <NavItem>Donate</NavItem>
                         </LinkContainer>
                         <RequireLogin>
                             <LinkContainer to="/my-offers">
-                                <NavItem>My Offers</NavItem>
+                                <NavItem>My Donations</NavItem>
                             </LinkContainer>
                         </RequireLogin>
                     </Nav>

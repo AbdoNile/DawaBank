@@ -27,7 +27,7 @@ class SearchBox extends React.Component {
             <div className="section">
                 <div className="search">
                     <form action="" className="form-horizontal">
-                        <div className="form-group">
+                        <div className="form-group col-lg-12">
                             <div className="col-lg-8">
                                 <ProductLookup className="form-control" onChange={this.product_updated} />
 
@@ -40,7 +40,7 @@ class SearchBox extends React.Component {
                         </div>
                         <button type="button" onClick={this.doSearch} className="btn btn-primary">Search</button>
                     </form>
-                    {/*<pre> {JSON.stringify(this.state.search, null, 2)}</pre> */}
+                    {/*<pre> {JSON.stringify(this.state.search, null, 2)}</pre>*/ }
       
                 </div>
             </div>

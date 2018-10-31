@@ -1,13 +1,7 @@
 import React from 'react';
 import StandaloneSearchBox from "react-google-maps/lib/components/places/StandaloneSearchBox";
 class PlacesSearch extends React.Component {
-  constructor(props) {
-    super(props);
-    this.refs = null;
-    this.onSearchBoxMounted = this.onSearchBoxMounted.bind(this);
-    this.onPlacesChanged = this.onPlacesChanged.bind(this);
-  }
-
+  
   onSearchBoxMounted = (ref) => {
     this.refs = ref;
   }
@@ -33,7 +27,7 @@ class PlacesSearch extends React.Component {
       <StandaloneSearchBox
         ref={this.onSearchBoxMounted}
         bounds={this.props.bounds}
-        onPlacesChanged={this.onPlacesChanged}     >
+        onPlacesChanged={this.onPlacesChanged} >
         {this.props.children}
       </StandaloneSearchBox>
 
