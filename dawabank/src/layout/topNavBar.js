@@ -3,9 +3,14 @@ import { Nav, DropdownButton, NavItem } from 'react-bootstrap';
 import { RequireLogin } from '../security/protectedRoute';
 import { LinkContainer } from 'react-router-bootstrap';
 import AuthService from '../security/authService';
+import authService from '../security/authService';
 
 class TopNavBar extends React.Component {
 
+    logout = () => {
+        AuthService.logout() ;
+
+    }
     render() {
         return (
             <header>
@@ -34,15 +39,15 @@ class TopNavBar extends React.Component {
 
                                 } >
                                 <LinkContainer to="/profile">
-                                    <NavItem>My Profile</NavItem>
+                                    <NavItem>{authService.getProfile()["name"]}</NavItem>
                                 </LinkContainer>
-                                <LinkContainer onClick={() => AuthService.logout()} to="/Logout">
-                                    <NavItem>LogOut</NavItem>
+                                <LinkContainer onClick={this.logout} to="/home">
+                                    <NavItem>Log Out</NavItem>
                                 </LinkContainer>
                             </DropdownButton >
                         </RequireLogin>
 
-                        <div className="dropdown notifications">
+                        {/*<div className="dropdown notifications">
                             <button className="btn btn-secondary dropdown-toggle" type="button"
                                 id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false">
@@ -50,9 +55,9 @@ class TopNavBar extends React.Component {
                                 <span className="new">3</span>
                             </button>
 
-                        </div>
+                            </div> */}
                         <LinkContainer to="/create-offer">
-                            <a className="btn btn-primary has_icon"><i className="mIcon">&#xf158;</i>New Offer</a>
+                            <a className="btn btn-primary btn-lg has_icon"><i className="mIcon">&#xf158;</i>Donate</a>
                         </LinkContainer>
 
                     </div>

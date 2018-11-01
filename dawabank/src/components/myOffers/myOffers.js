@@ -23,7 +23,7 @@ class MyOffers extends React.Component {
     }
     return <div>
         {this.state.confirm}
-        <h2>My Offers</h2>
+        <h3>My Offers</h3>
         
         <ListContainer showOwnerActions={true} offers={this.state.offers} deleteHandler={this.deleteOffer}/>
     </div>;

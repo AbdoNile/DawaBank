@@ -14,8 +14,9 @@ class RouteMap extends React.Component {
     return <BrowserRouter >
       <Theatre >
 
-          <Route path="/login" component={Login} />
+          <Route path="/profile" component={Login} />
           <Route path="/login-call-back/:return_url?"  component={LoginCallBack} />
+          <Route path="/home" component={SearchPage} />
           <Route path="/search" component={SearchPage} />
           <Route path="/create-offer" component={MaintainOffer} exact={true} />
           <Route path="/edit-offer/:id" component={MaintainOffer} />

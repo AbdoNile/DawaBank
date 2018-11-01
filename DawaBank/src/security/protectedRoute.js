@@ -15,9 +15,9 @@ class RequireLogin extends React.Component {
         if(AuthService.isLoggedIn()){
             return this.props.children ;
         }
-        else{
-            return null;
-        }
+        
+        return null;
+        
     }
 }
 

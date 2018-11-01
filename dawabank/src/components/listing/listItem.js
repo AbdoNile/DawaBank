@@ -13,23 +13,20 @@ class ListItem extends React.Component {
       return null;
     else
       return (
-
         <tr>
           <td>
-            <figure className="media">
               <figcaption className="media-body">
-                <h6 className="title text-truncate">{item.product}</h6>
+                <h4 className="title text-truncate">{item.donation.productName}</h4>
                 <h6>   {item.pickupLocation ? item.pickupLocation.fullAddress : null}</h6>
-                <dl className="param param-inline small">
-                  <dt>Expiry Date: </dt>
-                  <dd> <date> {moment(product.expiryDate).fromNow()}</date></dd>
-                </dl>
-                <dl className="param param-inline small">
-                  <dt>Quantity: </dt>
-                  <dd>{product.quantity}</dd>
-                </dl>
+                <p className="small pull-right">
+                 <span className="badge"> Expiry Date: <date> {moment(product.expiryDate).fromNow()}</date> </span>
+                 &nbsp;
+                 <span className="badge">   Quantity: {product.quantity}</span>
+           
+                
+                </p>
               </figcaption>
-            </figure>
+            
           </td>
           <td >
             <div className="btn-group-vertical" role="group" >
@@ -38,16 +35,6 @@ class ListItem extends React.Component {
             </div>
           </td>
         </tr>
-
-
-
-
-
-
-
-
-
-
       )
   }
 
