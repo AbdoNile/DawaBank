@@ -1,6 +1,7 @@
 variable "windows_image" {}
 
-
+variable "linux_image" {}
+/*
 resource "aws_eip" "ip" {
   instance = "${aws_instance.webserver.id}"
 }
@@ -21,9 +22,9 @@ resource "aws_instance" "webserver" {
 }
 
 resource "aws_instance" "nservicebus" {
-  ami           = "ami-01b701d1a348a0d00"
+  ami           = "${var.linux_image}"
   instance_type = "t2.micro"
-  subnet_id     = "${aws_subnet.backend.id}"
+  subnet_id     = "${aws_subnet.private.id}"
     security_groups = [
     "${aws_security_group.localtraffic.id}"
   ]
@@ -32,3 +33,4 @@ resource "aws_instance" "nservicebus" {
     "Name" = "Dawa BackEnd Server"
   }
 }
+*/
