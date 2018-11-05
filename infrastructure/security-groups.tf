@@ -1,6 +1,6 @@
 resource "aws_security_group" "admin" {
   name   = "Admin traffic"
-  vpc_id = "${aws_vpc.dawa.id}"
+  vpc_id = "${aws_vpc.vpc.id}"
 
   ingress {
     from_port   = -1
@@ -23,7 +23,7 @@ resource "aws_security_group" "admin" {
 
 resource "aws_security_group" "web" {
   name   = "Web traffic"
-  vpc_id = "${aws_vpc.dawa.id}"
+  vpc_id = "${aws_vpc.vpc.id}"
 
   ingress {
     from_port   = 80
@@ -46,7 +46,7 @@ resource "aws_security_group" "web" {
 
 resource "aws_security_group" "localtraffic" {
   name   = "Local  allowed"
-  vpc_id = "${aws_vpc.dawa.id}"
+  vpc_id = "${aws_vpc.vpc.id}"
 
   ingress {
     protocol    = "-1"

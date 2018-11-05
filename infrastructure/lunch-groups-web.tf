@@ -21,22 +21,22 @@ resource "aws_autoscaling_group" "webservers" {
   launch_configuration = "${aws_launch_configuration.web-machine.id}"
   vpc_zone_identifier  = ["${aws_subnet.public1.id}", "${aws_subnet.public2.id}"]
   availability_zones   = ["${var.first_az}", "${var.second_az}"]
-  
+
 }
 
 resource "aws_lb" "web" {
-  name               = "wu-tang"
+  name               = "web"
   load_balancer_type = "application"
   subnets            = ["${aws_subnet.public1.id}", "${aws_subnet.public2.id}"]
 
   tags {
-    Name = "wu-tang"
+    Name = "web"
   }
 }
 
 resource "aws_lb_listener" "selected443" {
   load_balancer_arn = "${aws_lb.web.arn}"
-  port              = 443
+  port              = 80
   protocol          = "https"
 
   default_action {

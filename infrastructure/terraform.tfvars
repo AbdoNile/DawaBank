@@ -1,12 +1,15 @@
+appName = "Dawa"
+
 amazon_region = "us-east-1"
 first_az = "us-east-1a"
 second_az = "us-east-1b"
 
 # networking
 vpc_cidr = "10.0.0.0/16"
-public1_subnet_cidr = "10.0.1.0/24"
-public2_subnet_cidr = "10.0.2.0/24"
-backend_subnet_cidr = "10.0.3.0/24"
+public1_subnet_cidr = "10.0.0.0/18"
+public2_subnet_cidr = "10.0.64.0/18"
+private1_subnet_cidr = "10.0.128.0/18"
+private2_subnet_cidr = "10.0.128.0/18"
 
 
 #instance
