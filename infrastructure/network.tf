@@ -5,6 +5,7 @@ variable  "vpc_cidr"  {}
 variable  "public1_subnet_cidr"  {}
 variable  "public2_subnet_cidr"  {}
 variable  "private1_subnet_cidr"  {}
+variable  "private2_subnet_cidr"  {}
 
 resource "aws_vpc" "vpc" {
   cidr_block = "${var.vpc_cidr}"
@@ -76,7 +77,7 @@ resource "aws_subnet" "private1" {
 
 resource "aws_subnet" "private2" {
   vpc_id            = "${aws_vpc.vpc.id}"
-  cidr_block        = "${var.private1_subnet_cidr}"
+  cidr_block        = "${var.private2_subnet_cidr}"
   availability_zone = "${var.first_az}"
   tags {
     Name = "${var.appName} 2nd private Subnet"

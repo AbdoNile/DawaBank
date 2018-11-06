@@ -9,7 +9,7 @@ vpc_cidr = "10.0.0.0/16"
 public1_subnet_cidr = "10.0.0.0/18"
 public2_subnet_cidr = "10.0.64.0/18"
 private1_subnet_cidr = "10.0.128.0/18"
-private2_subnet_cidr = "10.0.128.0/18"
+private2_subnet_cidr = "10.0.192.0/18"
 
 
 #instance

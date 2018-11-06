@@ -3,7 +3,7 @@ resource "aws_launch_configuration" "web-machine" {
   instance_type = "t2.micro"
   name_prefix   = "dawa-web-server-"
   key_name      = "Dawa"
-  
+
   security_groups = [
     "${aws_security_group.admin.id}",
     "${aws_security_group.web.id}",
@@ -12,16 +12,13 @@ resource "aws_launch_configuration" "web-machine" {
 }
 
 resource "aws_autoscaling_group" "webservers" {
-  name                 = "Web Servers"
-  max_size             = 3
-  min_size             = 2
-  desired_capacity     = 2
-  force_delete         = true
+  name                 = "webservers"
+  max_size             = 4
+  min_size             = 4
+  desired_capacity     = 4
   placement_group      = "${aws_placement_group.spread.id}"
   launch_configuration = "${aws_launch_configuration.web-machine.id}"
   vpc_zone_identifier  = ["${aws_subnet.public1.id}", "${aws_subnet.public2.id}"]
-  availability_zones   = ["${var.first_az}", "${var.second_az}"]
-
 }
 
 resource "aws_lb" "web" {
@@ -30,17 +27,37 @@ resource "aws_lb" "web" {
   subnets            = ["${aws_subnet.public1.id}", "${aws_subnet.public2.id}"]
 
   tags {
-    Name = "web"
+    Name = "Web traffic Lb"
   }
 }
 
-resource "aws_lb_listener" "selected443" {
+resource "aws_lb_target_group" "webservers" {
+  port     = 80
+  protocol = "HTTP"
+  name_prefix = "web-"
+  lifecycle {
+    create_before_destroy = true
+  }
+
+  vpc_id = "${aws_vpc.vpc.id}"
+}
+
+resource "aws_autoscaling_attachment" "webserver_attachement" {
+  alb_target_group_arn   = "${aws_lb_target_group.webservers.arn}"
+  autoscaling_group_name = "${aws_autoscaling_group.webservers.name}"
+}
+
+resource "aws_lb_listener" "web" {
   load_balancer_arn = "${aws_lb.web.arn}"
   port              = 80
-  protocol          = "https"
+  protocol          = "HTTP"
+  
+  lifecycle {
+    create_before_destroy = true
+  }
 
   default_action {
     type             = "forward"
-    target_group_arn = "${aws_autoscaling_group.webservers.arn}"
+    target_group_arn = "${aws_lb_target_group.webservers.arn}"
   }
 }
