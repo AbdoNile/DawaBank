@@ -13,9 +13,9 @@ resource "aws_launch_configuration" "web-machine" {
 
 resource "aws_autoscaling_group" "webservers" {
   name                 = "webservers"
-  max_size             = 4
-  min_size             = 4
-  desired_capacity     = 4
+  max_size             = 0
+  min_size             = 0
+  desired_capacity     = 0
   placement_group      = "${aws_placement_group.spread.id}"
   launch_configuration = "${aws_launch_configuration.web-machine.id}"
   vpc_zone_identifier  = ["${aws_subnet.public1.id}", "${aws_subnet.public2.id}"]

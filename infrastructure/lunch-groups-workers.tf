@@ -14,8 +14,8 @@ resource "aws_launch_configuration" "worker-machine" {
 resource "aws_autoscaling_group" "machines" {
   name                      = "Machine Servers"
   max_size                  = 5
-  min_size                  = 2
-  desired_capacity          = 2
+  min_size                  = 0
+  desired_capacity          = 0
   placement_group           = "${aws_placement_group.spread.id}"
   launch_configuration      = "${aws_launch_configuration.worker-machine.id}"
   vpc_zone_identifier       = ["${aws_subnet.private1.id},${aws_subnet.private2.id}"]

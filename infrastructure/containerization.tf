@@ -1,3 +1,13 @@
+resource "aws_ecr_repository" "ecr" {
+  name = "${lower(var.appName)}"
+}
+
+
 resource "aws_ecs_cluster" "ecs-preprod" {
-  name = "dawa-preprod"
+  name = "${var.appName}-preprod"
+  
+}
+
+output "ip" {
+  value = "${aws_ecr_repository.ecr.name}"
 }
