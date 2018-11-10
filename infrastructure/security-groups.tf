@@ -1,6 +1,6 @@
 resource "aws_security_group" "admin" {
   name   = "Admin traffic"
-  vpc_id = "${aws_vpc.vpc.id}"
+  vpc_id = "${module.network.vpc-id}"
 
   ingress {
     from_port   = -1
@@ -23,7 +23,7 @@ resource "aws_security_group" "admin" {
 
 resource "aws_security_group" "web" {
   name   = "Web traffic"
-  vpc_id = "${aws_vpc.vpc.id}"
+ vpc_id = "${module.network.vpc-id}"
 
   ingress {
     from_port   = 80
@@ -46,20 +46,20 @@ resource "aws_security_group" "web" {
 
 resource "aws_security_group" "localtraffic" {
   name   = "Local  allowed"
-  vpc_id = "${aws_vpc.vpc.id}"
+  vpc_id = "${module.network.vpc-id}"
 
   ingress {
     protocol    = "-1"
     from_port   = 0
     to_port     = 0
-    cidr_blocks = ["${var.vpc_cidr}"]
+    cidr_blocks = ["${module.network.vpc-cidr}"]
   }
 
   egress {
     protocol    = "-1"
     from_port   = 0
     to_port     = 0
-    cidr_blocks = ["${var.vpc_cidr}"]
+    cidr_blocks = ["${module.network.vpc-cidr}"]
   }
 
   egress {
