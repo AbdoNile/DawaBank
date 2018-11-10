@@ -17,3 +17,12 @@ resource "aws_subnet" "private2" {
   }
 }
 
+
+resource "aws_eip" "nat-eip" {
+
+}
+
+resource "aws_nat_gateway" "nat-gateway" {
+    allocation_id = "${aws_eip.nat-eip.id}"
+    subnet_id = "${aws_subnet.public1.id}"
+}
