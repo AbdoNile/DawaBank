@@ -64,4 +64,4 @@ dawabank/\.eslintrc\.json
 
 \.vscode/settings\.json
 
-infrastructure/.terraform/modules/*
+infrastructure/.terraform/modules/*/*.*
