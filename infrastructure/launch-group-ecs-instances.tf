@@ -1,7 +1,4 @@
-module "project-ecs-cluster" {
-  source = "./ecs"
-  appName = "${var.appName}"
-}
+
 
 resource "aws_launch_configuration" "ecs-instances" {
   image_id             = "ami-01b701d1a348a0d00"
@@ -27,7 +24,7 @@ resource "aws_autoscaling_group" "ecs-instances" {
   desired_capacity     = 2
   placement_group      = "${aws_placement_group.spread.id}"
   launch_configuration = "${aws_launch_configuration.ecs-instances.id}"
-  vpc_zone_identifier  = ["${module.network.private-subnet-1-id},${module.network.private-subnet-2-id}"]
+  vpc_zone_identifier  = ["${module.network.private-subnet-1-id}","${module.network.private-subnet-2-id}"]
   lifecycle { create_before_destroy = true }
 }
 
