@@ -46,7 +46,8 @@ class Validator {
         else {
             var promises = []
             for (var key in validation_rules) {
-                var value_to_validate = data[key];
+                
+                var value_to_validate = (data == null)  ? null : data[key];
                 var rule = validation_rules[key];
                 promises.push(this.validate(value_to_validate, rule).catch(r => {
                     result.errors.push(r.errors);
