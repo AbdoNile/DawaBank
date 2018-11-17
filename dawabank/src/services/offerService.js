@@ -88,7 +88,6 @@ class OfferService {
             "Id" : offer.id,
             "PickupLocation": offer.pickupLocation,
             "Donation": offer.donation,
-            "AddLocationToBookMarks" : offer.pickupLocation.addToFavorite
         }
 
 
