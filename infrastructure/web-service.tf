@@ -1,5 +1,5 @@
 variable "api-image-name" {
-  default = "101584550521.dkr.ecr.us-east-1.amazonaws.com/axetay:2236"
+  default = "s.dkr.ecr.us-east-1.amazonaws.com/s:2236"
 }
 
 variable "target-cluster-name" {
