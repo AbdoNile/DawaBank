@@ -28,7 +28,7 @@ class Medication extends React.Component {
             onChange={(e) => this.updateStateWithValue("expiryDate", e)} />
         </LabelWrapper>
         <LabelWrapper wrapperClass="col-sm-12 col-lg-3" controlId="quantity" labelText="Quantity">
-          <input className="form-control input-sm" type="number"
+          <input className="form-control input-sm" type="number" min="1"
             id="quantity" value={medication.quantity}
             onChange={(e) => this.updateStateWithValue("quantity", e.target.value)} />
         </LabelWrapper>

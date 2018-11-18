@@ -1,10 +1,26 @@
-import { promises } from "fs";
+import moment from 'moment';
 
 class ValidationResult {
     errors = []
     isValid = () => this.errors.length === 0;
 }
 
+
+const Validation_Types = {
+    NotNull : (i) => i != null,
+    Date : {
+        IsDate : i => !Date.parse(i),
+        Future : i => {
+            return moment(i).isAfter();
+        }
+    },
+    Number : {
+        Positive : function isNormalInteger(str) {
+            var n = Math.floor(Number(str));
+            return n !== Infinity && String(n) === str && n >= 0;
+        }
+    }
+}
 
 class Validator {
 
@@ -14,7 +30,7 @@ class Validator {
 
     isValidationRule = (rule) => {
         if (Array.isArray(rule)) {
-            if (typeof rule[0] === 'function') {
+            if (typeof rule[0] === 'function' || typeof Validation_Types[rule] === 'function' ) {
                 return true;
             }
         }
@@ -70,4 +86,5 @@ class Validator {
 
 }
 var validator = new Validator();
-export default validator;
+export  { validator  };
+export const VT = Validation_Types;
