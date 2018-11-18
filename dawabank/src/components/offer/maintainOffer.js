@@ -4,7 +4,7 @@ import {ProtectedRoute} from 'security/protectedRoute';
 import Medication from './partials/medication';
 import SelectLocation from './partials/selectLocation';
 import moment from 'moment';
-import {validator, VT} from '../../utility/Validation';
+import {validator} from '../../utility/Validation';
 
 import OfferService from 'services/offerService';
 
