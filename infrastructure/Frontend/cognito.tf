@@ -7,10 +7,11 @@ resource "aws_cognito_user_pool" "pool" {
 
 resource "aws_cognito_user_pool_client" "client" {
   name = "${var.appName}-${var.environment}"
-  callback_urls = ["https://${aws_s3_bucket.web_bucket.website_endpoint}/login-call-back"]
+  callback_urls = ["https://${aws_s3_bucket.web_bucket.website_endpoint}/login-call-back" , "http://localhost:3000/login-call-back"]
   user_pool_id = "${aws_cognito_user_pool.pool.id}"
   allowed_oauth_flows = ["implicit"]
-  allowed_oauth_scopes = ["openid"]
+  allowed_oauth_scopes = ["openid", "profile"]
+  supported_identity_providers = ["Google"]
 }
 
 resource "aws_cognito_identity_provider" "google" {
