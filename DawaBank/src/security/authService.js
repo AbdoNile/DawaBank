@@ -1,12 +1,11 @@
 import decode from 'jwt-decode';
 import SiteSettings from '../settings/siteSettings';
 class AuthService {
-    // Initializing important variables
     
     redirectToLoginPage() {
         // Get a token from api server using the fetch api
         var callbackUrl =  window.location.origin + "/login-call-back";
-        window.location.href = SiteSettings.authentication.cognito.login_page + callbackUrl
+        window.location.href = SiteSettings.authentication.cognito.login_page_address + callbackUrl
     }
 
     isLoggedIn() {

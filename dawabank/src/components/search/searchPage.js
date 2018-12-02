@@ -1,5 +1,5 @@
 import React from 'react';
-import OfferService from 'services/offerService';
+import offerService from '../../services/offerService';
 import SearchBox from './searchBox';
 import ListContainer from '../listing/listContainer';
 
@@ -7,7 +7,6 @@ class SearchPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = { offers: [] };
-        this.performSearch = this.performSearch.bind(this);
     }
 
 
@@ -28,11 +27,20 @@ class SearchPage extends React.Component {
     }
 
 
-    performSearch(query) {
-        query = query ? query : {};
-        var thisComponent = this;
-        OfferService.FindOffers(query.Search).then((offers) => {
-            thisComponent.setState({ offers: offers });
+    performSearch = (query) => {
+        var request = {}
+        if(query != null){
+            if(query.product != null){
+                request.productId = query.product.id
+            }
+
+            if(query.location != null){
+                request.location = query.location.position
+            }
+        }
+
+        offerService.find(request).then((offers) => {
+            this.setState({ offers: offers });
         }).catch((err) => console.error(err));
     }
 }

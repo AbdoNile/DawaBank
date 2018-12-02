@@ -86,5 +86,5 @@ class Validator {
 
 }
 var validator = new Validator();
-export  { validator  };
-export const VT = Validation_Types;
+const VT = Validation_Types;
+export  { validator , VT };

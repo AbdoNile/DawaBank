@@ -4,9 +4,9 @@ import {ProtectedRoute} from 'security/protectedRoute';
 import Medication from './partials/medication';
 import SelectLocation from './partials/selectLocation';
 import moment from 'moment';
-import {validator} from '../../utility/Validation';
+import {validator} from 'utility/Validation';
 
-import OfferService from 'services/offerService';
+import offerService from '../../services/offerService';
 
 class MaintainOffer extends ProtectedRoute {
   constructor() {
@@ -35,7 +35,7 @@ class MaintainOffer extends ProtectedRoute {
 
   componentDidMount = () => {
     if (this.props.match.params.id != null) {
-      OfferService.Get(this.props.match.params.id).then(offer => {
+      offerService.get(this.props.match.params.id).then(offer => {
         this.setState(  offer );
       });
       
@@ -66,10 +66,10 @@ class MaintainOffer extends ProtectedRoute {
   saveOffer = () => {
     let data = this.state;
     
-    validator.validate(data, OfferService.Validations).then((r) => {
+    validator.validate(data, offerService.Validations).then((r) => {
       alert("success!");
       
-      OfferService.AddOffer(data).then(result => {
+      offerService.save(data).then(result => {
         this.props.history.push('/MyOffers');
       });
     }).catch(r => {
@@ -82,7 +82,7 @@ class MaintainOffer extends ProtectedRoute {
     var offerData = this.state;
     return (
       <div className="row">
-        {/*<pre> {JSON.stringify(this.state, null, 2)}</pre> */}
+        {<pre> {JSON.stringify(this.state, null, 2)}</pre> }
         <h3 className="page-title"><i className="mIcon">
         <span class="glyphicon glyphicon-gift"></span>
         </i>{this.title()}</h3>

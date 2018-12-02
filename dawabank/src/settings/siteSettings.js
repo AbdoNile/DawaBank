@@ -13,11 +13,11 @@ const SiteSettings = {
 
     },
     api: {
-        address: "http://localhost:5000/api/"
+        address: "http://localhost:5000/api/" 
     },
     authentication: {
         cognito: {
-            login_page: "https://minttest.auth.us-east-2.amazoncognito.com/login?response_type=token&client_id=5p973ntoftvhdut4skdrgucba3&redirect_uri=",
+            login_page_address: "https://dawa-qa.auth.us-east-1.amazoncognito.com/login?response_type=token&client_id=6ip3eb9785vob5kqe3qrhgapiq&redirect_uri="
         }
     }
 

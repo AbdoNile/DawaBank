@@ -4,7 +4,7 @@ import PlacesSearch from 'generic/google/placesSearch';
 class SearchBox extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { product: this.props.product };
+        this.state = { search : {product: this.props.product }};
     }
 
     product_updated = (product) => {
@@ -29,7 +29,8 @@ class SearchBox extends React.Component {
                     <form action="" className="form-horizontal">
                         <div className="form-group col-lg-12">
                             <div className="col-lg-8">
-                                <ProductLookup className="form-control" onChange={this.product_updated} />
+                                <ProductLookup className="form-control" onChange={this.product_updated} 
+                                value={this.state.search.product} />
 
                             </div>
                             <div className="col-lg-4">
@@ -40,7 +41,7 @@ class SearchBox extends React.Component {
                         </div>
                         <button type="button" onClick={this.doSearch} className="btn btn-primary">Search</button>
                     </form>
-                    {/*<pre> {JSON.stringify(this.state.search, null, 2)}</pre>*/ }
+                    <pre> {JSON.stringify(this.state.search, null, 2)}</pre>
       
                 </div>
             </div>
