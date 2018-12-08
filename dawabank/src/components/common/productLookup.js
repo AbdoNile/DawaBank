@@ -1,6 +1,6 @@
 import React from 'react';
 import Autocomplete from 'react-autocomplete';
-import { ListGroup, ListGroupItem, Label, Glyphicon } from 'react-bootstrap';
+import { ListGroup, ListGroupItem, Label } from 'react-bootstrap';
 import medicationService from 'services/medicationService';
 
 class ProductLookup extends React.Component {

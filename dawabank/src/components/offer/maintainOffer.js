@@ -12,7 +12,6 @@ class MaintainOffer extends ProtectedRoute {
   constructor() {
     super();
     this.state = { };
-   
   }
 
   offerUpdated = (data) => {
@@ -21,7 +20,7 @@ class MaintainOffer extends ProtectedRoute {
   }
 
   CanSubmit = () => {
-    return true || this.state.acknowledge;
+    return  this.state.acknowledge;
   }
 
   TermnsAndConditionsAgreed = (value) => {
@@ -56,7 +55,7 @@ class MaintainOffer extends ProtectedRoute {
     }
     else{
       return "New Offer";
-    };
+    }
   }
 
   goBack = () => {

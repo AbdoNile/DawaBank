@@ -2,9 +2,9 @@ import React from 'react';
 
 import ConfirmDialog from './confirmDialog';
 
-class dialog {
+class Dialog {
 
-    static confirm(component, properties){
+    confirm(component, properties){
         var promise = new Promise(function(resolve , reject){
              let confirmHandler = () => {
                  resolve(true);
@@ -22,8 +22,6 @@ class dialog {
         return promise;
     }
 
-
-
 }
-
+var dialog = new Dialog();
 export default dialog; 
