@@ -4,7 +4,7 @@ import {ProtectedRoute} from 'security/protectedRoute';
 import Medication from './partials/medication';
 import SelectLocation from './partials/selectLocation';
 import moment from 'moment';
-import {validator} from 'utility/Validation';
+import {validator} from '../../utility/Validation';
 
 import offerService from '../../services/offerService';
 
@@ -20,7 +20,7 @@ class MaintainOffer extends ProtectedRoute {
   }
 
   CanSubmit = () => {
-    return  this.state.acknowledge;
+    return  true || this.state.acknowledge;
   }
 
   TermnsAndConditionsAgreed = (value) => {
@@ -72,8 +72,7 @@ class MaintainOffer extends ProtectedRoute {
         this.props.history.push('/MyOffers');
       });
     }).catch(r => {
-        alert(r.errors);
-      
+      this.setState({validationResults : r}) 
     });
   }
 

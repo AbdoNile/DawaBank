@@ -2,19 +2,12 @@ import React from 'react';
 import _ from 'lodash';
 import ListItem from './listItem';
 import ResultsSummary from './resultsSummary';
-import offerService from '../../services/offerService';
 
 class ListContainer extends React.Component {
     containerElement = <div style={{ height: "100%" }} />;
     loadingElement = <div style={{ height: "100%" }}>
         <p>Loading map</p>
     </div>;
-
-
-    resultsSummary = (offers, summaryPhrase) => {
-      
-    }
-
 
     render() {
         let items = this.props.offers;

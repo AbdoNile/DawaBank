@@ -1,6 +1,8 @@
 import React from 'react';
 
 import ConfirmDialog from './confirmDialog';
+      
+import {  toast } from "react-toastify";
 
 class Dialog {
 
@@ -16,12 +18,13 @@ class Dialog {
 
              component.setState({confirm : <ConfirmDialog modal={properties}  onConfirm={confirmHandler} onCancel={cancelHandler} />});
         });
-        
-
-
         return promise;
+    }
+
+    alert( message){
+        toast("Wow so easy !");
     }
 
 }
 var dialog = new Dialog();
-export default dialog; 
+export { dialog }; 

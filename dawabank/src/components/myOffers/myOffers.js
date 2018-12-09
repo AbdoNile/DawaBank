@@ -1,7 +1,7 @@
 import React from 'react';
-import dialogs from 'utility/dialogs';
+import {dialog} from '../../utility/dialogs';
 
-import OfferService from 'services/offerService';
+import offerService from '../../services/offerService';
 
 import ListContainer from '../listing/listContainer';
 import { LinkContainer } from 'react-router-bootstrap';
@@ -32,14 +32,14 @@ class MyOffers extends React.Component {
   deleteOffer = (offer) => {
       var modelProps = { heading : 'Confirm Deletion' , body : 'are you sure to want to delete this offer?'};
       var thisComponent = this;
-      dialogs.confirm(this, modelProps).then(function(result){
-          OfferService.DeleteOffer(offer.id);
+      dialog.confirm(this, modelProps).then(function(result){
+          offerService.delete(offer.id);
           thisComponent.loadOffers();
       });
   }
 
   loadOffers = () => {
-        OfferService.FindOffers().then((offers) => {
+        offerService.find().then((offers) => {
             this.setState({ offers });
         });
   }

@@ -1,7 +1,8 @@
 import moment from 'moment';
 
 class ValidationResult {
-    errors = []
+    errors = {}
+    valids = {}
     isValid = () => this.errors.length === 0;
 }
 
@@ -43,11 +44,12 @@ class Validator {
         var validation_message = rule[1];
         var valuation_result = validation_function(value);
         if (!valuation_result) {
-            result.errors.push(validation_message);
-            return Promise.reject(result);
+            result.errors["this"] =validation_message;
+            return Promise.reject(validation_message);
         }
         else {
-            return Promise.resolve(result);
+            result.valids["this"] =validation_message;
+            return Promise.resolve(validation_message);
         }
     }
 
@@ -61,12 +63,16 @@ class Validator {
         }
         else {
             var promises = []
-            for (var key in validation_rules) {
+            for (let key in validation_rules) {
                 
-                var value_to_validate = (data == null)  ? null : data[key];
-                var rule = validation_rules[key];
-                promises.push(this.validate(value_to_validate, rule).catch(r => {
-                    result.errors.push(r.errors);
+                let value_to_validate = (data == null)  ? null : data[key];
+                let rule = validation_rules[key];
+                promises.push(this.validate(value_to_validate, rule)
+                .then(r => {
+                    result.valids[key] = key + " is valid.";
+                })
+                .catch(r => {
+                    result.errors[key] = r;
                     return r;
                 }).then(r => {
                     if(!r.isValid()) {

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import SiteSettings from '../settings/siteSettings';
 import authService from '../security/authService';
-
+import {dialog} from '../utility/dialogs';
 let instance = axios.create({
     baseURL: SiteSettings.api.address,
     headers: { 'Authorization': "bearer " + authService.getToken() },
@@ -29,6 +29,7 @@ instance.interceptors.response.use((response) => {
     }
 },  function (error) {
     // Do something with response error
+    dialog.alert();
     return Promise.reject(error);
   });
 
