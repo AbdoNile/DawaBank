@@ -11,7 +11,7 @@ import offerService from '../../services/offerService';
 class MaintainOffer extends ProtectedRoute {
   constructor() {
     super();
-    this.state = { };
+    this.state = { validationContext : {}};
   }
 
   offerUpdated = (data) => {
@@ -72,26 +72,27 @@ class MaintainOffer extends ProtectedRoute {
         this.props.history.push('/MyOffers');
       });
     }).catch(r => {
-      this.setState({validationResults : r}) 
+      this.setState({validationContext : r}) 
     });
   }
 
   render() {
     var offerData = this.state;
+    var validationContext = this.state.validationContext || {};
     return (
       <div className="row">
-        {<pre> {JSON.stringify(this.state, null, 2)}</pre> }
+        {/*<pre> {JSON.stringify(this.state, null, 2)}</pre>*/ }
         <h3 className="page-title"><i className="mIcon">
-        <span class="glyphicon glyphicon-gift"></span>
+        <span className="glyphicon glyphicon-gift"></span>
         </i>{this.title()}</h3>
         <fieldset>
           <legend>What are you donating? </legend>
-          <Medication initialData={offerData.donation} onChange={this.offerUpdated} />
+          <Medication initialData={offerData.donation} onChange={this.offerUpdated} validationContext={validationContext.donation} />
         </fieldset>
 
         <fieldset>
           <legend>Where will it be picked up? </legend>
-          <SelectLocation initialData={offerData.pickupLocation} onChange={this.locationUpdated} />
+          <SelectLocation initialData={offerData.pickupLocation} onChange={this.locationUpdated} validationContext={validationContext.pickupLocation} />
         </fieldset>
 
         <fieldset>
