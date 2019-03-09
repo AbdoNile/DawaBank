@@ -8,5 +8,3 @@ variable "appName" {
   default = "dawa"
 }
 
-variable "google-client-id" {}
-variable "google-client-secret" {}

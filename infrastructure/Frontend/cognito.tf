@@ -15,6 +15,10 @@ resource "aws_cognito_user_pool_client" "client" {
   allowed_oauth_flows_user_pool_client = true
 }
 
+
+variable "google-client-id" {}
+variable "google-client-secret" {}
+
 resource "aws_cognito_identity_provider" "google" {
   user_pool_id  = "${aws_cognito_user_pool.pool.id}"
   provider_name = "Google"
