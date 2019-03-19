@@ -81,7 +81,7 @@ class MaintainOffer extends ProtectedRoute {
     var validationContext = this.state.validationContext || {};
     return (
       <div className="row">
-        {/*<pre> {JSON.stringify(this.state, null, 2)}</pre>*/ }
+        {<pre> {JSON.stringify(this.state, null, 2)}</pre> }
         <h3 className="page-title"><i className="mIcon">
         <span className="glyphicon glyphicon-gift"></span>
         </i>{this.title()}</h3>

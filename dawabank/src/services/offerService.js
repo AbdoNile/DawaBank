@@ -34,11 +34,21 @@ class OfferService {
   save(offer) {
 
     var saveOfferRequest = {
-      "Id": offer.id,
-      "PickupLocation": offer.pickupLocation,
-      "Donation": offer.donation,
-    }
-
+      "id": offer.id,
+      "quantity": offer.donation.quantity,
+      "expiryDate": offer.donation.expiryDate,
+      "contactInformation": {
+        "name": offer.pickupLocation.name,
+        "phone": offer.pickupLocation.phone,
+        "notes": offer.pickupLocation.notes
+      },
+      "pickupLocation": {
+        "fullAddress": offer.pickupLocation.coords.fullAddress,
+        "key": offer.pickupLocation.coords.key,
+        "position":offer.pickupLocation.coords.position
+      },
+      "productId": offer.donation.product.id
+    };
 
     return fetch(SiteSettings.api.address + "offers", {
       method: 'POST',
