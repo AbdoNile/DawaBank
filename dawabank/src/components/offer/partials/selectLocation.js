@@ -1,5 +1,5 @@
 import React from 'react';
-import LocationPicker from 'generic/google/locationPicker';
+import LocationPicker from '../../../generic/google/locationPicker';
 import LabelWrapper from '../../../generic/bootstrap/controlWrapper/labelWrapper';
 import Validated from '../../../utility/Validation/validated'
 
