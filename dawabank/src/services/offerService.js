@@ -6,7 +6,7 @@ class OfferService {
 
    Validations = {
     "donation": {
-      "expiryDate": [VT.Date.Future, "Expiry date must be entered"],
+      "expiryDate": [VT.Date.Future, "Expiry date must be in the future."],
       "product": [VT.NotNull, "product must be selected"],
       "quantity": [VT.Number.Positive, "please enter quanity"]
     },
@@ -28,6 +28,17 @@ class OfferService {
 
     return ApiClient.post("offers/search", query).then(function (res) {
       return res.data;
+    });
+  }
+
+  saveMedication(offerId, medication){
+
+    return this.get(offerId).then(offer => {
+
+        offer.quantity = medication.quantity;
+        offer.expiryDate = medication.expiryDate;
+        offer.product = medication.product.id;
+        return this.save(offer);
     });
   }
 

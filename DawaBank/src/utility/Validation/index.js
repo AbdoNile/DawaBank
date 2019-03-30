@@ -75,18 +75,22 @@ class Validator {
                         return r;
                     })
                     .catch(r => {
+                        console.debug(`validation ${key} failed.`);
                         result[key] = r;
-                        return r;
+                        throw r;
                     }));
             }
 
             var reflect = Promise.all(promises).then(r => {
-                return Promise.resolve({ valid: true });
-            //    return Promise.resolve(result);
+                console.debug(`all promises succeeded.`);
+                      
+                return result;
             }).catch(r => {
-                return Promise.reject(result);
+                console.debug(`all promises failed.`);
+                
+                throw result;
             })
-            return 
+            return reflect;
         }
     }
 }
